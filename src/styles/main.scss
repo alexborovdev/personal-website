@@ -5,3 +5,6 @@
 @use 'variables';
 @use 'utils';
 @use 'globals';
+
+@use '@/shared/ui';
+@use '@/shared/animations';

@@ -21,3 +21,23 @@
 		display: none !important;
 	}
 }
+
+.block {
+	&::before,
+	&::after {
+		display: block;
+		margin: 0;
+	}
+}
+
+.accented {
+	color: var(--text-accent);
+	font-weight: 400;
+
+	&-pseudo {
+		&::before,
+		&::after {
+			color: var(--text-accent);
+		}
+	}
+}

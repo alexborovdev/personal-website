@@ -1,3 +1,4 @@
+import AutoTags from '@/features/AutoTags'
 import TagWaterfall from '@/features/TagWaterfall'
 import AnimateOnWindowLoad from '@/features/AnimateOnWindowLoad'
 import AnimateOnScroll from '@/features/AnimateOnScroll'
@@ -5,8 +6,14 @@ import AnimateOnScroll from '@/features/AnimateOnScroll'
 import '@/styles'
 
 import Header from '@/sections/Header'
+import HeroSection from '@/sections/HeroSection'
 
 const app = document.querySelector('#app')
+app.dataset.jsAppIsStarted = 'false'
+const main = document.createElement('main')
+app.appendChild(main)
+
+let isAppStarted = false
 
 setTimeout(() => {
 	new AnimateOnWindowLoad()
@@ -15,4 +22,18 @@ setTimeout(() => {
 
 new Header(app)
 
-new AnimateOnScroll()
+new HeroSection(main, {
+	onContinue: () => {
+		if (isAppStarted) {
+			return
+		}
+
+		isAppStarted = true
+		app.dataset.jsAppIsStarted = 'true'
+
+		new AutoTags()
+		new AnimateOnScroll()
+	}
+})
+
+new AutoTags()
