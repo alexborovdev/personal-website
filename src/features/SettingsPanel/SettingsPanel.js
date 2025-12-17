@@ -67,7 +67,7 @@ class SettingsPanel extends BaseComponent {
 					: Boolean(this.state[key])
 		})
 
-		this.metaThemeTag.setAttribute('content', this.themeColors[theme])
+		// this.metaThemeTag.setAttribute('content', this.themeColors[theme])
 	}
 
 	getItemsFromLocalStorage() {
