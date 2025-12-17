@@ -1,0 +1,224 @@
+@use '@/styles/helpers' as *;
+
+.hero {
+	will-change: opacity, transform;
+
+	@include mobile-s {
+		--container-padding-x: #{rem(15)};
+	}
+
+	&__wrapper {
+		align-items: stretch;
+
+		@include tablet {
+			row-gap: fluid(18, 14);
+		}
+	}
+
+	&__body {
+		&-inner {
+			display: flex;
+			flex-direction: column;
+			row-gap: fluid(30, 22);
+			width: 100%;
+
+			@include tablet {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-areas:
+					'title description'
+					'title button'
+					'title button';
+				column-gap: fluid(30, 22);
+				row-gap: 0;
+			}
+
+			@include mobile {
+				display: flex;
+				flex-direction: column;
+				row-gap: fluid(30, 22);
+			}
+		}
+
+		&-title {
+			display: flex;
+			flex-direction: column;
+
+			@include tablet {
+				grid-area: title;
+			}
+
+			@include mobile {
+				display: block;
+			}
+
+			@include mobile-s {
+				display: flex;
+				flex-direction: column;
+			}
+
+			&-content {
+				margin-left: 0.7em;
+
+				@include mobile {
+					&:last-child {
+						margin-left: 0.1em;
+					}
+				}
+
+				@include mobile-s {
+					&:last-child {
+						margin-left: 0.7em;
+					}
+				}
+			}
+		}
+
+		&-description {
+			@include fluid-text(24, 7);
+
+			@include tablet {
+				@include fluid-text(18, 12);
+
+				grid-area: description;
+				align-self: start;
+			}
+
+			@include mobile {
+				@include fluid-text(20, 16);
+
+				align-self: auto;
+			}
+
+			@include mobile-s {
+				@include fluid-text(45, 13);
+			}
+
+			&-content {
+				margin-left: 0.6em;
+			}
+		}
+
+		&-button {
+			&-wrapper {
+				@include fluid-text(24, 7);
+
+				align-self: start;
+
+				@include tablet {
+					@include fluid-text(20, 16);
+
+					grid-area: button;
+					justify-content: center;
+				}
+			}
+		}
+	}
+
+	&__extra {
+		padding: 0;
+		align-items: stretch;
+
+		&-inner {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		&-description {
+			margin-left: 0.7em;
+
+			& span {
+				display: block;
+				margin-left: 0.7em;
+			}
+		}
+	}
+}
+
+#app[data-js-app-is-started='false'] {
+	--container-width: #{rem(1880)};
+
+	& .hero {
+		display: flex;
+		align-items: center;
+		opacity: 1;
+		transform: translateY(0);
+
+		&__body {
+			&-title {
+				@include fluid-text(68, 14);
+
+				@include tablet {
+					@include fluid-text(44, 23);
+				}
+
+				@include mobile-s {
+					@include fluid-text(44, 32);
+				}
+			}
+		}
+
+		&__extra {
+			@include mobile {
+				height: 0;
+				opacity: 0;
+				overflow: hidden;
+				pointer-events: none;
+				user-select: none;
+				visibility: hidden;
+			}
+
+			&-inner {
+				@include fluid-text(24, 7);
+
+				@include tablet {
+					@include fluid-text(20, 14);
+				}
+			}
+		}
+	}
+}
+
+#app[data-js-app-is-started='true'] {
+	& .hero {
+		padding-block: fluid(80, 40) fluid(100, 40);
+		min-height: auto;
+		transition:
+			transform 120ms cubic-bezier(0.22, 1, 0.36, 1),
+			opacity 180ms ease;
+		transform: translateY(-1px);
+		opacity: 0.998;
+
+		&__body {
+			&-title {
+				@include fluid-text(58, 22);
+
+				@include tablet {
+					@include fluid-text(44, 23);
+				}
+
+				@include mobile-s {
+					@include fluid-text(44, 32);
+				}
+			}
+
+			&-button {
+				&:disabled {
+					pointer-events: none;
+					opacity: 0.6;
+				}
+			}
+		}
+
+		&__extra {
+			&-inner {
+				@include fluid-text(22, 8);
+
+				@include tablet {
+					@include fluid-text(18, 14);
+				}
+			}
+		}
+	}
+}
