@@ -1,0 +1,23 @@
+@use '@/styles/helpers' as *;
+
+.tagged {
+	position: relative;
+
+	&::before,
+	&::after {
+		display: inline-block;
+		font-family: monospace;
+		font-size: inherit;
+		color: var(--text-color);
+	}
+
+	&::before {
+		content: var(--js-tag-before);
+		margin-right: rem(7);
+	}
+
+	&::after {
+		content: var(--js-tag-after);
+		margin-left: rem(7);
+	}
+}
