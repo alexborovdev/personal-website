@@ -7,6 +7,7 @@ import '@/styles'
 
 import Header from '@/sections/Header'
 import HeroSection from '@/sections/HeroSection'
+import SkillsSection from '@/sections/SkillsSection'
 
 const app = document.querySelector('#app')
 app.dataset.jsAppIsStarted = 'false'
@@ -28,11 +29,24 @@ new HeroSection(main, {
 			return
 		}
 
+		new SkillsSection(main)
+
 		isAppStarted = true
 		app.dataset.jsAppIsStarted = 'true'
 
 		new AutoTags()
 		new AnimateOnScroll()
+
+		document.querySelector('[data-js-skills-section]')?.scrollIntoView({
+			behavior: 'smooth'
+		})
+
+		setTimeout(() => {
+			document.documentElement.style.setProperty(
+				'--js-section-scroll-offset',
+				'100px'
+			)
+		}, 0)
 	}
 })
 
