@@ -1,0 +1,15 @@
+@use '@/styles/helpers' as *;
+
+[data-js-animate] {
+	opacity: 0;
+	transform: translateY(10px) scale(0.9);
+	transition:
+		opacity 1s ease,
+		transform 1s ease;
+	transition-delay: var(--js-animation-delay, 0ms);
+}
+
+[data-js-animate].is-visible {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
