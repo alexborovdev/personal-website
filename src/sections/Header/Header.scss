@@ -1,5 +1,27 @@
 @use '@/styles/helpers' as *;
 
+#app[data-js-app-is-started='false'] {
+	.header {
+		position: relative;
+		padding-block: fluid(32, 22);
+		background-color: transparent;
+		box-shadow: none;
+
+		@include mobile {
+			display: none;
+		}
+
+		&__inner {
+			justify-content: flex-end;
+		}
+
+		&__logo,
+		&__navigation {
+			display: none;
+		}
+	}
+}
+
 .header {
 	position: sticky;
 	top: 0;
