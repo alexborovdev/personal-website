@@ -1,5 +1,6 @@
 import TagWaterfall from '@/features/TagWaterfall'
 import AnimateOnWindowLoad from '@/features/AnimateOnWindowLoad'
+import AnimateOnScroll from '@/features/AnimateOnScroll'
 
 import '@/styles'
 
@@ -13,3 +14,5 @@ setTimeout(() => {
 }, 0)
 
 new Header(app)
+
+new AnimateOnScroll()
