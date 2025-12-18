@@ -8,6 +8,7 @@ import '@/styles'
 import Header from '@/sections/Header'
 import HeroSection from '@/sections/HeroSection'
 import SkillsSection from '@/sections/SkillsSection'
+import PortfolioSection from '@/sections/PortfolioSection'
 
 const app = document.querySelector('#app')
 app.dataset.jsAppIsStarted = 'false'
@@ -29,10 +30,11 @@ new HeroSection(main, {
 			return
 		}
 
-		new SkillsSection(main)
-
 		isAppStarted = true
 		app.dataset.jsAppIsStarted = 'true'
+
+		new SkillsSection(main)
+		new PortfolioSection(main)
 
 		new AutoTags()
 		new AnimateOnScroll()
