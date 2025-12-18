@@ -30,11 +30,11 @@ new HeroSection(main, {
 			return
 		}
 
-		new SkillsSection(main)
-		new PortfolioSection(main)
-
 		isAppStarted = true
 		app.dataset.jsAppIsStarted = 'true'
+
+		new SkillsSection(main)
+		new PortfolioSection(main)
 
 		new AutoTags()
 		new AnimateOnScroll()
