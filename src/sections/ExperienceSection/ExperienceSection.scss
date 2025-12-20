@@ -1,0 +1,13 @@
+@use '@/styles/helpers' as *;
+
+.experience {
+	&__extra {
+		&-inner {
+			row-gap: fluid(16, 12);
+		}
+
+		&-description {
+			@include fluid-text(18, 16);
+		}
+	}
+}
