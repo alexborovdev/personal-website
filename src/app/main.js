@@ -9,6 +9,7 @@ import Header from '@/sections/Header'
 import HeroSection from '@/sections/HeroSection'
 import SkillsSection from '@/sections/SkillsSection'
 import PortfolioSection from '@/sections/PortfolioSection'
+import ExperienceSection from '@/sections/ExperienceSection'
 
 const app = document.querySelector('#app')
 app.dataset.jsAppIsStarted = 'false'
@@ -35,6 +36,7 @@ new HeroSection(main, {
 
 		new SkillsSection(main)
 		new PortfolioSection(main)
+		new ExperienceSection(main)
 
 		new AutoTags()
 		new AnimateOnScroll()
