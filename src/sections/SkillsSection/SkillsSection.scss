@@ -1,0 +1,31 @@
+@use '@/styles/helpers' as *;
+
+.skills {
+	&__wrapper {
+		@include tablet {
+			display: flex;
+			flex-direction: column;
+			row-gap: fluid(20, 16);
+			align-items: stretch;
+		}
+	}
+
+	&__item {
+		@include fluid-text(18, 11);
+
+		margin-left: 0.8em;
+		margin-bottom: fluid(10, 8);
+
+		&:first-child {
+			margin-top: fluid(10, 8);
+		}
+
+		@include tablet {
+			@include fluid-text(18, 12);
+		}
+
+		@include mobile-s {
+			@include fluid-text(18, 11);
+		}
+	}
+}

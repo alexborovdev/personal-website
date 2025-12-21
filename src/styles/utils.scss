@@ -1,0 +1,43 @@
+@use '@/styles/helpers' as *;
+
+.container {
+	max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+	margin-inline: auto;
+	padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+	@include visually-hidden;
+}
+
+.hidden-mobile {
+	@include mobile {
+		display: none !important;
+	}
+}
+
+.visible-mobile {
+	@include mobile-above {
+		display: none !important;
+	}
+}
+
+.block {
+	&::before,
+	&::after {
+		display: block;
+		margin: 0;
+	}
+}
+
+.accented {
+	color: var(--text-accent);
+	font-weight: 400;
+
+	&-pseudo {
+		&::before,
+		&::after {
+			color: var(--text-accent);
+		}
+	}
+}

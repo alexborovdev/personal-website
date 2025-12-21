@@ -1,0 +1,107 @@
+@use '@/styles/helpers' as *;
+
+#app[data-js-app-is-started='false'] {
+	.header {
+		position: relative;
+		padding-block: fluid(32, 22);
+		background-color: transparent;
+		box-shadow: none;
+
+		@include mobile {
+			display: none;
+		}
+
+		&__inner {
+			justify-content: flex-end;
+		}
+
+		&__logo,
+		&__navigation {
+			display: none;
+		}
+	}
+}
+
+.header {
+	@include fluid-text(17, 15);
+
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background-color: var(--bg-color);
+	padding-block: fluid(20, 16);
+	box-shadow: var(--box-shadow);
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: fluid(50, 20);
+	}
+
+	&__logo {
+		@include hover {
+			color: var(--hover-color);
+		}
+	}
+
+	&__navigation {
+		@include mobile {
+			display: flex;
+			justify-content: flex-end;
+			flex: 1;
+		}
+
+		&-list {
+			display: flex;
+			align-items: center;
+			column-gap: fluid(50, 20);
+		}
+
+		&-item {
+			@include mobile {
+				&:not(:last-child) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		column-gap: fluid(30, 15);
+	}
+
+	&__settings {
+		position: relative;
+
+		&-button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: none;
+			background-color: transparent;
+			color: var(--text-color);
+			transition-duration: var(--transition-duration);
+
+			@include hover {
+				color: var(--hover-color);
+			}
+
+			&[aria-expanded='true'] .header__settings-icon {
+				transform: rotate(360deg);
+			}
+
+			&[aria-expanded='true'] + .settings-panel {
+				opacity: 1;
+				transform: translateY(0);
+				pointer-events: auto;
+			}
+		}
+
+		&-icon {
+			transition: var(--transition-duration);
+		}
+	}
+}
