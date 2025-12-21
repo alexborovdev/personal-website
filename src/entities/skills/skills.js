@@ -2,11 +2,12 @@ const skills = {
 	hard: [
 		'HTML (HTML5), JSX',
 		'CSS (CSS3), SASS (SCSS), Animations',
-		'JavaScript (ES6+, OOP, API integration)',
+		'JavaScript (ES6+, OOP)',
 		'React',
+		'Semantic, Accessibility, UX',
+		'BEM, Feature-Sliced Design',
 		'npm, Vite, Project setup',
-		'BEM, FSD, Accessibility, UX',
-		'SEO, Semantic, Open Graph, Sitemap',
+		'SEO, Open Graph, Sitemap',
 		'Git, GitHub',
 		'Figma, Adobe Illustrator',
 		'Pre Intermediate English level (B1)'
@@ -20,7 +21,9 @@ const skills = {
 		'Stress tolerance & conflict resolution',
 		'Code quality standards',
 		'Clear documentation',
-		'Continuous learning mindset'
+		'Continuous learning mindset',
+		'Problem solving approach',
+		'Team collaboration'
 	]
 }
 
