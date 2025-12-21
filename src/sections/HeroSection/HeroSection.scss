@@ -157,6 +157,21 @@
 					@include fluid-text(44, 32);
 				}
 			}
+
+			&-button {
+				background-color: var(--text-accent);
+				color: var(--main-button-collor);
+
+				&::before,
+				&::after {
+					color: inherit;
+				}
+
+				@include hover {
+					background-color: var(--bg-color);
+					color: var(--text-accent);
+				}
+			}
 		}
 
 		&__extra {
