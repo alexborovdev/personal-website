@@ -140,6 +140,7 @@
 	--container-width: #{rem(1880)};
 
 	& .hero {
+    padding-block: fluid(25, 15) 0;
 		display: flex;
 		align-items: center;
 		opacity: 1;
