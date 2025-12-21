@@ -1,5 +1,6 @@
 import AutoTags from '@/features/AutoTags'
 import TagWaterfall from '@/features/TagWaterfall'
+import ScrollBar from '@/features/ScrollBar'
 import AnimateOnWindowLoad from '@/features/AnimateOnWindowLoad'
 import AnimateOnScroll from '@/features/AnimateOnScroll'
 
@@ -34,6 +35,10 @@ new HeroSection(main, {
 
 		isAppStarted = true
 		app.dataset.jsAppIsStarted = 'true'
+
+		setTimeout(() => {
+			new ScrollBar(app)
+		}, 0)
 
 		new SkillsSection(main)
 		new PortfolioSection(main)

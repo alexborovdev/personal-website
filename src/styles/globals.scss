@@ -1,5 +1,15 @@
 @use '@/styles/helpers' as *;
 
+html,
+body {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
 body {
 	@include fluid-text(16, 14);
 
