@@ -19,6 +19,7 @@
 	--text-accent: var(--color-accent);
 	--hover-color: var(--color-accent);
 	--bg-color: var(--color-dark);
+	--main-button-collor: var(--color-dark-3);
 
 	--border: #{rem(1)} solid var(--color-dark);
 	--border-transparent: #{rem(1)} solid transparent;
@@ -55,6 +56,7 @@
 	--text-accent: var(--color-dark-3);
 	--hover-color: var(--color-dark-3);
 	--bg-color: var(--color-light-2);
+	--main-button-collor: var(--color-light-2);
 
 	--box-shadow:
 		-4px -4px 12px rgba(255, 255, 255, 0.7), 4px 4px 12px rgba(0, 0, 0, 0.12);
