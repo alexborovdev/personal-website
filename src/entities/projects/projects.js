@@ -9,7 +9,7 @@ import jsIcon from '@/assets/icons/technologies/javascript.svg'
 import viteIcon from '@/assets/icons/technologies/vite.svg'
 
 const projects = [
-	{
+  {
 		id: 'personal-website',
 		date: '2025-12',
 		dateLabel: 'December 2025',
@@ -44,7 +44,7 @@ const projects = [
 		},
 		description: `
 			Responsive multi-page website built with HTML, SCSS, and
-			vanilla JavaScript. Includes custom UI components
+			Vanilla JavaScript. Includes custom UI components
 			(Select, Tabs, Expandable Content, Video Player), BEM
 			architecture, clean modular code, and
 			accessibility-focused interactions.
