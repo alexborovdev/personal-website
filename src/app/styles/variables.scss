@@ -1,0 +1,17 @@
+@use '@/shared/tools' as *;
+
+:root {
+  --text-color-light: #FFFFFF;
+  --text-color-light-2: #ABB2BF;
+  --text-color-dark: #282C33;
+
+  --color-accent: #9767FF;
+
+  --bg-color: #282C33;
+  --hover-color: #9767FF;
+
+  --transition-duration: 0.2s;
+
+  --container-width: #{rem(1440)};
+  --container-padding-x: #{rem(40)};
+}
