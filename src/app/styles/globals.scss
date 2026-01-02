@@ -1,0 +1,83 @@
+@use '@/shared/tools' as *;
+
+body {
+  @include fluid-text(18, 14);
+
+  font-family: 'Rubik', sans-serif;
+  color: var(--text-color-light-2);
+  background-color: var(--bg-color);
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color-light);
+  font-weight: 500;
+}
+
+h2 {
+  @include fluid-text(36, 24);
+}
+
+h3 {
+  @include fluid-text(36, 24);
+}
+
+h4 {
+  @include fluid-text(26, 18);
+}
+
+h5 {
+  @include fluid-text(24, 18);
+}
+
+h6 {
+  @include fluid-text(20, 16);
+}
+
+p {
+  --paragraphMarginBottom: #{rem(24)};
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a,
+button {
+  color: var(--text-color-light);
+  font-weight: 400;
+
+  @include hover {
+    color: var(--hover-color);
+  }
+
+  &[class] {
+    text-decoration: none;
+    border: none;
+  }
+}
+
+a,
+button {
+  &[aria-label] {
+    position: relative;
+
+    &::before {
+      @include abs-center;
+      @include square(rem(44));
+
+      content: '';
+    }
+  }
+}
