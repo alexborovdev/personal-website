@@ -1,4 +1,6 @@
 import Logo from '@/shared/ui/Logo'
+import useScrollToSection from '@/shared/hooks/useScrollToSection'
+import Button from '@/shared/ui/Button'
 import ThemeToggle from '@/components/ThemeToggle'
 import styles from './Header.module.scss'
 
@@ -6,7 +8,6 @@ type NavMenuItem = {
   id: string
   label: string
   title: string
-  url: string
 }
 
 const navMenu: NavMenuItem[] = [
@@ -14,48 +15,55 @@ const navMenu: NavMenuItem[] = [
     id: 'about',
     label: 'About',
     title: 'Scroll to About section',
-    url: '#about',
   },
   {
     id: 'skills',
     label: 'Skills',
     title: 'Scroll to Skills section',
-    url: '#skills',
   },
   {
     id: 'portfolio',
     label: 'Portfolio',
     title: 'Scroll to Portfolio section',
-    url: '#portfolio',
   },
   {
     id: 'contacts',
     label: 'Contacts',
     title: 'Scroll to Contacts section',
-    url: '#contacts',
   },
 ]
 
 const Header = () => {
+  const { scrollTo } = useScrollToSection()
+
   return (
     <header id="header">
       <div className={`container ${styles.content}`}>
-        <a
-          href="#"
+        <Button
+          className={styles.logo}
           title="Scroll to top"
-          aria-label="Scroll to top">
+          ariaLabel="Scroll to top"
+          onClick={() =>
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }
+        >
           <Logo />
-        </a>
+        </Button>
         <div className={styles.wrapper}>
           <nav aria-label="Main navigation">
             <ul className={styles.list}>
-              {navMenu.map(({ id, label, title, url }) => {
-                return (
-                  <li key={id} className={styles.item}>
-                    <a className={styles.link} href={url} title={title}>{label}</a>
-                  </li>
-                )
-              })}
+              {navMenu.map(({ id, label, title }) => (
+                <li key={id} className={styles.item}>
+                  <Button
+                    className={styles.link}
+                    title={title}
+                    ariaLabel={title}
+                    onClick={() => scrollTo(id)}
+                  >
+                    {label}
+                  </Button>
+                </li>
+              ))}
             </ul>
           </nav>
           <ThemeToggle />
