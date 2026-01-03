@@ -40,14 +40,12 @@ const Header = () => {
   return (
     <header id="header">
       <div className={`container ${styles.content}`}>
-        <div>
-          <a
-            href="#"
-            title="Scroll to top"
-            aria-label="Scroll to top">
-            <Logo />
-          </a>
-        </div>
+        <a
+          href="#"
+          title="Scroll to top"
+          aria-label="Scroll to top">
+          <Logo />
+        </a>
         <div className={styles.wrapper}>
           <nav aria-label="Main navigation">
             <ul className={styles.list}>
