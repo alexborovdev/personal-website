@@ -1,4 +1,4 @@
-import useTheme from '@/shared/hooks/useTheme.ts'
+import useTheme from '@/shared/hooks/useTheme'
 import Moon from '@/shared/ui/Moon'
 import Sun from '@/shared/ui/Sun'
 import styles from './ThemeToggle.module.scss'
@@ -16,15 +16,16 @@ const ThemeToggle = () => {
     <button
       type="button"
       className={styles.toggle}
-      onClick={toggleTheme.test}
-      title="Toggle theme"
-      aria-label="Toggle theme"
+      onClick={toggleTheme}
+      title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+      aria-pressed={isDark}
     >
       <span
         key={theme}
         className={styles.icon}
       >
-        {isDark ? <Sun /> : <Moon />}
+        {isDark ? <Moon /> : <Sun />}
       </span>
     </button>
   )
