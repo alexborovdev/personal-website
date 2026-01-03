@@ -1,3 +1,4 @@
+import ThemeToggle from '@/components/ThemeToggle'
 import styles from './Header.module.scss'
 
 const Header = () => {
@@ -72,9 +73,7 @@ const Header = () => {
               })}
             </ul>
           </nav>
-          <button>
-            dark/light
-          </button>
+          <ThemeToggle />
         </div>
       </div>
     </header>
