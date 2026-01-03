@@ -1,0 +1,37 @@
+@use '@/shared/tools' as *;
+
+.hero {
+  min-height: calc(100vh - 100px);
+  margin-bottom: 2.5vh;
+  display: flex;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  text-align: center;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  margin-block: auto;
+}
+
+.title {
+  font-size: fluid(65, 40);
+}
+
+.subtitle {
+  font-size: fluid(40, 20);
+  font-weight: 300;
+}
+
+.button {
+  font-size: fluid(24, 16);
+  margin-block: auto 12.5vh;
+  padding: rem(15);
+}
