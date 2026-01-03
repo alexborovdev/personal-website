@@ -3,15 +3,15 @@
 :root {
   --text-color-light: #FFFFFF;
   --text-color-light-2: #ABB2BF;
-  --text-color-dark: #282C33;
+  --text-color-dark: #191820;
 
-  --color-accent: #9767FF;
+  --color-accent: #c778dd;
 
-  --bg-color: #282C33;
-  --hover-color: #9767FF;
+  --bg-color: #191820;
+  --hover-color: #c778dd;
 
   --transition-duration: 0.2s;
 
-  --container-width: #{rem(1440)};
-  --container-padding-x: #{rem(40)};
+  --container-width: #{rem(1024)};
+  --container-padding-x: #{fluid(175, 30)};
 }

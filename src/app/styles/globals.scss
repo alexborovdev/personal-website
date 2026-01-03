@@ -57,14 +57,11 @@ a,
 button {
   color: var(--text-color-light);
   font-weight: 400;
+  text-decoration: none;
+  border: none;
 
   @include hover {
     color: var(--hover-color);
-  }
-
-  &[class] {
-    text-decoration: none;
-    border: none;
   }
 }
 
