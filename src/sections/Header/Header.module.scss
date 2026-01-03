@@ -1,7 +1,52 @@
 @use '@/shared/tools' as *;
 
+.header {
+  position: relative;
+  z-index: 1000;
+}
+
+@include tablet-above {
+  .sticky {
+    position: sticky;
+    top: 0;
+    background: rgba(25, 24, 32, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+  }
+
+  .stickyShowIn {
+    @extend .sticky;
+    animation: show-in 0.45s cubic-bezier(.22, 1, .36, 1) forwards;
+  }
+
+  .stickyShowOut {
+    @extend .sticky;
+    animation: show-out 0.45s cubic-bezier(.22, 1, .36, 1) forwards;
+  }
+
+  @keyframes show-in {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes show-out {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }
+
+}
+
+
 .content {
-  padding-block: fluid(20, 15);
+  padding-block: fluid(15, 10);
   display: flex;
   justify-content: space-between;
   align-items: center;

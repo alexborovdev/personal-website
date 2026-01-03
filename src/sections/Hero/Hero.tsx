@@ -5,7 +5,6 @@ import Button from '@/shared/ui/Button'
 import styles from './Hero.module.scss'
 
 const ANIMATION_DURATION_AFTER_TYPING = 3150
-const ANIMATION_DURATION_AFTER_CLICK = 600
 const DELAY_AFTER_ANIMATION_END = 1000
 
 const Hero = () => {
@@ -78,7 +77,6 @@ const Hero = () => {
           ariaLabel="Scroll to Portfolio section"
           title="Scroll to Portfolio section"
           onClick={() => {
-            animateButton(ANIMATION_DURATION_AFTER_CLICK)
             scrollTo('portfolio')
           }}
         >
