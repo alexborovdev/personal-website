@@ -1,3 +1,4 @@
+import Button from '@/shared/ui/Button'
 import styles from './Hero.module.scss'
 
 const Hero = () => {
@@ -13,7 +14,12 @@ const Hero = () => {
             I can do <span className="accented">something great</span> for you.
           </h4>
         </div>
-        <button className={styles.button}>Lets check!</button>
+        <Button className={styles.button}
+                ariaLabel="Scroll to Portfolio section"
+                title="Scroll to Portfolio section"
+        >
+          Let’s check!
+        </Button>
       </div>
     </section>
   )
