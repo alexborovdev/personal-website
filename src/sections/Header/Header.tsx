@@ -10,8 +10,6 @@ type NavMenuItem = {
   title: string
 }
 
-const HEADER_OFFSET = 99.5
-
 const navMenu: NavMenuItem[] = [
   {
     id: 'about',
@@ -36,9 +34,7 @@ const navMenu: NavMenuItem[] = [
 ]
 
 const Header = () => {
-  const { scrollTo } = useScrollToSection({
-    offset: HEADER_OFFSET,
-  })
+  const { scrollTo } = useScrollToSection()
 
   return (
     <header id="header">

@@ -1,32 +1,26 @@
 import { useCallback } from 'react'
 
-type UseScrollToSectionOptions = {
-  offset?: number
-}
+const useScrollToSection = () => {
+  const scrollTo = useCallback((id: string) => {
+    const scrollTarget = document.getElementById(id)
 
-const useScrollToSection = (options: UseScrollToSectionOptions = {}) => {
-  const { offset = 0 } = options
+    if (!scrollTarget) {
+      return
+    }
 
-  const scrollTo = useCallback(
-    (id: string) => {
-      const element = document.getElementById(id)
+    const header = document.getElementById('header')
+    const headerOffset = header?.offsetHeight ?? 0
 
-      if (!element) {
-        return
-      }
+    const scrollTargetTop =
+      scrollTarget.getBoundingClientRect().top +
+      window.scrollY -
+      headerOffset
 
-      const top =
-        element.getBoundingClientRect().top +
-        window.scrollY -
-        offset
-
-      window.scrollTo({
-        top,
-        behavior: 'smooth',
-      })
-    },
-    [offset]
-  )
+    window.scrollTo({
+      top: scrollTargetTop,
+      behavior: 'smooth',
+    })
+  }, [])
 
   return { scrollTo }
 }

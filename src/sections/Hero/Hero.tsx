@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { TypeAnimation } from 'react-type-animation'
+import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import Button from '@/shared/ui/Button'
 import styles from './Hero.module.scss'
 
@@ -8,6 +9,8 @@ const ANIMATION_DURATION_AFTER_CLICK = 600
 const DELAY_AFTER_ANIMATION_END = 1000
 
 const Hero = () => {
+  const { scrollTo } = useScrollToSection()
+
   const [animationStep, setAnimationStep] = useState<0 | 1 | 2>(0)
   const [isButtonAnimated, setIsButtonAnimated] = useState(false)
 
@@ -74,7 +77,10 @@ const Hero = () => {
           }`}
           ariaLabel="Scroll to Portfolio section"
           title="Scroll to Portfolio section"
-          onClick={() => animateButton(ANIMATION_DURATION_AFTER_CLICK)}
+          onClick={() => {
+            animateButton(ANIMATION_DURATION_AFTER_CLICK)
+            scrollTo('portfolio')
+          }}
         >
           Let’s check!
         </Button>
