@@ -31,11 +31,11 @@ const Header = () => {
   return (
     <header id="header">
       <div className={`container ${styles.content}`}>
-        <div className={styles.logo}>
-          <a className={styles.logoLink}
-             href="#"
-             title="Scroll to top"
-             aria-label="Scroll to top">
+        <div>
+          <a
+            href="#"
+            title="Scroll to top"
+            aria-label="Scroll to top">
             <svg
               aria-hidden="true"
               height="50px"
@@ -61,7 +61,7 @@ const Header = () => {
           </a>
         </div>
         <div className={styles.wrapper}>
-          <nav className={styles.navigation} aria-label="Main navigation">
+          <nav aria-label="Main navigation">
             <ul className={styles.list}>
               {navMenu.map(({ id, label, title, url }) => {
                 return (

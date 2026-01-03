@@ -3,7 +3,7 @@
 :root {
   --text-color-light: #FFFFFF;
   --text-color-light-2: #ABB2BF;
-  --text-color-dark: #1d2025;
+  --text-color-dark: #191820;
 
   --color-accent: #c778dd;
 
@@ -13,5 +13,5 @@
   --transition-duration: 0.2s;
 
   --container-width: #{rem(1024)};
-  --container-padding-x: #{rem(40)};
+  --container-padding-x: #{fluid(175, 30)};
 }
