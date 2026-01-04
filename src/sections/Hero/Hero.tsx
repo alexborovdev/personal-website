@@ -71,7 +71,7 @@ const Hero = () => {
           )}
         </div>
         <Button
-          className={`${styles.button} ${
+          className={`tileHover ${styles.button} ${
             isButtonAnimated ? styles.bounce : ''
           }`}
           ariaLabel="Scroll to Portfolio section"
