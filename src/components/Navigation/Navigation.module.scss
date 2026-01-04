@@ -1,0 +1,19 @@
+@use '@/shared/tools' as *;
+
+.list {
+  display: flex;
+  column-gap: fluid(30, 20);
+}
+
+.item {
+  @include tablet {
+    &:not(:last-child) {
+      display: none;
+    }
+  }
+}
+
+.link {
+  font-weight: 300;
+  padding: rem(12.5);
+}

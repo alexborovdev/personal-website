@@ -2,42 +2,15 @@ import Logo from '@/shared/ui/Logo'
 import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import useStickyHeader from '@/shared/hooks/useStickyHeader'
 import Button from '@/shared/ui/Button'
+import Navigation from '@/components/Navigation'
 import ThemeToggle from '@/components/ThemeToggle'
-import styles from './Header.module.scss'
 import { useEffect, useState } from 'react'
+import styles from './Header.module.scss'
 
 type HeaderContentProps = {
   className: string
   scrollTo: (id: string) => void
 }
-type NavMenuItem = {
-  id: string
-  label: string
-  title: string
-}
-
-const navMenu: NavMenuItem[] = [
-  {
-    id: 'hero',
-    label: 'About',
-    title: 'Scroll to About section',
-  },
-  {
-    id: 'skills',
-    label: 'Skills',
-    title: 'Scroll to Skills section',
-  },
-  {
-    id: 'portfolio',
-    label: 'Portfolio',
-    title: 'Scroll to Portfolio section',
-  },
-  {
-    id: 'contacts',
-    label: 'Contacts',
-    title: 'Scroll to Contacts section',
-  },
-]
 
 const HeaderContent = (props: HeaderContentProps) => {
   const { className, scrollTo } = props
@@ -56,22 +29,7 @@ const HeaderContent = (props: HeaderContentProps) => {
           <Logo />
         </Button>
         <div className={styles.wrapper}>
-          <nav aria-label="Main navigation">
-            <ul className={styles.list}>
-              {navMenu.map(({ id, label, title }) => (
-                <li key={id} className={styles.item}>
-                  <Button
-                    className={styles.link}
-                    title={title}
-                    ariaLabel={title}
-                    onClick={() => scrollTo(id)}
-                  >
-                    {label}
-                  </Button>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <Navigation scrollTo={scrollTo} />
           <ThemeToggle />
         </div>
       </div>
@@ -84,6 +42,7 @@ const Header = () => {
   const { isSticky, isShowOut } = useStickyHeader()
 
   const [isFirstRender, setIsFirstRender] = useState(true)
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsFirstRender(false)
