@@ -1,9 +1,32 @@
+import { hardSkills, softSkills } from '@/shared/data/skills'
+import styles from './Skills.module.scss'
+
 const Skills = () => {
   return (
-    <section id="skills" aria-labelledby="skills-title">
-      <div className="container">
-        <h2 id="skills-title">My Skills</h2>
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur commodi culpa cum dolor dolores excepturi exercitationem, laudantium nostrum numquam porro recusandae sed suscipit, tenetur vitae! Deserunt eveniet facilis officiis quod soluta. Eaque iusto tempore totam ut. Aperiam consectetur culpa dolore enim illo incidunt labore natus nemo neque nisi, non provident quidem ullam vel veritatis voluptas voluptates. Ab architecto cum cumque doloremque doloribus eos necessitatibus possimus qui quo sit. Accusantium aliquid aut consequatur dignissimos dolorem earum eligendi enim est facilis harum illo in ipsum, iste laborum laudantium, minus nostrum perspiciatis possimus praesentium quae quasi sint sit soluta sunt tenetur totam veniam vero. Blanditiis distinctio, dolorem eveniet ex iusto natus non odio, optio quasi, qui quo sapiente vero voluptate. Amet debitis deleniti deserunt enim fugiat inventore ipsum laborum, maiores, optio qui quibusdam quis rem repudiandae tempora ut vitae voluptate. Nulla, saepe sunt! Ab architecto assumenda at consequuntur dolore ducimus enim, ex explicabo fugiat illum ipsa ipsam itaque iusto laboriosam qui ratione recusandae reiciendis reprehenderit repudiandae rerum saepe similique sunt temporibus ut velit veniam voluptatem, voluptatibus! Aperiam doloribus ducimus ea ex exercitationem impedit labore, nihil quae, quidem quis, saepe soluta? Accusamus accusantium asperiores culpa debitis fuga id ipsam laboriosam magni, maxime nesciunt officia officiis rem repellendus tempore, temporibus. Aliquam consectetur consequatur delectus exercitationem labore totam unde. Ad atque consequuntur corporis cum dicta earum est eveniet facilis magnam odio officiis quam, quo, quos ratione, reiciendis sapiente totam? Aliquam aliquid autem consequuntur deserunt dignissimos dolor dolorem, dolores dolorum eum excepturi hic in inventore ipsam ipsum nihil non odit officiis porro quam, quas ratione reiciendis repellendus reprehenderit saepe sit soluta sunt unde vel veritatis voluptatibus. Ab beatae consectetur deleniti, in labore reprehenderit temporibus velit! A accusantium adipisci alias aspernatur beatae consequatur, consequuntur cupiditate debitis deleniti dicta dolorem ea eum ex expedita harum hic illo ipsa labore laudantium magnam magni mollitia nemo neque nulla quam quas quidem quos reiciendis reprehenderit saepe sunt ullam vel vero. Amet animi assumenda at, distinctio enim, est fugiat illo incidunt odio pariatur provident sapiente vel voluptatum. Alias aliquid consectetur, eaque enim explicabo fugiat id natus neque obcaecati quasi quibusdam quisquam quo ut? Ab accusamus accusantium aliquid at aut blanditiis consequuntur culpa cupiditate deserunt distinctio error excepturi expedita explicabo illo ipsam iste, labore molestiae natus nihil numquam odit perferendis quae quod quos ratione reiciendis repellendus reprehenderit sed similique soluta ut veniam voluptas voluptatibus. Autem commodi consectetur doloremque fugiat natus, quis quod reiciendis repudiandae unde voluptatibus! Aliquam, aliquid, asperiores consequatur cum cumque, dignissimos eius enim facilis impedit inventore labore minima officia optio. Amet architecto aspernatur at aut beatae cumque deserunt eum expedita facilis fugiat hic in incidunt necessitatibus neque nesciunt obcaecati quisquam sint, sit sunt voluptatem! Adipisci at atque aut cupiditate delectus doloremque doloribus dolorum ea eligendi in inventore itaque magni molestias, nobis optio porro provident quae quasi quo quod quos recusandae sed sequi similique tempora tenetur unde voluptas. Accusantium amet aspernatur blanditiis culpa doloremque, eaque, eligendi eos hic maiores maxime molestiae mollitia nobis non officiis possimus qui quo sint totam ullam vero.
+    <section id="skills" aria-labelledby="skills-title" className={styles.skills}>
+      <div className={`container ${styles.content}`}>
+        <h2 id="skills-title" className="visually-hidden">My Skills</h2>
+        <div className={styles.wrapper}>
+          <div>
+            <h3 className={styles.title}><span className="accented">Hard</span> Skills</h3>
+            <ul className={styles.list}>
+              {hardSkills.map((hardSkill) =>
+                <li className={`tile ${styles.item}`} key={hardSkill}>
+                  <div className={styles.itemInner}>{hardSkill}</div>
+                </li>
+              )}
+            </ul>
+          </div>
+          <div>
+            <h3 className={styles.title}><span className="accented">Soft</span> Skills</h3>
+            <ul className={styles.list}>
+              {softSkills.map((softSkill) =>
+                <li className={`tile ${styles.item}`} key={softSkill}>
+                  <div className={styles.itemInner}>{softSkill}</div>
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

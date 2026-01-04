@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-:where(ul, ol):where([class]) {
+ul, ol {
   padding-left: 0;
 }
 
@@ -29,7 +29,7 @@ body,
   border: none;
 }
 
-:where(ul[class]) {
+ul {
   list-style: none;
 }
 
