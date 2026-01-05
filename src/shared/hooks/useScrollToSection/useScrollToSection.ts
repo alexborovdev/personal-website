@@ -1,9 +1,16 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 
-const useScrollToSection = () => {
+const useScrollToSection = (locked = false) => {
+  useEffect(() => {
+    document.body.style.overflow = locked ? 'hidden' : ''
+  }, [locked])
+
   const scrollTo = useCallback((id: string) => {
-    const scrollTarget = document.getElementById(id)
+    if (locked) {
+      return
+    }
 
+    const scrollTarget = document.getElementById(id)
     if (!scrollTarget) {
       return
     }
@@ -11,16 +18,16 @@ const useScrollToSection = () => {
     const header = document.getElementById('header')
     const headerOffset = header?.offsetHeight ?? 0
 
-    const scrollTargetTop =
+    const top =
       scrollTarget.getBoundingClientRect().top +
       window.scrollY -
       headerOffset
 
     window.scrollTo({
-      top: scrollTargetTop,
+      top,
       behavior: 'smooth',
     })
-  }, [])
+  }, [locked])
 
   return { scrollTo }
 }

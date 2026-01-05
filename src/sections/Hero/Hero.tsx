@@ -10,11 +10,12 @@ const BUTTON_ANIMATION_DURATION = 500
 const BUTTON_FIRST_RENDER_DELAY = 200
 
 const Hero = () => {
-  const { scrollTo } = useScrollToSection()
-
+  const [isScrollLocked, setIsScrollLocked] = useState(true)
   const [animationStep, setAnimationStep] = useState<0 | 1 | 2>(0)
   const [isButtonAnimated, setIsButtonAnimated] = useState(false)
   const [isButtonVisible, setIsButtonVisible] = useState(false)
+
+  const { scrollTo } = useScrollToSection(isScrollLocked)
 
   const animateButton = (duration: number) => {
     setIsButtonAnimated(true)
@@ -63,6 +64,7 @@ const Hero = () => {
                   setTimeout(() => {
                     setIsButtonVisible(true)
                     animateButton(BUTTON_ANIMATION_DURATION)
+                    setIsScrollLocked(false)
                   }, BUTTON_FIRST_RENDER_DELAY)
                 },
                 ANIMATION_DURATION_AFTER_TYPING,
