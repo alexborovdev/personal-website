@@ -20,11 +20,12 @@ const Button = (props: Props) => {
   } = props
 
   return (
-    <button onClick={onClick}
-            className={className}
-            type={type}
-            title={title}
-            aria-label={ariaLabel}
+    <button
+      onClick={onClick}
+      className={className}
+      type={type}
+      title={title}
+      aria-label={ariaLabel}
     >
       {children}
     </button>

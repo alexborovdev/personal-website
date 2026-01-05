@@ -5,14 +5,16 @@ import Button from '@/shared/ui/Button'
 import styles from './Hero.module.scss'
 
 const ANIMATION_DURATION_AFTER_TYPING = 3150
-const DELAY_AFTER_ANIMATION_END = 1000
+const DELAY_AFTER_ANIMATION_END = 700
 const BUTTON_ANIMATION_DURATION = 500
+const BUTTON_FIRST_RENDER_DELAY = 200
 
 const Hero = () => {
   const { scrollTo } = useScrollToSection()
 
   const [animationStep, setAnimationStep] = useState<0 | 1 | 2>(0)
   const [isButtonAnimated, setIsButtonAnimated] = useState(false)
+  const [isButtonVisible, setIsButtonVisible] = useState(false)
 
   const animateButton = (duration: number) => {
     setIsButtonAnimated(true)
@@ -57,7 +59,12 @@ const Hero = () => {
               className={styles.subtitle}
               sequence={[
                 'I\'m a frontend developer.\nI can do something great for you.',
-                () => animateButton(BUTTON_ANIMATION_DURATION),
+                () => {
+                  setTimeout(() => {
+                    setIsButtonVisible(true)
+                    animateButton(BUTTON_ANIMATION_DURATION)
+                  }, BUTTON_FIRST_RENDER_DELAY)
+                },
                 ANIMATION_DURATION_AFTER_TYPING,
                 '',
                 DELAY_AFTER_ANIMATION_END,
@@ -74,7 +81,7 @@ const Hero = () => {
         <Button
           className={`tileHover ${styles.button} ${
             isButtonAnimated ? styles.bounce : ''
-          }`}
+          } ${isButtonVisible && styles.visible}`}
           ariaLabel="Scroll to Portfolio section"
           title="Scroll to Portfolio section"
           onClick={() => {
