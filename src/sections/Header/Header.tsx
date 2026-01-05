@@ -52,7 +52,6 @@ const Header = () => {
   }, [])
 
   const shouldRenderSticky = isSticky || isShowOut
-
   const shouldAnimate = shouldRenderSticky && !isFirstRender
 
   const stickyAnimationClass = shouldAnimate
@@ -66,11 +65,18 @@ const Header = () => {
     stickyAnimationClass,
   ].filter(Boolean).join(' ')
 
+  if (isFirstRender) {
+    return <HeaderContent
+      className={styles.header}
+      scrollTo={scrollTo}
+    />
+  }
+
   return (
     <>
       {shouldRenderSticky ? (
         <HeaderContent
-          className={className}
+          className={`tile ${className}`}
           scrollTo={scrollTo}
         />
       ) : (
@@ -79,7 +85,6 @@ const Header = () => {
           scrollTo={scrollTo}
         />
       )}
-
     </>
   )
 }

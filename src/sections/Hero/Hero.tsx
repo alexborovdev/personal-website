@@ -6,6 +6,7 @@ import styles from './Hero.module.scss'
 
 const ANIMATION_DURATION_AFTER_TYPING = 3150
 const DELAY_AFTER_ANIMATION_END = 1000
+const BUTTON_ANIMATION_DURATION = 500
 
 const Hero = () => {
   const { scrollTo } = useScrollToSection()
@@ -56,7 +57,7 @@ const Hero = () => {
               className={styles.subtitle}
               sequence={[
                 'I\'m a frontend developer.\nI can do something great for you.',
-                () => animateButton(ANIMATION_DURATION_AFTER_TYPING),
+                () => animateButton(BUTTON_ANIMATION_DURATION),
                 ANIMATION_DURATION_AFTER_TYPING,
                 '',
                 DELAY_AFTER_ANIMATION_END,
