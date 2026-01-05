@@ -14,6 +14,27 @@
 }
 
 .link {
+  position: relative;
   font-weight: 300;
   padding: rem(12.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: rem(4);
+    width: 0;
+    height: rem(1);
+    background-color: var(--color-accent);
+    transition: width 0.35s ease;
+  }
+
+  @include hover {
+    &::after {
+      width: 100%;
+    }
+  }
 }
