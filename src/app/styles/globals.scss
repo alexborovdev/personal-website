@@ -9,6 +9,16 @@ body {
   font-weight: 300;
 }
 
+section {
+  &:not(:first-child) {
+    padding-top: fluid(120, 70);
+  }
+
+  &:last-child {
+    padding-bottom: fluid(120, 70);
+  }
+}
+
 h1,
 h2,
 h3,
@@ -25,7 +35,7 @@ h2 {
 }
 
 h3 {
-  @include fluid-text(28, 20);
+  @include fluid-text(34, 28);
 }
 
 h4 {

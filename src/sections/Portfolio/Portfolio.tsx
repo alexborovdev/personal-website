@@ -1,10 +1,115 @@
+import projects from '@/shared/data/projects'
+import styles from './Portfolio.module.scss'
+
 const Portfolio = () => {
   return (
-    <section id="portfolio" aria-labelledby="portfolio-title">
-      <div className="container">
-        <h2 id="portfolio-title">My Portfolio</h2>
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci animi beatae blanditiis deserunt eius enim expedita impedit, in laudantium libero molestiae neque nihil non obcaecati pariatur, praesentium quidem rem repudiandae sequi sunt tempora tempore ullam unde ut vel velit. Ab alias consequatur corporis error in magni nam omnis, quasi reiciendis reprehenderit repudiandae sunt ut, voluptatem. Exercitationem nemo numquam ut voluptate voluptatem? In non sint voluptatibus. Adipisci alias animi asperiores, assumenda at aut corporis, debitis ex excepturi illo in iusto maiores nam officia porro quibusdam tempora unde ut veniam veritatis? Accusantium alias aspernatur commodi consectetur, deleniti dolores expedita fugit illo ipsum magnam necessitatibus nemo neque nihil odit quae quam quia recusandae reprehenderit saepe sequi similique, soluta veniam voluptates. Assumenda at consectetur cum debitis dolor ea est exercitationem incidunt ipsum, laudantium officiis pariatur perspiciatis quas reiciendis, repellat similique soluta tempora tenetur veritatis voluptate. Alias aliquam aperiam aut commodi debitis error eveniet exercitationem facilis, fugiat fugit harum illum impedit ipsam itaque, iure laudantium maiores minus nemo nihil nisi obcaecati officiis praesentium recusandae reprehenderit sequi ullam velit! Aliquam amet animi aspernatur beatae delectus deserunt doloremque doloribus esse explicabo, fugiat illo in iusto laborum maxime minus natus numquam odio officia pariatur quaerat sed sunt unde voluptates! Accusantium adipisci animi asperiores aspernatur atque, dicta distinctio dolorem ipsa ipsam minima possimus reiciendis reprehenderit, saepe totam ullam veniam vitae voluptas. Accusamus ad amet distinctio ducimus hic, illo in iure magnam nesciunt nobis non officia possimus quos rerum sed? Cum cupiditate dolorem doloremque doloribus eligendi facere, facilis ipsa minus odio odit omnis provident suscipit temporibus ut vitae! Commodi dignissimos expedita facere fuga nihil numquam ratione, repellendus. Deleniti dolore doloremque eaque itaque iure magnam nemo vel veritatis! Adipisci animi at atque commodi consectetur consequuntur dignissimos dolore doloremque dolores dolorum earum eius, eligendi eveniet explicabo fugit hic ipsum iure maiores, maxime minima natus nemo nesciunt nihil odio odit pariatur perferendis possimus quas quasi quod ratione repellendus reprehenderit similique totam vel velit, voluptatem. Alias architecto asperiores blanditiis commodi consectetur consequuntur, culpa dolor dolorum earum eius esse excepturi fuga fugit harum impedit incidunt iste labore laborum magnam maiores minima molestiae nihil omnis optio perspiciatis praesentium quaerat quam quod quos ratione repellendus sed tempore, totam vel veritatis vitae voluptas? Aliquam aperiam assumenda atque aut autem consectetur, deserunt dolore dolorem doloribus dolorum eaque error esse illum impedit minima nam, optio quae ratione voluptate voluptates. A aperiam, architecto consequatur corporis cum ducimus ea enim est ex fugit illo in libero minima necessitatibus neque pariatur provident qui quia quidem quis quod reprehenderit sapiente suscipit temporibus tenetur veniam, vero. Alias consequatur, debitis distinctio dolorem eaque enim et explicabo, hic illo iusto, laboriosam magni modi molestiae nulla officia perspiciatis quod sequi sit soluta tempora. Aut beatae consectetur deleniti doloremque doloribus earum eius est iste laborum magnam minus obcaecati possimus, quae quam quibusdam quisquam velit veritatis voluptates? Ad alias cupiditate excepturi exercitationem id minima quia quidem reiciendis rerum sequi. A architecto at cum deserunt distinctio dolore, est expedita facilis ipsum magnam nesciunt quam quisquam, sit. A fuga nobis praesentium!
-        </div>
+    <section id="portfolio" aria-labelledby="portfolio-title" className={styles.portfolio}>
+      <div className={`container ${styles.content}`}>
+        <h2 id="portfolio-title" className={styles.mainTitle}>
+          My <span className="accented">Portfolio</span>
+        </h2>
+        <ul className={styles.list}>
+          {projects.map(project => {
+            const {
+              id,
+              date,
+              dateLabel,
+              title,
+              github,
+              image,
+              description,
+              technologies
+            } = project
+
+            return (
+              <li
+                key={id}
+                className={`tile ${styles.item}`}
+                aria-labelledby={`portfolio-${id}-title`}
+                aria-describedby={`portfolio-${id}-desc`}
+              >
+                <div className={styles.left}>
+                  <div
+                    className={styles.leftInner}
+                  >
+                    <a
+                      className={styles.leftLink}
+                      href={image.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Open full size image"
+                      aria-label="Open full size image"
+                    >
+                      <img
+                        className={styles.leftImage}
+                        src={image.src}
+                        alt={image.alt}
+                        width={540}
+                        height={320}
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div className={styles.right}>
+                  <div className={styles.rightInner}>
+                    <time
+                      className={styles.date}
+                      dateTime={date}
+                    >
+                      <span className="accented">{dateLabel}</span>
+                    </time>
+                    <h3
+                      className={styles.title}
+                      id={`portfolio-${id}-title`}
+                    >
+                      <a
+                        className={styles.link}
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="GitHub"
+                      >
+                        {title}
+                      </a>
+                    </h3>
+                    <div
+                      className={styles.description}
+                      id={`portfolio-${id}-desc`}
+                    >
+                      <p>{description}</p>
+                    </div>
+                    <div className={styles.technologies}>
+                      <h4 className="visually-hidden">
+                        Technologies used in project
+                      </h4>
+                      <ul
+                        className={styles.technologiesList}
+                      >
+                        {technologies.map(tech => (
+                          <li
+                            key={tech.name}
+                            className={styles.technologiesItem}
+                          >
+                            <img
+                              className={styles.technologiesImage}
+                              src={tech.icon}
+                              alt={tech.name}
+                              title={tech.name}
+                              width={32}
+                              height={32}
+                              loading="lazy"
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </section>
   )
