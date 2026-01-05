@@ -15,13 +15,18 @@ const useScrollToSection = (locked = false) => {
       return
     }
 
-    const header = document.getElementById('header')
-    const headerOffset = header?.offsetHeight ?? 0
+    if (id === 'hero') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+
+      return
+    }
 
     const top =
       scrollTarget.getBoundingClientRect().top +
-      window.scrollY -
-      headerOffset
+      window.scrollY
 
     window.scrollTo({
       top,
