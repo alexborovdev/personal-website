@@ -1,0 +1,11 @@
+@use '@/shared/tools' as *;
+
+.mainTitle {
+  margin-bottom: rem(25);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(30);
+}

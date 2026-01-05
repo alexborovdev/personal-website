@@ -3,7 +3,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: rem(40);
+  column-gap: rem(50);
 
   @include mobile {
     display: flex;
