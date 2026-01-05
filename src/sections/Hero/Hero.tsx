@@ -87,7 +87,7 @@ const Hero = () => {
           ariaLabel="Scroll to Portfolio section"
           title="Scroll to Portfolio section"
           onClick={() => {
-            scrollTo('portfolio')
+            scrollTo('skills')
           }}
         >
           Let’s check!

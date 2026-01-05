@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion'
 import type { Project } from '@/shared/types/project'
+import { items } from '@/shared/animations/portfolio.ts'
+import { container as portfolioContainer, items as portfolioItems } from '@/shared/animations/portfolioTechnologies.ts'
 import styles from './PortfolioCard.module.scss'
 
 type PortfolioCardProps = Project
@@ -16,7 +19,8 @@ const PortfolioCard = (props: PortfolioCardProps) => {
   } = props
 
   return (
-    <li
+    <motion.li
+      variants={items}
       className={`tile ${styles.item}`}
       aria-labelledby={`portfolio-${id}-title`}
       aria-describedby={`portfolio-${id}-desc`}
@@ -76,11 +80,13 @@ const PortfolioCard = (props: PortfolioCardProps) => {
             <h4 className="visually-hidden">
               Technologies used in project
             </h4>
-            <ul
+            <motion.ul
               className={styles.technologiesList}
+              variants={portfolioContainer}
             >
               {technologies.map(tech => (
-                <li
+                <motion.li
+                  variants={portfolioItems}
                   key={tech.name}
                   className={styles.technologiesItem}
                 >
@@ -93,13 +99,13 @@ const PortfolioCard = (props: PortfolioCardProps) => {
                     height={32}
                     loading="lazy"
                   />
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </div>
         </div>
       </div>
-    </li>
+    </motion.li>
   )
 }
 
