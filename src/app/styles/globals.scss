@@ -1,11 +1,13 @@
 @use '@/shared/tools' as *;
 
-html {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+@include mobile-above {
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
-  &::-webkit-scrollbar {
-    display: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
