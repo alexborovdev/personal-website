@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { containerDesktop, containerMobile, fromLeft, fromRight } from '@/shared/animations/skills'
 import { hardSkills, softSkills } from '@/shared/data/skills'
@@ -6,6 +7,7 @@ import styles from './Skills.module.scss'
 
 const Skills = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
+  const hasAnimatedRef = useRef(false)
 
   const Wrapper = () => {
     if (isMobile) {
@@ -99,13 +101,17 @@ const Skills = () => {
 
   return (
     <motion.section
+      key={isMobile ? 'skills-mobile' : 'skills-desktop'}
       id="skills"
       aria-labelledby="skills-title"
       className={styles.skills}
-      initial="hidden"
+      initial={hasAnimatedRef.current ? false : 'hidden'}
       whileInView="visible"
       viewport={{ once: true, margin: '-20%' }}
       variants={containerDesktop}
+      onViewportEnter={() => {
+        hasAnimatedRef.current = true
+      }}
     >
       <div className={`container ${styles.content}`}>
         <h2 id="skills-title" className="visually-hidden">My Skills</h2>
