@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { TypeAnimation } from 'react-type-animation'
-import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import Button from '@/shared/ui/Button'
+import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import styles from './Hero.module.scss'
 
 const ANIMATION_DURATION_AFTER_TYPING = 3150
