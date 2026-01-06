@@ -1,12 +1,24 @@
+import { motion } from 'framer-motion'
+import { container, items } from '@/shared/animations/footer'
 import contacts from '@/shared/data/contacts'
 import styles from './Footer.module.scss'
 
 const Footer = () => {
   return (
-    <footer id="footer" className={styles.footer}>
+    <motion.footer
+      id="footer"
+      className={styles.footer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-20%' }}
+      variants={container}
+    >
       <div className={`container ${styles.content}`}>
         <h2 className="visually-hidden">Contact Me</h2>
-        <div className={`tile ${styles.wrapper}`}>
+        <motion.div
+          className={`tile ${styles.wrapper}`}
+          variants={items}
+        >
           <div className={styles.left}>
             <h3 className={styles.leftTitle}>
               <span>Let’s build <span className="accented">something great</span> together!</span>
@@ -23,7 +35,10 @@ const Footer = () => {
                 aria-labelledby="soc1als-title"
               >
                 {contacts.socials.map(({ id, title, label, href, icon: Icon }) => (
-                  <li key={id} className={styles.soc1alsItem}>
+                  <li
+                    key={id}
+                    className={styles.soc1alsItem}
+                  >
                     <a
                       href={href}
                       title={title}
@@ -43,9 +58,9 @@ const Footer = () => {
             </div>
             <p className={styles.copyright}>© Powered and Designed by Alex Borov, 2026</p>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }
 
