@@ -20,6 +20,13 @@ body {
   font-weight: 300;
 }
 
+header,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
 section {
   &:not(:first-child) {
     padding-top: fluid(120, 70);
