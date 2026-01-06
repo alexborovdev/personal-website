@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import PortfolioCard from '@/components/PortfolioCard'
 import projects from '@/shared/data/projects'
-import { container, items } from '@/shared/animations/portfolio.ts'
+import { container, items } from '@/shared/animations/portfolio'
 import styles from './Portfolio.module.scss'
 
 const Portfolio = () => {
@@ -10,10 +10,10 @@ const Portfolio = () => {
       id="portfolio"
       aria-labelledby="portfolio-title"
       className={styles.portfolio}
-      variants={container}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-20%' }}
+      variants={container}
     >
       <div className={`container ${styles.content}`}>
         <motion.h2
