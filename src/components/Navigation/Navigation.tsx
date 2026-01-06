@@ -1,4 +1,5 @@
 import Button from '@/shared/ui/Button'
+import useActiveSection from '@/shared/hooks/useActiveSection'
 import styles from './Navigation.module.scss'
 
 type NavMenuItem = {
@@ -39,13 +40,17 @@ const Navigation = (props: NavigationProps) => {
     scrollTo
   } = props
 
+  const activeSection = useActiveSection()
+
   return (
     <nav aria-label="Main navigation">
       <ul className={styles.list}>
         {navMenu.map(({ id, label, title }) => (
           <li key={id} className={styles.item}>
             <Button
-              className={styles.link}
+              className={`${styles.link} ${
+                activeSection === id ? styles.active : ''
+              }`}
               title={title}
               ariaLabel={title}
               onClick={() => scrollTo(id)}
