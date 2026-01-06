@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react'
 import Logo from '@/shared/ui/Logo'
-import useScrollToSection from '@/shared/hooks/useScrollToSection'
-import useStickyHeader from '@/shared/hooks/useStickyHeader'
 import Button from '@/shared/ui/Button'
 import Navigation from '@/components/Navigation'
 import ThemeToggle from '@/components/ThemeToggle'
-import { useEffect, useState } from 'react'
+import useScrollToSection from '@/shared/hooks/useScrollToSection'
+import useStickyHeader from '@/shared/hooks/useStickyHeader'
 import styles from './Header.module.scss'
 
 type HeaderContentProps = {
