@@ -1,16 +1,12 @@
-import useTheme from '@/shared/hooks/useTheme'
+import { useTheme } from '@/shared/providers/ThemeProvider'
 import Moon from '@/shared/ui/Moon'
 import Sun from '@/shared/ui/Sun'
 import styles from './ThemeToggle.module.scss'
 
 const ThemeToggle = () => {
-  const {
-    themes,
-    theme,
-    toggleTheme,
-  } = useTheme()
+  const { theme, toggleTheme } = useTheme()
 
-  const isDark: boolean = theme === themes.dark
+  const isDark = theme === 'dark'
 
   return (
     <button
