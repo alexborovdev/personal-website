@@ -1,6 +1,6 @@
 import { useTheme } from '@/shared/providers/ThemeProvider'
-import Moon from '@/shared/ui/Moon'
-import Sun from '@/shared/ui/Sun'
+import Moon from '@/shared/ui/ThemeToggle/Moon'
+import Sun from '@/shared/ui/ThemeToggle/Sun'
 import styles from './ThemeToggle.module.scss'
 
 const ThemeToggle = () => {

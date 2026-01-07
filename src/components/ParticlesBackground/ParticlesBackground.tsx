@@ -6,9 +6,14 @@ import createParticlesConfig from '@/shared/config/particles'
 
 type Props = {
   theme: 'dark' | 'light'
+  animations: 'on' | 'off'
 }
 
-const ParticlesBackground = ({ theme }: Props) => {
+const ParticlesBackground = ({ theme, animations }: Props) => {
+  if (animations === 'off') {
+    return null
+  }
+
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine)
   }, [])

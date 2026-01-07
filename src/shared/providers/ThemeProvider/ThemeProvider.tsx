@@ -24,8 +24,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   }, [])
 
   const toggleTheme = () => {
-    setTheme(prev => {
-      const next = prev === 'dark' ? 'light' : 'dark'
+    setTheme(prevState => {
+      const next = prevState === 'dark' ? 'light' : 'dark'
+
       localStorage.setItem(STORAGE_KEY, next)
       document.documentElement.dataset.theme = next
 
