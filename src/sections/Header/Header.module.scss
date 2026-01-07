@@ -50,6 +50,12 @@
   align-items: center;
 }
 
+.logo {
+  @include hover {
+    scale: 1.075;
+  }
+}
+
 .wrapper {
   display: flex;
   column-gap: fluid(40, 25);

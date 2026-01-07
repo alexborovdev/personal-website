@@ -6,6 +6,10 @@
   align-items: center;
   justify-content: center;
   background: transparent;
+
+  @include hover {
+    scale: 1.1;
+  }
 }
 
 .icon {

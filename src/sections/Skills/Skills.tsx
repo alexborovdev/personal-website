@@ -24,7 +24,7 @@ const Skills = () => {
             <ul className={styles.list}>
               {hardSkills.map((hardSkill) =>
                 <motion.li
-                  className={`tile ${styles.item}`}
+                  className={`tileScale ${styles.item}`}
                   key={hardSkill}
                   variants={fromLeft}
                 >
@@ -43,7 +43,7 @@ const Skills = () => {
             <ul className={styles.list}>
               {softSkills.map((softSkill) =>
                 <motion.li
-                  className={`tile ${styles.item}`}
+                  className={`tileScale ${styles.item}`}
                   key={softSkill}
                   variants={fromRight}
                 >
@@ -66,7 +66,7 @@ const Skills = () => {
             <ul className={styles.list}>
               {hardSkills.map((hardSkill) =>
                 <motion.li
-                  className={`tile ${styles.item}`}
+                  className={`tileScale ${styles.item}`}
                   key={hardSkill}
                   variants={fromLeft}
                 >
@@ -85,7 +85,7 @@ const Skills = () => {
             <ul className={styles.list}>
               {softSkills.map((softSkill) =>
                 <motion.li
-                  className={`tile ${styles.item}`}
+                  className={`tileScale ${styles.item}`}
                   key={softSkill}
                   variants={fromRight}
                 >

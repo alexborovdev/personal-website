@@ -25,7 +25,7 @@
   object-fit: cover;
   object-position: 50% 0;
   border: var(--border-thin);
-  border-color: var(--color-accent);
+  border-color: var(--bg-color-2);
   border-radius: var(--border-radius);
   transition-duration: var(--transition-duration);
 
@@ -51,6 +51,28 @@
 
 .title {
   position: relative;
+  transition-duration: var(--transition-duration);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: rem(2.5);
+    width: 100%;
+    height: rem(1.75);
+    background-color: var(--color-accent);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease;
+  }
+
+  @include hover {
+    scale: 1.015;
+
+    &::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
 }
 
 .link {

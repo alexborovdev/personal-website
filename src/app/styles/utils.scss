@@ -36,6 +36,16 @@
       box-shadow: var(--box-shadow-hover);
     }
   }
+
+  &Scale {
+    @extend .tile;
+
+    transition-duration: var(--transition-duration);
+
+    @include hover {
+      scale: 1.03;
+    }
+  }
 }
 
 .accented {
