@@ -1,4 +1,4 @@
-@use '@/shared/tools' as *;
+@use '@/shared/tools/scss' as *;
 
 .header {
   position: relative;
@@ -44,7 +44,7 @@
 }
 
 .content {
-  padding-block: fluid(15, 10);
+  padding-block: fluid(12.5, 7.5);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,4 +53,9 @@
 .wrapper {
   display: flex;
   column-gap: fluid(40, 25);
+}
+
+.settings {
+  display: flex;
+  column-gap: rem(12.5);
 }

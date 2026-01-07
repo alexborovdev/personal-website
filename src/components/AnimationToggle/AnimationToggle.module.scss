@@ -10,7 +10,7 @@
 
 .icon {
   display: inline-flex;
-  animation: iconFade 360ms ease-out;
+  animation: iconFade 350ms ease-out;
 
   @include mobile {
     animation: iconFade 700ms ease-out;
@@ -20,7 +20,7 @@
 @keyframes iconFade {
   from {
     opacity: 0;
-    transform: scale(0.85) rotate(-5deg);
+    transform: scale(0.85) rotate(-1deg);
   }
 
   to {

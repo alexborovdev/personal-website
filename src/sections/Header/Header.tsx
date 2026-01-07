@@ -3,6 +3,7 @@ import Logo from '@/shared/ui/Logo'
 import Button from '@/shared/ui/Button'
 import Navigation from '@/components/Navigation'
 import ThemeToggle from '@/components/ThemeToggle'
+import AnimationToggle from '@/components/AnimationToggle'
 import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import useStickyHeader from '@/shared/hooks/useStickyHeader'
 import styles from './Header.module.scss'
@@ -30,7 +31,10 @@ const HeaderContent = (props: HeaderContentProps) => {
         </Button>
         <div className={styles.wrapper}>
           <Navigation scrollTo={scrollTo} />
-          <ThemeToggle />
+          <div className={styles.settings}>
+            <ThemeToggle />
+            <AnimationToggle />
+          </div>
         </div>
       </div>
     </header>
