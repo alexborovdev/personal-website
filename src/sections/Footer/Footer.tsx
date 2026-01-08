@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-import { container, items } from '@/shared/animations/footer'
 import contacts from '@/shared/data/contacts'
 import SocialsList from '@/components/SocialsList'
 import Copyright from '@/components/Copyright'
@@ -7,19 +5,14 @@ import styles from './Footer.module.scss'
 
 const Footer = () => {
   return (
-    <motion.footer
+    <footer
       id="footer"
       className={styles.footer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-20%' }}
-      variants={container}
     >
       <div className={`container ${styles.content}`}>
         <h2 className="visually-hidden">Contact Me</h2>
-        <motion.div
+        <div
           className={`tile ${styles.wrapper}`}
-          variants={items}
         >
           <div className={styles.left}>
             <h3 className={styles.leftTitle}>
@@ -36,9 +29,9 @@ const Footer = () => {
             </div>
             <Copyright />
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.footer>
+    </footer>
   )
 }
 
