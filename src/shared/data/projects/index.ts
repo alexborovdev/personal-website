@@ -1,14 +1,12 @@
+import type { Projects } from '@/shared/types/projects'
 import personalWebsiteImg from '@/assets/images/projects-screenshots/screenshot-of-project-personal-website.png'
 import futureTechImg from '@/assets/images/projects-screenshots/screenshot-of-project-future-tech.png'
 import todoListImg from '@/assets/images/projects-screenshots/screenshot-of-project-todo-list.png'
-
 import htmlIcon from '@/assets/icons/technologies/html.svg'
 import cssIcon from '@/assets/icons/technologies/css.svg'
 import scssIcon from '@/assets/icons/technologies/scss.svg'
 import jsIcon from '@/assets/icons/technologies/javascript.svg'
 import viteIcon from '@/assets/icons/technologies/vite.svg'
-
-import type { Projects } from '@/shared/types/projects.ts'
 
 const projects: Projects[] = [
   {
