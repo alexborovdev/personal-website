@@ -1,59 +1,31 @@
 import { useEffect, useState } from 'react'
-import Logo from '@/shared/ui/Logo'
-import Button from '@/shared/ui/Button'
-import Navigation from '@/components/Navigation'
-import ThemeToggle from '@/components/ThemeToggle'
-import AnimationToggle from '@/components/AnimationToggle'
+import { ANIMATION_DURATION_AFTER_TYPING } from '@/shared/animations/timings'
 import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import useStickyHeader from '@/shared/hooks/useStickyHeader'
+import HeaderContent from '@/sections/Header/HeaderContent'
 import styles from './Header.module.scss'
 
-type HeaderContentProps = {
-  className: string
-  scrollTo: (id: string) => void
-}
-
-const HeaderContent = (props: HeaderContentProps) => {
-  const { className, scrollTo } = props
-
-  return (
-    <header id="header" className={className}>
-      <div className={`container ${styles.content}`}>
-        <Button
-          className={styles.logo}
-          title="Scroll to top"
-          ariaLabel="Scroll to top"
-          onClick={() =>
-            window.scrollTo({ top: 0, behavior: 'smooth' })
-          }
-        >
-          <Logo />
-        </Button>
-        <div className={styles.wrapper}>
-          <Navigation scrollTo={scrollTo} />
-          <div className={styles.settings}>
-            <ThemeToggle />
-            <AnimationToggle />
-          </div>
-        </div>
-      </div>
-    </header>
-  )
-}
-
 const Header = () => {
-  const { scrollTo } = useScrollToSection()
-  const { isSticky, isShowOut } = useStickyHeader()
-
   const [isFirstRender, setIsFirstRender] = useState(true)
+  const [isScrollLocked, setIsScrollLocked] = useState(true)
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const firstRenderTimeout = setTimeout(() => {
       setIsFirstRender(false)
     }, 100)
 
-    return () => clearTimeout(timeout)
+    const scrollLockTimeout = setTimeout(() => {
+      setIsScrollLocked(false)
+    }, ANIMATION_DURATION_AFTER_TYPING)
+
+    return () => {
+      clearTimeout(firstRenderTimeout)
+      clearTimeout(scrollLockTimeout)
+    }
   }, [])
+
+  const { scrollTo } = useScrollToSection(isScrollLocked)
+  const { isSticky, isShowOut } = useStickyHeader()
 
   const shouldRenderSticky = isSticky || isShowOut
   const shouldAnimate = shouldRenderSticky && !isFirstRender
@@ -72,6 +44,7 @@ const Header = () => {
   if (isFirstRender) {
     return <HeaderContent
       className={styles.header}
+      styles={styles}
       scrollTo={scrollTo}
     />
   }
@@ -81,11 +54,13 @@ const Header = () => {
       {shouldRenderSticky ? (
         <HeaderContent
           className={`tile ${className}`}
+          styles={styles}
           scrollTo={scrollTo}
         />
       ) : (
         <HeaderContent
           className={styles.header}
+          styles={styles}
           scrollTo={scrollTo}
         />
       )}

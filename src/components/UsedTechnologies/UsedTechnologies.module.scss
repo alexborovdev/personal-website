@@ -1,0 +1,27 @@
+@use '@/shared/tools/scss' as *;
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: fluid(16, 10);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: fluid(12, 10);
+  box-shadow: var(--box-shadow-inset);
+  border: var(--border);
+  border-color: transparent;
+  border-radius: 50%;
+  transition-duration: var(--transition-duration);
+
+  @include hover {
+    border-color: var(--color-accent);
+  }
+}
+
+.image {
+  @include square(fluid(32, 26));
+}

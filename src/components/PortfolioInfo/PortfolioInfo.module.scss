@@ -1,0 +1,57 @@
+@use '@/shared/tools/scss' as *;
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: rem(15);
+}
+
+.date {
+  padding: rem(12.5);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-inset);
+}
+
+.title {
+  position: relative;
+  transition-duration: var(--transition-duration);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: rem(2.5);
+    width: 100%;
+    height: rem(1.75);
+    background-color: var(--color-accent);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease;
+  }
+
+  @include hover {
+    scale: 1.015;
+
+    &::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+}
+
+.link {
+  &::after {
+    --size: 0.4em;
+    mask: url(@/assets/icons/link.svg) center / contain no-repeat;
+    -webkit-mask: url(@/assets/icons/link.svg) center / contain no-repeat;
+    background-color: var(--color-accent);
+    content: "";
+    height: var(--size);
+    margin-left: .25em;
+    width: var(--size);
+  }
+}
+
+.description {
+  font-size: fluid(18, 14);
+}

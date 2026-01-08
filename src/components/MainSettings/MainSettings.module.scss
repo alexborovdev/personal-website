@@ -1,0 +1,6 @@
+@use '@/shared/tools/scss' as *;
+
+.settings {
+  display: flex;
+  column-gap: rem(12.5);
+}

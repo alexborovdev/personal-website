@@ -1,0 +1,6 @@
+@use '@/shared/tools/scss' as *;
+
+.list {
+  display: flex;
+  column-gap: fluid(30, 20);
+}

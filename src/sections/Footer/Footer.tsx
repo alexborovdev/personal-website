@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { container, items } from '@/shared/animations/footer'
 import contacts from '@/shared/data/contacts'
+import SocialsList from '@/components/SocialsList'
+import Copyright from '@/components/Copyright'
 import styles from './Footer.module.scss'
 
 const Footer = () => {
@@ -30,33 +32,9 @@ const Footer = () => {
               <h4 className="visually-hidden" id="soc1als-title">
                 Social networks
               </h4>
-              <ul
-                className={styles.soc1alsList}
-                aria-labelledby="soc1als-title"
-              >
-                {contacts.socials.map(({ id, title, label, href, icon: Icon }) => (
-                  <li
-                    key={id}
-                    className={styles.soc1alsItem}
-                  >
-                    <a
-                      href={href}
-                      title={title}
-                      aria-label={label}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.soc1alsLink}
-                    >
-                      <Icon
-                        className={styles.soc1alsIcon}
-                        aria-hidden
-                      />
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <SocialsList socials={contacts.socials} />
             </div>
-            <p className={styles.copyright}>© Powered and Designed by Alex Borov, 2026</p>
+            <Copyright />
           </div>
         </motion.div>
       </div>

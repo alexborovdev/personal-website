@@ -1,4 +1,5 @@
 import { useTheme } from '@/shared/providers/ThemeProvider'
+import Button from '@/shared/ui/Button'
 import Moon from '@/shared/ui/ThemeToggle/Moon'
 import Sun from '@/shared/ui/ThemeToggle/Sun'
 import styles from './ThemeToggle.module.scss'
@@ -9,7 +10,7 @@ const ThemeToggle = () => {
   const isDark = theme === 'dark'
 
   return (
-    <button
+    <Button
       type="button"
       className={styles.toggle}
       onClick={toggleTheme}
@@ -23,7 +24,7 @@ const ThemeToggle = () => {
       >
         {isDark ? <Moon /> : <Sun />}
       </span>
-    </button>
+    </Button>
   )
 }
 

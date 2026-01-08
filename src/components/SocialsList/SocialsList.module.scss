@@ -1,0 +1,24 @@
+@use '@/shared/tools/scss' as *;
+
+.list {
+  display: flex;
+  gap: fluid(16, 5);
+}
+
+.link {
+  @include square(fluid(34, 26));
+
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: fluid(12, 10);
+  box-shadow: var(--box-shadow-inset);
+  border: var(--border);
+  border-color: transparent;
+  border-radius: 50%;
+  transition-duration: var(--transition-duration);
+}

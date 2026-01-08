@@ -1,0 +1,7 @@
+@use '@/shared/tools/scss' as *;
+
+.title {
+  font-size: fluid(50, 38);
+  font-weight: 400;
+  margin-bottom: rem(25);
+}

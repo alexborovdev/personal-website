@@ -7,6 +7,7 @@ type Props = {
   children?: ReactNode
   ariaLabel?: string
   title?: string
+  ariaPressed?: boolean | 'mixed'
 }
 
 const Button = (props: Props) => {
@@ -16,7 +17,8 @@ const Button = (props: Props) => {
     type = 'button',
     children,
     ariaLabel,
-    title
+    title,
+    ariaPressed
   } = props
 
   return (
@@ -26,6 +28,7 @@ const Button = (props: Props) => {
       type={type}
       title={title}
       aria-label={ariaLabel}
+      aria-pressed={ariaPressed}
     >
       {children}
     </button>

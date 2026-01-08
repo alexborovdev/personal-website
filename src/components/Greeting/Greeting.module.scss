@@ -1,0 +1,19 @@
+@use '@/shared/tools/scss' as *;
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  margin-block: auto;
+  height: 257.5px;
+}
+
+.title {
+  font-size: fluid(65, 40);
+}
+
+.subtitle {
+  font-size: fluid(40, 20);
+  font-weight: 300;
+  height: 120px;
+}

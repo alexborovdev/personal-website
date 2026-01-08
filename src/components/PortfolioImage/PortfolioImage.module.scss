@@ -1,0 +1,21 @@
+@use '@/shared/tools/scss' as *;
+
+.link {
+  padding: rem(1);
+  height: 320px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+  border: var(--border-thin);
+  border-color: var(--bg-color-2);
+  border-radius: var(--border-radius);
+  transition-duration: var(--transition-duration);
+
+  @include hover {
+    transform: scale(1.015);
+  }
+}

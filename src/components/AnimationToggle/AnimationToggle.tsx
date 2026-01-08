@@ -1,4 +1,5 @@
 import { useAnimations } from '@/shared/providers/AnimationsProvider'
+import Button from '@/shared/ui/Button'
 import AnimationOn from '@/shared/ui/AnimationToggle/AnimationOn'
 import AnimationOff from '@/shared/ui/AnimationToggle/AnimationOff'
 import styles from './AnimationToggle.module.scss'
@@ -9,7 +10,7 @@ const AnimationsToggle = () => {
   const isEnabled = animations === 'on'
 
   return (
-    <button
+    <Button
       type="button"
       className={styles.toggle}
       onClick={toggleAnimations}
@@ -23,7 +24,7 @@ const AnimationsToggle = () => {
       >
         {isEnabled ? <AnimationOn /> : <AnimationOff />}
       </span>
-    </button>
+    </Button>
   )
 }
 

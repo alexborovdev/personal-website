@@ -8,9 +8,9 @@ import scssIcon from '@/assets/icons/technologies/scss.svg'
 import jsIcon from '@/assets/icons/technologies/javascript.svg'
 import viteIcon from '@/assets/icons/technologies/vite.svg'
 
-import type { Project } from '@/shared/types/project'
+import type { Projects } from '@/shared/types/projects.ts'
 
-const projects: Project[] = [
+const projects: Projects[] = [
   {
     id: 'personal-website',
     date: '2025-12',

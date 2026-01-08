@@ -1,0 +1,25 @@
+@use '@/shared/tools/scss' as *;
+
+.item {
+  position: relative;
+}
+
+.inner {
+  padding-left: rem(32.5);
+
+  &::before {
+    --size: #{rem(10)};
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    content: "";
+    height: var(--size);
+    left: rem(20);
+    position: absolute;
+    top: 42.5%;
+    width: var(--size);
+
+    @include mobile {
+      top: 37.5%;
+    }
+  }
+}
