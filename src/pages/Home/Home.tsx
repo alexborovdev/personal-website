@@ -1,6 +1,7 @@
 import Hero from '@/sections/Hero'
 import Skills from '@/sections/Skills'
 import Portfolio from '@/sections/Portfolio'
+import Contacts from '@/sections/Contacts'
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <Skills />
       <Portfolio />
+      <Contacts />
     </main>
   )
 }
