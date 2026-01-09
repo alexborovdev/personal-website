@@ -1,0 +1,63 @@
+@use '@/shared/tools/scss' as *;
+
+.mainTitle {
+  margin-bottom: rem(25);
+}
+
+.form {
+  padding: fluid(45, 30) rem(30) fluid(70, 35) rem(30) !important;
+  display: flex;
+  flex-direction: column;
+  row-gap: fluid(50, 25);
+}
+
+.info {
+  display: flex;
+  column-gap: rem(50);
+
+  @include mobile {
+    flex-direction: column;
+    row-gap: fluid(50, 25);
+  }
+
+  &Field {
+    flex: 1;
+  }
+}
+
+.message {
+  &Field {
+    flex: 1;
+  }
+
+  &Textarea {
+    resize: vertical;
+    min-height: 200px;
+    max-height: 500px;
+
+    @include mobile {
+      min-height: 150px;
+      max-height: 375px;
+    }
+  }
+}
+
+.infoInput, .messageTextarea {
+  width: 100%;
+  padding: rem(15);
+  margin-top: rem(10);
+  background-color: var(--bg-color);
+  border: var(--border);
+  border-color: var(--bg-color-2);
+  border-radius: var(--border-radius);
+  color: inherit;
+  font: inherit;
+
+  &::placeholder {
+    opacity: 0.6;
+  }
+}
+
+.button {
+  align-self: center;
+}

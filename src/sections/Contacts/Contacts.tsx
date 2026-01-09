@@ -27,6 +27,7 @@ const Contacts = () => {
               <input
                 id="name"
                 name="name"
+                autoComplete="name"
                 type="text"
                 className={styles.infoInput}
                 placeholder="John Smith"
@@ -40,6 +41,7 @@ const Contacts = () => {
               <input
                 id="email"
                 name="email"
+                autoComplete="email"
                 type="email"
                 className={styles.infoInput}
                 placeholder="example@gmail.com"
@@ -65,7 +67,6 @@ const Contacts = () => {
           <Button
             type="submit"
             className={`tileHover ${styles.button}`}
-            ariaLabel="Sand me an email"
             title="Sand me an email"
           >
             Send message
