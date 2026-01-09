@@ -1,9 +1,11 @@
 import type { ReactNode } from 'react'
+import styles from './Button.module.scss'
 
 type Props = {
   onClick?: () => void
   className?: string
   type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
   children?: ReactNode
   ariaLabel?: string
   title?: string
@@ -15,6 +17,7 @@ const Button = (props: Props) => {
     onClick,
     className,
     type = 'button',
+    disabled,
     children,
     ariaLabel,
     title,
@@ -24,8 +27,9 @@ const Button = (props: Props) => {
   return (
     <button
       onClick={onClick}
-      className={className}
+      className={`${className} ${styles.button}`}
       type={type}
+      disabled={disabled}
       title={title}
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}

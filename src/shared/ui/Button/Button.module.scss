@@ -1,0 +1,8 @@
+@use '@/shared/tools/scss' as *;
+
+.button {
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

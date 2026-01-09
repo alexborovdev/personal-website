@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-hook-form": "^7.70.0",
     "react-router-dom": "^7.11.0",
     "react-tsparticles": "^2.12.2",
     "react-type-animation": "^3.2.0",
     "tsparticles": "^3.9.1",
-    "tsparticles-slim": "^2.12.0"
+    "tsparticles-slim": "^2.12.0",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
