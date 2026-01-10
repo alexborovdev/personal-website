@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const contactForm = z.object({
+export const contactsForm = z.object({
   name: z
     .string()
     .trim()
@@ -19,4 +19,4 @@ export const contactForm = z.object({
     .max(1000, 'Message is too long'),
 })
 
-export type ContactForm = z.infer<typeof contactForm>
+export type ContactsForm = z.infer<typeof contactsForm>

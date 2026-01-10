@@ -1,0 +1,23 @@
+@use '@/shared/tools/scss' as *;
+
+.form {
+  padding: fluid(45, 30) rem(30) fluid(70, 35) rem(30) !important;
+  display: flex;
+  flex-direction: column;
+  row-gap: fluid(50, 25);
+}
+
+.info {
+  display: flex;
+  column-gap: rem(50);
+
+  @include mobile {
+    flex-direction: column;
+    row-gap: fluid(50, 25);
+  }
+}
+
+.button {
+  align-self: center;
+  min-width: 175px;
+}
