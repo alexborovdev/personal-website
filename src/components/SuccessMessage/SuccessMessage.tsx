@@ -1,4 +1,4 @@
-import EmailIcon from '@/shared/ui/Socials/EmailIcon'
+import EmailIcon from '@/assets/icons/socials/gmail.svg?react'
 import styles from './SuccessMessage.module.scss'
 
 const SuccessMessage = () => {

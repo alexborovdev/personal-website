@@ -1,7 +1,7 @@
 import { useAnimations } from '@/shared/providers/AnimationsProvider'
 import Button from '@/shared/ui/Button'
-import AnimationOn from '@/shared/ui/AnimationToggle/AnimationOn'
-import AnimationOff from '@/shared/ui/AnimationToggle/AnimationOff'
+import AnimationOnIcon from '@/assets/icons/animation-on.svg?react'
+import AnimationOffIcon from '@/assets/icons/animation-off.svg?react'
 import styles from './AnimationToggle.module.scss'
 
 const AnimationsToggle = () => {
@@ -22,7 +22,7 @@ const AnimationsToggle = () => {
         key={animations}
         className={styles.icon}
       >
-        {isEnabled ? <AnimationOn /> : <AnimationOff />}
+        {isEnabled ? <AnimationOnIcon /> : <AnimationOffIcon />}
       </span>
     </Button>
   )

@@ -1,8 +1,8 @@
 import type { Contacts } from '@/shared/types/contacts'
-import GithubIcon from '@/shared/ui/Socials/GithubIcon'
-import LinkedinIcon from '@/shared/ui/Socials/LinkedinIcon'
-import EmailIcon from '@/shared/ui/Socials/EmailIcon'
-import TelegramIcon from '@/shared/ui/Socials/TelegramIcon'
+import GithubIcon from '@/assets/icons/socials/github.svg?react'
+import LinkedinIcon from '@/assets/icons/socials/linkedin.svg?react'
+import EmailIcon from '@/assets/icons/socials/gmail.svg?react'
+import TelegramIcon from '@/assets/icons/socials/telegram.svg?react'
 
 const contacts: Contacts = {
   socials: [

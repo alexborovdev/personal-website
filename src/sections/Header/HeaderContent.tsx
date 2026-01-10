@@ -1,5 +1,5 @@
 import Button from '@/shared/ui/Button'
-import Logo from '@/shared/ui/Logo'
+import LogoIcon from '@/assets/icons/logo.svg?react'
 import MainNavigation from '@/components/MainNavigation'
 import MainSettings from '@/components/MainSettings'
 
@@ -27,7 +27,7 @@ const HeaderContent = (props: HeaderContentProps) => {
             window.scrollTo({ top: 0, behavior: 'smooth' })
           }
         >
-          <Logo />
+          <LogoIcon />
         </Button>
         <div className={styles.wrapper}>
           <MainNavigation scrollTo={scrollTo} />
