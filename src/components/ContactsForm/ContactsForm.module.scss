@@ -1,13 +1,28 @@
 @use '@/shared/tools/scss' as *;
 
-.form {
+.wrapper {
   padding: fluid(45, 30) rem(30) fluid(70, 35) rem(30) !important;
+  align-items: center;
+  display: grid;
+}
+
+.formLayer,
+.successLayer {
+  justify-content: center;
+  display: flex;
+  grid-area: 1 / 1;
+  transition-duration: 0.5s;
+}
+
+.form {
+  flex: 1;
   display: flex;
   flex-direction: column;
   row-gap: fluid(50, 25);
 }
 
 .info {
+  flex: 1;
   display: flex;
   column-gap: rem(50);
 
@@ -20,4 +35,16 @@
 .button {
   align-self: center;
   min-width: 175px;
+}
+
+.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
 }

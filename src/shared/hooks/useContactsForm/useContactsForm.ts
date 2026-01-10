@@ -99,7 +99,6 @@ const useContactsForm =
       shakeFields,
       submitResult,
       submitError,
-      resetSubmitState
     }
 
   }
