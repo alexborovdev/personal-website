@@ -14,29 +14,6 @@
   transition-duration: 0.5s;
 }
 
-.form {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  row-gap: fluid(50, 25);
-}
-
-.info {
-  flex: 1;
-  display: flex;
-  column-gap: rem(50);
-
-  @include mobile {
-    flex-direction: column;
-    row-gap: fluid(50, 25);
-  }
-}
-
-.button {
-  align-self: center;
-  min-width: 175px;
-}
-
 .visible {
   opacity: 1;
   transform: scale(1);
@@ -45,6 +22,6 @@
 
 .hidden {
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0.5);
   pointer-events: none;
 }
