@@ -1,5 +1,5 @@
-import ThemeToggle from '@/components/ThemeToggle'
-import AnimationToggle from '@/components/AnimationToggle/AnimationToggle.tsx'
+import ThemeToggle from '@/shared/ui/ThemeToggle'
+import AnimationToggle from '@/shared/ui/AnimationToggle'
 import styles from './MainSettings.module.scss'
 
 const MainSettings = () => {

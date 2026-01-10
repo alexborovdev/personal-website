@@ -1,4 +1,4 @@
-import SkillItem from '@/components/SkillItem'
+import SkillItem from '@/shared/ui/SkillItem'
 import styles from './SkillsList.module.scss'
 
 type SkillsListProps = {

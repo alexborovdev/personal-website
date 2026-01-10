@@ -4,7 +4,7 @@ import AnimationOnIcon from '@/assets/icons/animation-on.svg?react'
 import AnimationOffIcon from '@/assets/icons/animation-off.svg?react'
 import styles from './AnimationToggle.module.scss'
 
-const AnimationsToggle = () => {
+const AnimationToggle = () => {
   const { animations, toggleAnimations } = useAnimations()
 
   const isEnabled = animations === 'on'
@@ -28,4 +28,4 @@ const AnimationsToggle = () => {
   )
 }
 
-export default AnimationsToggle
+export default AnimationToggle

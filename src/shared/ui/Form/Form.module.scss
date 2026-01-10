@@ -7,17 +7,6 @@
   row-gap: fluid(50, 25);
 }
 
-.info {
-  flex: 1;
-  display: flex;
-  column-gap: rem(50);
-
-  @include mobile {
-    flex-direction: column;
-    row-gap: fluid(50, 25);
-  }
-}
-
 .button {
   align-self: center;
   min-width: 175px;

@@ -1,9 +1,9 @@
 import type { Navigation } from '@/shared/types/navigation'
-import NavigationItem from '@/components/NavigationItem'
+import NavigationItem from '@/shared/ui/NavigationItem'
 import useActiveSection from '@/shared/hooks/useActiveSection'
 import styles from './MainNavigation.module.scss'
 
-type NavigationProps = {
+type Props = {
   scrollTo: (id: string) => void
 }
 
@@ -14,17 +14,23 @@ const mainNavigation: Navigation[] = [
   { id: 'contacts', label: 'Contacts', title: 'Scroll to Contacts section' },
 ]
 
-const MainNavigation = ({ scrollTo }: NavigationProps) => {
+const MainNavigation = (props: Props) => {
+  const { scrollTo } = props
+  
   const activeSection = useActiveSection()
 
   return (
-    <nav aria-label="Main mainNavigation">
+    <nav aria-label="Main navigation">
       <ul className={styles.list}>
-        <NavigationItem
-          navigation={mainNavigation}
-          activeSection={activeSection}
-          scrollTo={scrollTo}
-        />
+        {mainNavigation.map(({ id, label, title }) => (
+          <NavigationItem
+            key={id}
+            label={label}
+            title={title}
+            isActive={activeSection === id}
+            onClick={() => scrollTo(id)}
+          />
+        ))}
       </ul>
     </nav>
   )

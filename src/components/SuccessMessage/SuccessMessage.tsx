@@ -1,11 +1,11 @@
-import EmailIcon from '@/assets/icons/socials/gmail.svg?react'
+import GmailIcon from '@/assets/icons/socials/gmail.svg?react'
 import styles from './SuccessMessage.module.scss'
 
 const SuccessMessage = () => {
   return (
     <div className={styles.success} role="status" aria-live="polite">
       <div className={styles.icon}>
-        <EmailIcon />
+        <GmailIcon />
       </div>
       <div className={styles.text}>
         <h3 className={styles.title}>Your message has been sent</h3>

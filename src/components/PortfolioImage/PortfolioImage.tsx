@@ -1,4 +1,4 @@
-import type { ProjectImage } from '@/shared/types/projects.ts'
+import type { ProjectImage } from '@/shared/types/projects'
 import styles from './PortfolioImage.module.scss'
 
 type PortfolioImageProps = {

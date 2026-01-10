@@ -1,5 +1,6 @@
 import useContactsForm from '@/shared/hooks/useContactsForm'
-import Form from '@/components/Form'
+import Form from '@/shared/ui/Form'
+import Field from '@/shared/ui/Field'
 import SuccessMessage from '@/components/SuccessMessage'
 import styles from './ContactsForm.module.scss'
 
@@ -32,15 +33,39 @@ const ContactsForm = (props: Props) => {
         }`}
       >
         <Form
-          register={register}
-          errors={errors}
-          isSubmitting={isSubmitting}
-          showNameError={showNameError}
-          showEmailError={showEmailError}
-          showMessageError={showMessageError}
-          shakeFields={shakeFields}
           onSubmit={handleSubmit(onFormSubmit, onFormError)}
-        />
+          isSubmitting={isSubmitting}
+        >
+          <div className={styles.info}>
+            <Field
+              id="name"
+              label="Your Name"
+              inputProps={register('name')}
+              showError={showNameError}
+              error={errors.name?.message}
+              shake={shakeFields.name}
+            />
+            <Field
+              id="email"
+              label="Your Email"
+              inputProps={register('email')}
+              showError={showEmailError}
+              error={errors.email?.message}
+              shake={shakeFields.email}
+            />
+          </div>
+          <div className={styles.message}>
+            <Field
+              as="textarea"
+              id="message"
+              label="Message"
+              inputProps={register('message')}
+              showError={showMessageError}
+              error={errors.message?.message}
+              shake={shakeFields.message}
+            />
+          </div>
+        </Form>
       </div>
       <div
         className={`${styles.successLayer} ${

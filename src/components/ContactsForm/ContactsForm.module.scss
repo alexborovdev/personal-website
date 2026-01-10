@@ -4,6 +4,18 @@
   padding: fluid(45, 30) rem(30) fluid(70, 35) rem(30) !important;
   align-items: center;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  column-gap: rem(50);
+
+  @include mobile {
+    flex-direction: column;
+    row-gap: fluid(50, 25);
+  }
 }
 
 .formLayer,

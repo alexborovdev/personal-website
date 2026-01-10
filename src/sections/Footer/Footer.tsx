@@ -1,6 +1,6 @@
 import contacts from '@/shared/data/contacts'
 import SocialsList from '@/components/SocialsList'
-import Copyright from '@/components/Copyright'
+import Copyright from '@/shared/ui/Copyright'
 import styles from './Footer.module.scss'
 
 const Footer = () => {
@@ -27,7 +27,9 @@ const Footer = () => {
               </h4>
               <SocialsList socials={contacts.socials} />
             </div>
-            <Copyright />
+            <Copyright
+              text={'Powered and Designed by Alex Borov, 2026'}
+            />
           </div>
         </div>
       </div>
