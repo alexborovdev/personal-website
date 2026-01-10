@@ -1,0 +1,32 @@
+@use '@/shared/tools/scss' as *;
+
+.success {
+  display: flex;
+  align-items: center;
+
+  @include mobile {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.icon {
+  svg {
+    width: 300px;
+    height: 300px;
+    color: var(--color-accent);
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    row-gap: rem(25);
+  }
+}
+
+.title {
+  @include fluid-text(44, 30);
+}
