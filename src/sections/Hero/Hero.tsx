@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { BUTTON_ANIMATION_DURATION } from '@/shared/animations/timings'
+import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import Greeting from '@/components/Greeting'
 import Button from '@/shared/ui/Button'
-import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import styles from './Hero.module.scss'
 
 const Hero = () => {

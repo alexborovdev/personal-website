@@ -1,4 +1,4 @@
-import type { Navigation } from '@/shared/types/navigation.ts'
+import type { Navigation } from '@/shared/types/navigation'
 import NavigationItem from '@/components/NavigationItem'
 import useActiveSection from '@/shared/hooks/useActiveSection'
 import styles from './MainNavigation.module.scss'

@@ -1,4 +1,4 @@
-import type { Projects } from '@/shared/types/projects.ts'
+import type { Projects } from '@/shared/types/projects'
 import PortfolioImage from '@/components/PortfolioImage'
 import PortfolioInfo from '@/components/PortfolioInfo'
 import styles from './PortfolioCard.module.scss'
