@@ -48,7 +48,8 @@ const useContactsForm =
       values: [name, email, message],
       submitResult,
       isSubmitting,
-      onReset: resetSubmitState
+      onReset: resetSubmitState,
+      disabled: submitResult === 'success'
     })
 
     const showError = useFieldErrors({
