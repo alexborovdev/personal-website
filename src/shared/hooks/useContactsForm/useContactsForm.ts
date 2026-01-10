@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import useResetSubmitState from '@/shared/hooks/useResetSubmitState'
+import useShakeOnError from '@/shared/hooks/useShakeOnError'
+import useFieldErrors from '@/shared/hooks/useFieldErrors'
 import { contactsForm, type ContactsForm } from '@/shared/validation/contactsForm'
 
 type Params = {
@@ -9,118 +12,95 @@ type Params = {
 
 type SubmitResult = 'idle' | 'success' | 'error'
 
-const useContactsForm = (params?: Params) => {
-  const { onSubmitSuccess } = params || {}
+const useContactsForm =
+  (params?: Params) => {
+    const { onSubmitSuccess } = params || {}
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    setFocus,
-    formState: {
-      errors,
-      isSubmitting,
-      touchedFields
-    }
-  } = useForm<ContactsForm>({
-    resolver: zodResolver(contactsForm),
-    mode: 'onBlur',
-    reValidateMode: 'onBlur'
-  })
+    const {
+      register,
+      handleSubmit,
+      watch,
+      setFocus,
+      formState: {
+        errors,
+        isSubmitting,
+        touchedFields
+      }
+    } = useForm<ContactsForm>({
+      resolver: zodResolver(contactsForm),
+      mode: 'onBlur',
+      reValidateMode: 'onBlur'
+    })
 
-  const [submitResult, setSubmitResult] = useState<SubmitResult>('idle')
-  const [submitError, setSubmitError] = useState<string | null>(null)
-  const [shakeFields, setShakeFields] = useState<Partial<Record<keyof ContactsForm, boolean>>>({})
+    const { shakeFields, triggerShake } = useShakeOnError()
 
-  const hasValue = (value?: string) =>
-    typeof value === 'string' && value.length > 0
+    const [name, email, message] = watch(['name', 'email', 'message'])
 
-  const showNameError = Boolean(
-    touchedFields.name &&
-    hasValue(watch('name')) &&
-    errors.name
-  )
+    const [submitResult, setSubmitResult] = useState<SubmitResult>('idle')
+    const [submitError, setSubmitError] = useState<string | null>(null)
 
-  const showEmailError = Boolean(
-    touchedFields.email &&
-    hasValue(watch('email')) &&
-    errors.email
-  )
-
-  const showMessageError = Boolean(
-    touchedFields.message &&
-    hasValue(watch('message')) &&
-    errors.message
-  )
-
-  const [name, email, message] = watch(['name', 'email', 'message'])
-
-  useEffect(() => {
-    if (submitResult !== 'idle' && !isSubmitting) {
+    const resetSubmitState = () => {
       setSubmitResult('idle')
       setSubmitError(null)
     }
-  }, [name, email, message, isSubmitting, submitResult])
 
-  const onFormSubmit = async (data: ContactsForm) => {
-    setSubmitResult('idle')
-    setSubmitError(null)
+    useResetSubmitState({
+      values: [name, email, message],
+      submitResult,
+      isSubmitting,
+      onReset: resetSubmitState
+    })
 
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1000))
+    const showError = useFieldErrors({
+      touched: touchedFields,
+      errors,
+      values: { name, email, message }
+    })
 
-      console.log(data)
+    const onFormSubmit = async (data: ContactsForm) => {
+      setSubmitResult('idle')
+      setSubmitError(null)
 
-      setSubmitResult('success')
-      onSubmitSuccess?.()
-    } catch {
-      setSubmitError('Something went wrong. Please try again.')
-      setSubmitResult('error')
+      try {
+        await new Promise(resolve => setTimeout(resolve, 1000))
+
+        console.log(data)
+
+        setSubmitResult('success')
+        onSubmitSuccess?.()
+      } catch {
+        setSubmitError('Something went wrong. Please try again.')
+        setSubmitResult('error')
+      }
     }
-  }
 
-  const onFormError = () => {
-    const fields = Object.keys(errors) as (keyof ContactsForm)[]
+    const onFormError = () => {
+      const fields = Object.keys(errors)
 
-    if (fields.length === 0) {
-      return
+      if (fields.length === 0) {
+        return
+      }
+
+      setFocus(fields[0] as keyof ContactsForm)
+      triggerShake(fields)
     }
 
-    setFocus(fields[0])
+    return {
+      register,
+      handleSubmit,
+      onFormSubmit,
+      onFormError,
+      errors,
+      isSubmitting,
+      showNameError: showError.name,
+      showEmailError: showError.email,
+      showMessageError: showError.message,
+      shakeFields,
+      submitResult,
+      submitError,
+      resetSubmitState
+    }
 
-    const shakeMap = fields.reduce((acc, field) => {
-      acc[field] = true
-      return acc
-    }, {} as Partial<Record<keyof ContactsForm, boolean>>)
-
-    setShakeFields(shakeMap)
-
-    setTimeout(() => {
-      setShakeFields({})
-    }, 400)
   }
-
-  const resetSubmitState = () => {
-    setSubmitResult('idle')
-    setSubmitError(null)
-  }
-
-  return {
-    register,
-    handleSubmit,
-    onFormSubmit,
-    onFormError,
-    errors,
-    isSubmitting,
-    showNameError,
-    showEmailError,
-    showMessageError,
-    shakeFields,
-    submitResult,
-    submitError,
-    resetSubmitState
-  }
-
-}
 
 export default useContactsForm
