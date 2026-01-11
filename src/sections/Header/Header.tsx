@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ANIMATION_DURATION_AFTER_TYPING } from '@/shared/animations/timings'
+import { TOTAL_DELAY } from '@/shared/animations/timings'
 import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import useStickyHeader from '@/shared/hooks/useStickyHeader'
 import HeaderContent from '@/sections/Header/HeaderContent'
@@ -12,11 +12,11 @@ const Header = () => {
   useEffect(() => {
     const firstRenderTimeout = setTimeout(() => {
       setIsFirstRender(false)
-    }, 100)
+    }, TOTAL_DELAY)
 
     const scrollLockTimeout = setTimeout(() => {
       setIsScrollLocked(false)
-    }, ANIMATION_DURATION_AFTER_TYPING)
+    }, TOTAL_DELAY)
 
     return () => {
       clearTimeout(firstRenderTimeout)
@@ -43,7 +43,7 @@ const Header = () => {
 
   if (isFirstRender) {
     return <HeaderContent
-      className={styles.header}
+      className={`${styles.header} ${styles.firstRender}`}
       styles={styles}
       scrollTo={scrollTo}
     />

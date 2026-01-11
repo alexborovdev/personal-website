@@ -3,6 +3,13 @@
 .header {
   position: relative;
   z-index: 1000;
+  transition-duration: var(--transition-duration);
+}
+
+.firstRender {
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
 }
 
 @include tablet-above {
