@@ -10,11 +10,11 @@ const SkillItem = (props: Props) => {
   } = props
 
   return (
-    <li
-      className={`tileScale ${styles.item}`}
-    >
-      <div className={styles.inner}>
-        {skill}
+    <li data-animate>
+      <div className={`tileScale ${styles.item}`}>
+        <div className={styles.inner}>
+          {skill}
+        </div>
       </div>
     </li>
   )
