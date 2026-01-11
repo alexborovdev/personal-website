@@ -15,15 +15,21 @@ const Form = (props: Props) => {
   } = props
 
   return (
-    <form className={styles.form} noValidate onSubmit={onSubmit}>
+    <form
+      className={styles.form}
+      noValidate
+      onSubmit={onSubmit}
+    >
       {children}
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className={`tileHover ${styles.button}`}
-      >
-        {isSubmitting ? 'Sending…' : 'Send message'}
-      </Button>
+      {!isSubmitting &&
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className={`tileHover ${styles.button}`}
+        >
+          {isSubmitting ? 'Sending…' : 'Send message'}
+        </Button>
+      }
     </form>
   )
 }
