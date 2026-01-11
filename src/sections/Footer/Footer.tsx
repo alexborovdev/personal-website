@@ -1,18 +1,26 @@
 import contacts from '@/shared/data/contacts'
+import useAnimateOnScroll from '@/shared/hooks/useAnimateOnScroll'
 import SocialsList from '@/components/SocialsList'
 import Copyright from '@/shared/ui/Copyright'
 import styles from './Footer.module.scss'
 
 const Footer = () => {
+  const animateRef = useAnimateOnScroll({
+    step: 165
+  })
+
   return (
     <footer
+      ref={animateRef}
       id="footer"
       className={styles.footer}
+      data-animate
     >
       <div className={`container ${styles.content}`}>
         <h2 className="visually-hidden">Contact Me</h2>
         <div
           className={`tile ${styles.wrapper}`}
+          data-animate
         >
           <div className={styles.left}>
             <h3 className={styles.leftTitle}>

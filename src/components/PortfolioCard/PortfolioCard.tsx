@@ -22,6 +22,7 @@ const PortfolioCard = (props: Props) => {
       className={`tile ${styles.item}`}
       aria-labelledby={`portfolio-${id}-title`}
       aria-describedby={`portfolio-${id}-desc`}
+      data-animate
     >
       <div>
         <PortfolioImage image={image} />

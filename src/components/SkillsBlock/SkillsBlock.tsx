@@ -1,3 +1,4 @@
+import useAnimateOnScroll from '@/shared/hooks/useAnimateOnScroll'
 import SkillsList from '@/components/SkillsList'
 import styles from './SkillsBlock.module.scss'
 
@@ -9,8 +10,15 @@ type Props = {
 const SkillsBlock = (props: Props) => {
   const { skills, title, } = props
 
+  const animateRef = useAnimateOnScroll({
+    step: 120
+  })
+
   return (
-    <div>
+    <div
+      ref={animateRef}
+      data-animate
+    >
       <h3
         className={styles.title}
       >
