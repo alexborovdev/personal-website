@@ -34,10 +34,11 @@
   row-gap: fluid(18, 12);
 
   &Title {
-    font-weight: 300;
+    font-weight: 400;
 
     @include mobile {
       color: var(--color-accent);
+      font-weight: 300;
     }
   }
 }

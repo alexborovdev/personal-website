@@ -20,7 +20,7 @@ const Footer = () => {
             </h3>
           </div>
           <div className={styles.right}>
-            <h3 className={styles.rightTitle}>Contact me</h3>
+            <h3 className={styles.rightTitle}>My Socials</h3>
             <div className={styles.soc1als}>
               <h4 className="visually-hidden" id="soc1als-title">
                 Social networks
