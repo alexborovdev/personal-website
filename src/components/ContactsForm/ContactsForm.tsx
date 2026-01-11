@@ -40,6 +40,8 @@ const ContactsForm = (props: Props) => {
             <Field
               id="name"
               label="Your Name"
+              placeholder="John Smith"
+              autoComplete="name"
               inputProps={register('name')}
               showError={showNameError}
               error={errors.name?.message}
@@ -48,6 +50,8 @@ const ContactsForm = (props: Props) => {
             <Field
               id="email"
               label="Your Email"
+              placeholder="example@gmail.com"
+              autoComplete="email"
               inputProps={register('email')}
               showError={showEmailError}
               error={errors.email?.message}
@@ -59,6 +63,7 @@ const ContactsForm = (props: Props) => {
               as="textarea"
               id="message"
               label="Message"
+              placeholder="Your message"
               inputProps={register('message')}
               showError={showMessageError}
               error={errors.message?.message}
