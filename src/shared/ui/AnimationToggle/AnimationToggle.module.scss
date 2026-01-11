@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   background: transparent;
+  min-width: 40px;
 
   @include hover {
     scale: 1.1;
