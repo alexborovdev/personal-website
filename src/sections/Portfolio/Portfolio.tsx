@@ -8,13 +8,15 @@ const Portfolio = () => {
 
   return (
     <section
-      ref={animateRef}
       id="portfolio"
       aria-labelledby="portfolio-title"
       className={styles.portfolio}
-      data-animate
     >
-      <div className={`container ${styles.content}`}>
+      <div
+        ref={animateRef}
+        className={`container ${styles.content}`}
+        data-animate
+      >
         <h2
           id="portfolio-title"
           className={styles.mainTitle}

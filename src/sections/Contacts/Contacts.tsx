@@ -9,13 +9,15 @@ const Contacts = () => {
 
   return (
     <section
-      ref={animateRef}
       id="contacts"
       aria-labelledby="contacts-title"
       className={styles.contacts}
-      data-animate
     >
-      <div className={`container ${styles.content}`}>
+      <div
+        ref={animateRef}
+        className={`container ${styles.content}`}
+        data-animate
+      >
         <h2
           id="contacts-title"
           className={styles.mainTitle}

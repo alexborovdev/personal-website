@@ -11,12 +11,14 @@ const Footer = () => {
 
   return (
     <footer
-      ref={animateRef}
       id="footer"
       className={styles.footer}
-      data-animate
     >
-      <div className={`container ${styles.content}`}>
+      <div
+        ref={animateRef}
+        className={`container ${styles.content}`}
+        data-animate
+      >
         <h2 className="visually-hidden">Contact Me</h2>
         <div
           className={`tile ${styles.wrapper}`}
