@@ -4,7 +4,7 @@ import styles from './Contacts.module.scss'
 
 const Contacts = () => {
   const animateRef = useAnimateOnScroll({
-    step: 195
+    step: 125
   })
 
   return (

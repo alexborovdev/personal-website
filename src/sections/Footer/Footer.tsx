@@ -6,7 +6,7 @@ import styles from './Footer.module.scss'
 
 const Footer = () => {
   const animateRef = useAnimateOnScroll({
-    step: 165
+    step: 125
   })
 
   return (

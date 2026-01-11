@@ -19,8 +19,8 @@ const CSS_VAR = {
 
 const useAnimateOnScroll = (options: Options = {}) => {
   const {
-    rootMargin = '0px 0px -15% 0px',
-    step = 225
+    rootMargin = '0px 0px -6.66% 0px',
+    step = 195
   } = options
 
   const elementRef = useRef<HTMLElement | null>(null)
