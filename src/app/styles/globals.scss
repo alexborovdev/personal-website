@@ -108,3 +108,10 @@ button {
     }
   }
 }
+
+:focus-visible {
+  outline: rem(2) solid var(--color-accent);
+  outline-offset: rem(8);
+  border-radius: rem(20);
+  transition-duration: var(--transition-duration);
+}
