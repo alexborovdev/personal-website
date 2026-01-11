@@ -3,15 +3,4 @@
 @use 'variables';
 @use 'utils';
 @use 'globals';
-
-[data-animate] {
-  opacity: 0;
-  transform: translateY(10px) scale(0.9);
-  transition-duration: calc(var(--transition-duration) * 2.5);
-  transition-delay: var(--animation-delay, 0ms);
-}
-
-[data-animate].is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+@use 'animations';
