@@ -1,12 +1,12 @@
 import type { ProjectTechnology } from '@/shared/types/projects'
 
-type TechnologyItemProps = {
+type Props = {
   technologies: ProjectTechnology[]
   itemClassName: string
   imageClassName: string
 }
 
-const TechnologyItem = (props: TechnologyItemProps) => {
+const TechnologyItem = (props: Props) => {
   const {
     technologies,
     itemClassName,

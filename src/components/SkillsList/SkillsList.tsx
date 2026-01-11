@@ -1,14 +1,12 @@
 import SkillItem from '@/shared/ui/SkillItem'
 import styles from './SkillsList.module.scss'
 
-type SkillsListProps = {
+type Props = {
   skills: string[]
 }
 
-const SkillsList = (props: SkillsListProps) => {
-  const {
-    skills,
-  } = props
+const SkillsList = (props: Props) => {
+  const { skills } = props
 
   return (
     <ul className={styles.list}>

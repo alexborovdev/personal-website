@@ -3,9 +3,9 @@ import PortfolioImage from '@/components/PortfolioImage'
 import PortfolioInfo from '@/components/PortfolioInfo'
 import styles from './PortfolioCard.module.scss'
 
-type PortfolioCardProps = Projects
+type Props = Projects
 
-const PortfolioCard = (props: PortfolioCardProps) => {
+const PortfolioCard = (props: Props) => {
   const {
     id,
     date,

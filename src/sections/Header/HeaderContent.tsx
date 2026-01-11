@@ -3,13 +3,13 @@ import LogoIcon from '@/assets/icons/logo.svg?react'
 import MainNavigation from '@/components/MainNavigation'
 import MainSettings from '@/components/MainSettings'
 
-type HeaderContentProps = {
+type Props = {
   className: string
   scrollTo: (id: string) => void
   styles: Record<string, string>
 }
 
-const HeaderContent = (props: HeaderContentProps) => {
+const HeaderContent = (props: Props) => {
   const {
     className,
     styles,

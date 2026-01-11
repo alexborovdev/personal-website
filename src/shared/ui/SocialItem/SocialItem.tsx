@@ -1,6 +1,6 @@
 import type { ComponentType, SVGProps } from 'react'
 
-type SocialItemProps = {
+type Props = {
   href: string
   title: string
   label: string
@@ -9,7 +9,7 @@ type SocialItemProps = {
   linkClassName?: string
 }
 
-const SocialItem = (props: SocialItemProps) => {
+const SocialItem = (props: Props) => {
   const {
     itemClassName,
     linkClassName,

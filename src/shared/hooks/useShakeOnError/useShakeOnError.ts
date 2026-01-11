@@ -2,11 +2,11 @@ import { useState } from 'react'
 
 type ShakeFields = Record<string, boolean>
 
-type Options = {
+type Params = {
   duration?: number
 }
 
-const useShakeOnError = (options?: Options) => {
+const useShakeOnError = (options?: Params) => {
   const { duration = 400 } = options || {}
 
   const [shakeFields, setShakeFields] = useState<ShakeFields>({})

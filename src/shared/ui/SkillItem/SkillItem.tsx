@@ -1,10 +1,10 @@
 import styles from './SkillItem.module.scss'
 
-type SkillItemProps = {
+type Props = {
   skill: string
 }
 
-const SkillItem = (props: SkillItemProps) => {
+const SkillItem = (props: Props) => {
   const {
     skill,
   } = props

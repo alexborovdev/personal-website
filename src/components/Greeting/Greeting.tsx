@@ -7,14 +7,12 @@ import {
 } from '@/shared/animations/timings'
 import styles from './Greeting.module.scss'
 
-type GreetingProps = {
+type Props = {
   onAnimationEnd: () => void
 }
 
-const Greeting = (props: GreetingProps) => {
-  const {
-    onAnimationEnd
-  } = props
+const Greeting = (props: Props) => {
+  const { onAnimationEnd } = props
 
   const [animationStep, setAnimationStep] = useState<0 | 1 | 2>(0)
 

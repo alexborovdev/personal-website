@@ -2,14 +2,12 @@ import type { Social } from '@/shared/types/contacts'
 import SocialItem from '@/shared/ui/SocialItem'
 import styles from './SocialsList.module.scss'
 
-type SocialsListProps = {
+type Props = {
   socials: Social[]
 }
 
-const SocialsList = (props: SocialsListProps) => {
-  const {
-    socials
-  } = props
+const SocialsList = (props: Props) => {
+  const { socials } = props
 
   return (
     <ul

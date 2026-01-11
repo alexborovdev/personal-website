@@ -1,16 +1,13 @@
 import SkillsList from '@/components/SkillsList'
 import styles from './SkillsBlock.module.scss'
 
-type SkillsBlockProps = {
+type Props = {
   skills: string[]
   title: string
 }
 
-const SkillsBlock = (props: SkillsBlockProps) => {
-  const {
-    skills,
-    title,
-  } = props
+const SkillsBlock = (props: Props) => {
+  const { skills, title, } = props
 
   return (
     <div>

@@ -9,7 +9,9 @@ type Props = {
   animations: 'on' | 'off'
 }
 
-const ParticlesBackground = ({ theme, animations }: Props) => {
+const ParticlesBackground = (props: Props) => {
+  const { theme, animations } = props
+  
   if (animations === 'off') {
     return null
   }

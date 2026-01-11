@@ -2,11 +2,11 @@ import type { ProjectTechnology } from '@/shared/types/projects'
 import TechnologyItem from '@/shared/ui/TechnologyItem'
 import styles from './UsedTechnologies.module.scss'
 
-type UsedTechnologiesProps = {
+type Props = {
   technologies: ProjectTechnology[]
 }
 
-const UsedTechnologies = (props: UsedTechnologiesProps) => {
+const UsedTechnologies = (props: Props) => {
   const { technologies } = props
 
   return (

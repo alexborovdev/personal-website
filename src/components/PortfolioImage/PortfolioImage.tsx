@@ -1,11 +1,11 @@
 import type { ProjectImage } from '@/shared/types/projects'
 import styles from './PortfolioImage.module.scss'
 
-type PortfolioImageProps = {
+type Props = {
   image: ProjectImage
 }
 
-const PortfolioImage = (props: PortfolioImageProps) => {
+const PortfolioImage = (props: Props) => {
   const { image } = props
 
   return (
