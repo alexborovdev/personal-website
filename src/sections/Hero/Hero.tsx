@@ -9,6 +9,7 @@ const Hero = () => {
   const [isScrollLocked, setIsScrollLocked] = useState(true)
   const [isButtonAnimated, setIsButtonAnimated] = useState(false)
   const [isButtonVisible, setIsButtonVisible] = useState(false)
+  const [onButtonClickCount, setOnButtonClickCount] = useState(0)
 
   const { scrollTo } = useScrollToSection(isScrollLocked)
 
@@ -39,7 +40,8 @@ const Hero = () => {
           ariaLabel="Scroll to Portfolio section"
           title="Scroll to Portfolio section"
           onClick={() => {
-            scrollTo('portfolio')
+            onButtonClickCount < 1 ? scrollTo('skills') : scrollTo('portfolio')
+            setOnButtonClickCount(prevState => prevState + 1)
           }}
         >
           Let’s check!
