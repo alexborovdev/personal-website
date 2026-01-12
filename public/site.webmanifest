@@ -1,10 +1,14 @@
 {
   "name": "Alex Borov - Frontend Developer",
-  "short_name": "Developer Alex Borov",
+  "short_name": "AB Developer",
+  "description": "Personal portfolio of Alex Borov, frontend developer focused on React, TypeScript and modern web interfaces.",
+  "lang": "en",
+  "dir": "ltr",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "background_color": "#191820",
+  "theme_color": "#191820",
   "icons": [
     {
       "src": "/apple-touch-icon.png",
