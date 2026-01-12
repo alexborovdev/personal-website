@@ -8,13 +8,17 @@ const NotFound = () => {
       aria-labelledby="notfound-title"
     >
       <div className={styles.status}>
-        <div className={styles.code}>404</div>
-        <h2
+        <p className={styles.code}
+           aria-hidden="true"
+        >
+          404
+        </p>
+        <h1
           className={`accented ${styles.title}`}
           id="notfound-title"
         >
           Page not found
-        </h2>
+        </h1>
       </div>
       <p className={styles.text}>
         The page you’re looking for doesn’t exist or was moved.
@@ -22,7 +26,8 @@ const NotFound = () => {
       <Link
         className={`tileHover ${styles.button}`}
         to="/"
-      > Back to homepage </Link>
+      >
+        Back to homepage </Link>
     </section>
   )
 }
