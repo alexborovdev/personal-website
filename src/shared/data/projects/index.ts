@@ -1,18 +1,22 @@
 import type { Projects } from '@/shared/types/projects'
-import personalWebsiteImg from '@/assets/images/projects-screenshots/screenshot-of-project-personal-website.png'
-import futureTechImg from '@/assets/images/projects-screenshots/screenshot-of-project-future-tech.png'
-import todoListImg from '@/assets/images/projects-screenshots/screenshot-of-project-todo-list.png'
+import personalWebsiteImg from '@/assets/images/projects-screenshots/personal-website.webp'
+import todoListImg from '@/assets/images/projects-screenshots/todo-list.webp'
+import futureTechImg from '@/assets/images/projects-screenshots/future-tech.webp'
+import viteIcon from '@/assets/icons/technologies/vite.svg'
+import scssIcon from '@/assets/icons/technologies/scss.svg'
+import tsIcon from '@/assets/icons/technologies/typescript.svg'
+import reactIcon from '@/assets/icons/technologies/react.svg'
+import reactRouterIcon from '@/assets/icons/technologies/react-router.svg'
+import reactHookFormIcon from '@/assets/icons/technologies/react-hook-form.svg'
 import htmlIcon from '@/assets/icons/technologies/html.svg'
 import cssIcon from '@/assets/icons/technologies/css.svg'
-import scssIcon from '@/assets/icons/technologies/scss.svg'
 import jsIcon from '@/assets/icons/technologies/javascript.svg'
-import viteIcon from '@/assets/icons/technologies/vite.svg'
 
 const projects: Projects[] = [
   {
     id: 'personal-website',
-    date: '2025-12',
-    dateLabel: 'December 2025',
+    date: '2026-01',
+    dateLabel: 'January 2026',
     title: 'Personal Website',
     github: 'https://github.com/alexborovdev/personal-website',
     image: {
@@ -20,16 +24,39 @@ const projects: Projects[] = [
       alt: 'Screenshot of Personal Website project'
     },
     description: `
-			Personal website built with HTML, SCSS, Vanilla JavaScript and Vite.
-			The project follows FSD architecture and uses OOP-style JavaScript classes
-			for UI logic & interactions and custom SCSS functions & mixins.
+			Personal website built with React, TypeScript and Vite. Includes
+			client-side routing, modular architecture, UI animations, form handling
+			with validation and EmailJS integration, accessibility best practices.
 		`,
     technologies: [
-      { name: 'HTML', icon: htmlIcon },
-      { name: 'CSS', icon: cssIcon },
+      { name: 'Vite', icon: viteIcon },
+      { name: 'SCSS', icon: scssIcon },
+      { name: 'TypeScript', icon: tsIcon },
+      { name: 'React', icon: reactIcon },
+      { name: 'React Router', icon: reactRouterIcon },
+      { name: 'React Hook Form', icon: reactHookFormIcon }
+    ]
+  },
+  {
+    id: 'todo-list',
+    date: '2025-11',
+    dateLabel: 'December 2025',
+    title: 'To Do List',
+    github: 'https://github.com/alexborovdev/todo-list-react',
+    image: {
+      src: todoListImg,
+      alt: 'Screenshot of Todo project'
+    },
+    description: `
+			Todo app built with React using custom hooks, modular architecture,
+			reusable UI components, focuses on clean separation of concerns, a dedicated
+			data access layer and task data managed via a json-server API.
+		`,
+    technologies: [
+      { name: 'Vite', icon: viteIcon },
       { name: 'SCSS', icon: scssIcon },
       { name: 'JavaScript', icon: jsIcon },
-      { name: 'Vite', icon: viteIcon }
+      { name: 'React', icon: reactIcon }
     ]
   },
   {
@@ -43,36 +70,15 @@ const projects: Projects[] = [
       alt: 'Screenshot of Future Tech project'
     },
     description: `
-			Responsive multi-page website built with HTML, SCSS, and
-			Vanilla JavaScript. Includes custom UI components
-			(Select, Tabs, Expandable Content, Video Player), BEM
-			architecture, clean modular code, and
+			Responsive multi-page website built with HTML, SCSS, and Vanilla
+			JavaScript. Includes custom UI components (Select, Tabs, Expandable
+			Content, Video Player), BEM	architecture, clean modular code, and
 			accessibility-focused interactions.
 		`,
     technologies: [
       { name: 'HTML', icon: htmlIcon },
       { name: 'CSS', icon: cssIcon },
       { name: 'SCSS', icon: scssIcon },
-      { name: 'JavaScript', icon: jsIcon }
-    ]
-  },
-  {
-    id: 'todo-list',
-    date: '2025-11',
-    dateLabel: 'November 2025',
-    title: 'To Do List',
-    github: 'https://github.com/alexborovdev/todo-list',
-    image: {
-      src: todoListImg,
-      alt: 'Screenshot of Todo project'
-    },
-    description: `
-			Interactive Todo application built with HTML, CSS,
-			and Vanilla JavaScript in an OOP architecture.
-		`,
-    technologies: [
-      { name: 'HTML', icon: htmlIcon },
-      { name: 'CSS', icon: cssIcon },
       { name: 'JavaScript', icon: jsIcon }
     ]
   }

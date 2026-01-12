@@ -2,15 +2,13 @@ export const hardSkills = [
   'HTML (HTML5), JSX',
   'CSS (CSS3), SASS (SCSS), Animations',
   'JavaScript (ES6+, OOP), TypeScript',
-  'React',
+  'React, React Router, React Hook Form',
   'Vite',
   'Semantic, Accessibility, UX',
-  'SEO, Open Graph, Sitemap',
   'BEM, Feature-Sliced Design',
   'Project setup, configuration, npm, yarn',
   'Git, GitHub',
-  'Figma, Adobe Illustrator',
-  'Pre Intermediate English level (B1)'
+  'Figma, Adobe Illustrator'
 ]
 
 export const softSkills = [
@@ -20,8 +18,7 @@ export const softSkills = [
   'Time management and task planning',
   'Communication, openness to feedback',
   'Stress tolerance and conflict resolution',
-  'Code quality standards',
-  'Clear documentation',
-  'Problem solving approach',
+  'Clear documentation, if required',
+  'Motivated to improve skills',
   'Team collaboration'
 ]
