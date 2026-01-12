@@ -3,8 +3,6 @@ import { useTheme } from '@/shared/providers/ThemeProvider'
 import { useAnimations } from '@/shared/providers/AnimationsProvider'
 import ParticlesBackground from '@/components/ParticlesBackground'
 import ScrollBar from '@/components/ScrollBar'
-import Header from '@/sections/Header'
-import Footer from '@/sections/Footer'
 
 const MainLayout = () => {
   const { theme } = useTheme()
@@ -17,9 +15,7 @@ const MainLayout = () => {
         animations={animations}
       />
       <ScrollBar />
-      <Header />
       <Outlet />
-      <Footer />
     </>
   )
 }

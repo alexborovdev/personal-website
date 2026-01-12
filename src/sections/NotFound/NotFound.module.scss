@@ -1,0 +1,33 @@
+@use '@/shared/tools/scss' as *;
+
+.notFound {
+  padding: fluid(100, 20);
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: fluid(70, 30);
+  text-align: center;
+  opacity: 1;
+  transition-duration: calc(var(--transition-duration) * 2);
+}
+
+.title {
+  @include fluid-text(200, 100);
+
+  line-height: 0.8;
+}
+
+.subtitle {
+  @include fluid-text(100, 30);
+}
+
+.text {
+  @include fluid-text(20, 12);
+}
+
+
+.leaving {
+  opacity: 0;
+}

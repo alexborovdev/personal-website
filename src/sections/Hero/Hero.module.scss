@@ -1,7 +1,7 @@
 @use '@/shared/tools/scss' as *;
 
 .hero {
-  min-height: calc(100vh - 100px);
+  min-height: calc(100svh - 100px);
   margin-bottom: 2.5vh;
   display: flex;
 }
