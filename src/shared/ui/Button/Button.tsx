@@ -10,6 +10,7 @@ type Props = {
   ariaLabel?: string
   title?: string
   ariaPressed?: boolean | 'mixed'
+  ariaCurrent?: boolean
 }
 
 const Button = (props: Props) => {
@@ -21,7 +22,8 @@ const Button = (props: Props) => {
     children,
     ariaLabel,
     title,
-    ariaPressed
+    ariaPressed,
+    ariaCurrent,
   } = props
 
   return (
@@ -33,6 +35,7 @@ const Button = (props: Props) => {
       title={title}
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}
+      aria-current={ariaCurrent ? 'true' : undefined}
     >
       {children}
     </button>

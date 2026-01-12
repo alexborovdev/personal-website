@@ -1,8 +1,9 @@
-import Button from '@/shared/ui/Button'
+import LinkButton from '@/shared/ui/LinkButton'
 import styles from './NavigationItem.module.scss'
 
 type Props = {
   label: string
+  href: string
   title: string
   isActive: boolean
   onClick: () => void
@@ -10,6 +11,7 @@ type Props = {
 
 const NavigationItem = (props: Props) => {
   const {
+    href,
     label,
     title,
     isActive,
@@ -18,15 +20,19 @@ const NavigationItem = (props: Props) => {
 
   return (
     <li className={styles.item}>
-      <Button
+      <LinkButton
         className={`${styles.link} ${isActive ? styles.active : ''}`}
+        href={href}
         title={title}
         ariaLabel={title}
-        ariaPressed={isActive}
-        onClick={onClick}
+        ariaCurrent={isActive}
+        onClick={(event) => {
+          event.preventDefault()
+          onClick()
+        }}
       >
         {label}
-      </Button>
+      </LinkButton>
     </li>
   )
 }

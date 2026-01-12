@@ -9,11 +9,15 @@
 }
 
 .title {
-  font-size: fluid(65, 40);
+  @include fluid-text(65, 40);
+
+  font-weight: 500;
 }
 
 .subtitle {
-  font-size: fluid(40, 20);
+  @include fluid-text(40, 20);
+
   font-weight: 300;
   height: 120px;
+  white-space: pre-line;
 }

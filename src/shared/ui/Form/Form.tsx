@@ -21,15 +21,13 @@ const Form = (props: Props) => {
       onSubmit={onSubmit}
     >
       {children}
-      {!isSubmitting &&
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className={`tileHover ${styles.button}`}
-        >
-          {isSubmitting ? 'Sending…' : 'Send message'}
-        </Button>
-      }
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        className={`tileHover ${styles.button}`}
+      >
+        {isSubmitting ? 'Sending…' : 'Send message'}
+      </Button>
     </form>
   )
 }

@@ -9,7 +9,7 @@ const Copyright = (props: Props) => {
     text
   } = props
 
-  return <p className={styles.copyright}>© {text}</p>
+  return <small className={styles.copyright}>© {text}</small>
 }
 
 export default Copyright

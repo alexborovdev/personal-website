@@ -46,7 +46,7 @@ const Field = (props: Props) => {
       {showError && (
         <span
           id={`${id}-error`}
-          role="alert"
+          aria-live="polite"
           className={styles.error}
           title={error}>
           {error}

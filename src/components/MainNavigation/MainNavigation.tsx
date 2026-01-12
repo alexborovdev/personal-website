@@ -16,7 +16,7 @@ const mainNavigation: Navigation[] = [
 
 const MainNavigation = (props: Props) => {
   const { scrollTo } = props
-  
+
   const activeSection = useActiveSection()
 
   return (
@@ -25,6 +25,7 @@ const MainNavigation = (props: Props) => {
         {mainNavigation.map(({ id, label, title }) => (
           <NavigationItem
             key={id}
+            href={`#${id}`}
             label={label}
             title={title}
             isActive={activeSection === id}

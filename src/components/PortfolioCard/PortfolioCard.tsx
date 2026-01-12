@@ -18,26 +18,27 @@ const PortfolioCard = (props: Props) => {
   } = props
 
   return (
-    <li
-      className={`tile ${styles.item}`}
-      aria-labelledby={`portfolio-${id}-title`}
-      aria-describedby={`portfolio-${id}-desc`}
-      data-animate
-    >
-      <div>
-        <PortfolioImage image={image} />
-      </div>
-      <div>
-        <PortfolioInfo
-          date={date}
-          dateLabel={dateLabel}
-          id={id}
-          github={github}
-          title={title}
-          description={description}
-          technologies={technologies}
-        />
-      </div>
+    <li data-animate>
+      <article
+        className={`tile ${styles.item}`}
+        aria-labelledby={`portfolio-${id}-title`}
+        aria-describedby={`portfolio-${id}-desc`}
+      >
+        <div>
+          <PortfolioImage image={image} />
+        </div>
+        <div>
+          <PortfolioInfo
+            date={date}
+            dateLabel={dateLabel}
+            id={id}
+            github={github}
+            title={title}
+            description={description}
+            technologies={technologies}
+          />
+        </div>
+      </article>
     </li>
   )
 }

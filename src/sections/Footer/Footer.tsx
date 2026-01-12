@@ -32,9 +32,6 @@ const Footer = () => {
           <div className={styles.right}>
             <h3 className={styles.rightTitle}>My Socials</h3>
             <div className={styles.soc1als}>
-              <h4 className="visually-hidden" id="soc1als-title">
-                Social networks
-              </h4>
               <SocialsList socials={contacts.socials} />
             </div>
             <Copyright

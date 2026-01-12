@@ -83,7 +83,6 @@ const ContactsForm = (props: Props) => {
         <SuccessMessage />
       </div>
     </div>
-
   )
 }
 

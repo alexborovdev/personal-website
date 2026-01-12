@@ -1,4 +1,4 @@
-import Button from '@/shared/ui/Button'
+import LinkButton from '@/shared/ui/LinkButton'
 import LogoIcon from '@/assets/icons/logo.svg?react'
 import MainNavigation from '@/components/MainNavigation'
 import MainSettings from '@/components/MainSettings'
@@ -19,16 +19,19 @@ const HeaderContent = (props: Props) => {
   return (
     <header id="header" className={className}>
       <div className={`container ${styles.content}`}>
-        <Button
+        <LinkButton
           className={styles.logo}
+          href={'#hero'}
           title="Scroll to top"
           ariaLabel="Scroll to top"
-          onClick={() =>
-            window.scrollTo({ top: 0, behavior: 'smooth' })
+          onClick={(event) => {
+            event.preventDefault()
+            scrollTo('hero')
+          }
           }
         >
           <LogoIcon />
-        </Button>
+        </LinkButton>
         <div className={styles.wrapper}>
           <MainNavigation scrollTo={scrollTo} />
           <MainSettings />

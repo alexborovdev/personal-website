@@ -32,6 +32,12 @@ const useScrollToSection = (locked = false) => {
       top,
       behavior: 'smooth',
     })
+
+    if (!scrollTarget.hasAttribute('tabindex')) {
+      scrollTarget.setAttribute('tabindex', '-1')
+    }
+
+    scrollTarget.focus({ preventScroll: true })
   }, [locked])
 
   return { scrollTo }

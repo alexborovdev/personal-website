@@ -29,7 +29,6 @@ const Hero = () => {
   return (
     <section id="hero" aria-labelledby="hero-title" className={styles.hero}>
       <div className={`container ${styles.content}`}>
-        <h2 id="hero-title" className="visually-hidden">About Me</h2>
         <Greeting
           onAnimationEnd={onAnimationEnd}
         />
@@ -37,8 +36,8 @@ const Hero = () => {
           className={`tileHover ${styles.button}
                     ${isButtonAnimated ? styles.bounce : ''}
                     ${isButtonVisible ? styles.visible : ''}`}
-          ariaLabel="Scroll to Portfolio section"
-          title="Scroll to Portfolio section"
+          ariaLabel={`Scroll to ${onButtonClickCount < 1 ? 'Skills' : 'Portfolio'} section`}
+          title={`Scroll to ${onButtonClickCount < 1 ? 'Skills' : 'Portfolio'} section`}
           onClick={() => {
             onButtonClickCount < 1 ? scrollTo('skills') : scrollTo('portfolio')
             setOnButtonClickCount(prevState => prevState + 1)
