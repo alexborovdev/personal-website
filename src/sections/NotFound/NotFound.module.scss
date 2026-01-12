@@ -11,13 +11,14 @@
   text-align: center;
 }
 
-.title {
+.code {
   @include fluid-text(200, 100);
 
+  font-weight: 500;
   line-height: 0.8;
 }
 
-.subtitle {
+.title {
   @include fluid-text(100, 30);
 }
 
