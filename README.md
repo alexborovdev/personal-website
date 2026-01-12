@@ -1,59 +1,113 @@
-# Personal Website (HTML • SCSS • JavaScript • Vite)
+# Personal Website (React • TypeScript • Vite)
 
-A modern personal website built with clean **HTML**, scalable **SCSS**, and **Vanilla JavaScript**, using **Vite** as the build tool.
+A modern personal portfolio website built with **React** and **TypeScript**, focused on clean architecture,
+accessibility, performance, and animation-driven user experience.
 
-The project follows **Feature-Sliced Design (FSD)** architecture and is built around **OOP-style JavaScript classes** for UI logic and interactions.  
-Strong focus on **structure**, **accessibility**, **performance**, and **animation-driven UX**.
-
-This project demonstrates framework-free front-end architecture with production-level code organization.
-
----
-
-## 🚀 Features
-
-### 🔹 **Architecture & Code Quality**
-- Feature-Sliced Design (FSD)
-- Clear separation
-- OOP-based JavaScript architecture (class-driven components)
-- Single-responsibility UI modules
-- Predictable data-flow & lifecycle
-- Clean, readable, and scalable codebase
+The project demonstrates a production-ready front-end setup with modular structure, custom hooks, client-side routing,
+and form handling without a backend.
 
 ---
 
-## 🎛 UI & Interactions
+## 🚀 Overview
 
-- Scroll-based animations (Intersection Observer-driven)
-- Load-time animations
-- Custom UI effects & micro-interactions
-- Reusable animation logic
-- No external UI frameworks
+This website serves as a personal portfolio and replaces a traditional resume.
 
----
+Key goals of the project:
 
-## 🎨 SCSS Architecture
-
-- Modular SCSS structure
-- Custom, reusable functions & mixins
-- Responsive utilities and breakpoints
-- Centralized variables & theming
+- Maintainable and scalable architecture
+- Strong focus on accessibility and UX
+- Clean separation of concerns
 
 ---
 
-## 🧰 JavaScript Approach
+## 🧱 Architecture & Code Structure
 
-- Vanilla JavaScript (no frameworks)
-- Class-based UI components
-- Encapsulated logic per feature
-- DOM-driven architecture
-- Minimal dependencies
-- Focus on readability & maintainability
+- Modular, feature-oriented structure
+- Clear separation between UI components, hooks, utilities, and shared logic
+- Custom React hooks for encapsulating behavior
+- Predictable state flow and controlled side effects
+- No global state libraries - state is scoped and intentional
+
+---
+
+## 🎨 UI & UX
+
+- Animation-driven sections and content reveals
+- Scroll-based interactions
+- Theme and background animation toggles with dynamic UI state handling
+- Responsive design across screen sizes
+
+---
+
+## ♿ Accessibility
+
+- Semantic HTML structure
+- ARIA attributes where appropriate
+- Keyboard navigable UI
+- Screen-reader friendly content
+
+---
+
+## 📝 Forms & Validation
+
+- Contact form implemented without a backend
+- **React Hook Form** for state management
+- **Zod** schema-based validation
+- Email delivery handled via **EmailJS**
+- User-friendly error handling and success feedback
 
 ---
 
 ## ⚙️ Tech Stack
 
-- **HTML5** (semantic & accessible markup)
-- **SCSS (Sass)** - custom functions, mixins, utilities
-- **Vanilla JavaScript** - OOP, modular structure
-- **Vite** - fast development & optimized builds
+### Core
+
+- **React**
+- **TypeScript**
+- **Vite**
+
+### Routing & State
+
+- **React Router**
+- Custom hooks
+
+### Forms & Validation
+
+- **React Hook Form**
+- **Zod**
+- **EmailJS**
+
+### UI & Effects
+
+- **SCSS (Sass)** - modular styles, custom mixins and utilities
+- **react-type-animation**
+- **tsParticles**
+
+---
+
+## 🚀 Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
+
+```bash
+npm run dev
+```
+
+### 💻 Production build
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## 📄 License
+
+MIT License
