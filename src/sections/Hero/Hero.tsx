@@ -39,7 +39,8 @@ const Hero = () => {
           ariaLabel={`Scroll to ${onButtonClickCount < 1 ? 'Skills' : 'Portfolio'} section`}
           title={`Scroll to ${onButtonClickCount < 1 ? 'Skills' : 'Portfolio'} section`}
           onClick={() => {
-            onButtonClickCount < 1 ? scrollTo('skills') : scrollTo('portfolio')
+            const target = onButtonClickCount < 1 ? 'skills' : 'portfolio'
+            scrollTo(target)
             setOnButtonClickCount(prevState => prevState + 1)
           }}
         >
