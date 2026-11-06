@@ -10,7 +10,10 @@ const THEME_COLORS: Record<Theme, string> = {
 }
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>('dark')
+  const [theme, setTheme] = useState<Theme>(() => {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    return saved === 'light' ? 'light' : 'dark'
+  })
 
   const updateMetaThemeColor = (color: string) => {
     let metaTag = document.querySelector('meta[name="theme-color"]')
@@ -25,24 +28,13 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   }
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY)
-    const initial = saved === 'light' ? 'light' : 'dark'
-
-    setTheme(initial)
-    document.documentElement.dataset.theme = initial
-    updateMetaThemeColor(THEME_COLORS[initial])
-  }, [])
+    document.documentElement.dataset.theme = theme
+    updateMetaThemeColor(THEME_COLORS[theme])
+    localStorage.setItem(STORAGE_KEY, theme)
+  }, [theme])
 
   const toggleTheme = () => {
-    setTheme(prevState => {
-      const next = prevState === 'dark' ? 'light' : 'dark'
-
-      localStorage.setItem(STORAGE_KEY, next)
-      document.documentElement.dataset.theme = next
-      updateMetaThemeColor(THEME_COLORS[next])
-      
-      return next
-    })
+    setTheme(prevState => prevState === 'dark' ? 'light' : 'dark')
   }
 
   return (
