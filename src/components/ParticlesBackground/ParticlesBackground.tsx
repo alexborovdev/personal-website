@@ -11,10 +11,6 @@ type Props = {
 
 const ParticlesBackground = (props: Props) => {
   const { theme, animations } = props
-  
-  if (animations === 'off') {
-    return null
-  }
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine)
@@ -24,6 +20,10 @@ const ParticlesBackground = (props: Props) => {
     () => createParticlesConfig(),
     [theme]
   )
+
+  if (animations === 'off') {
+    return null
+  }
 
   return (
     <Particles
