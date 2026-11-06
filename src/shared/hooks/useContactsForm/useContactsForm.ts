@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, useWatch } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import emailjs from '@emailjs/browser'
 import useResetSubmitState from '@/shared/hooks/useResetSubmitState'
@@ -20,7 +20,7 @@ const useContactsForm =
     const {
       register,
       handleSubmit,
-      watch,
+      control,
       setFocus,
       formState: {
         errors,
@@ -35,7 +35,10 @@ const useContactsForm =
 
     const { shakeFields, triggerShake } = useShakeOnError()
 
-    const [name, email, message] = watch(['name', 'email', 'message'])
+    const [name, email, message] = useWatch({
+      control,
+      name: ['name', 'email', 'message']
+    })
 
     const [submitResult, setSubmitResult] = useState<SubmitResult>('idle')
     const [submitError, setSubmitError] = useState<string | null>(null)

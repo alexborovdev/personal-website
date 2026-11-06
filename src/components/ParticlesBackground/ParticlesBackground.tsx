@@ -11,10 +11,6 @@ type Props = {
 
 const ParticlesBackground = (props: Props) => {
   const { theme, animations } = props
-  
-  if (animations === 'off') {
-    return null
-  }
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine)
@@ -22,8 +18,14 @@ const ParticlesBackground = (props: Props) => {
 
   const options = useMemo(
     () => createParticlesConfig(),
+    // Theme changes CSS variables used by createParticlesConfig().
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [theme]
   )
+
+  if (animations === 'off') {
+    return null
+  }
 
   return (
     <Particles
