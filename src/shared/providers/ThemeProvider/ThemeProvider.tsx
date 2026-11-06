@@ -9,23 +9,23 @@ const THEME_COLORS: Record<Theme, string> = {
   light: '#FFFFFF',
 }
 
+const updateMetaThemeColor = (color: string) => {
+  let metaTag = document.querySelector('meta[name="theme-color"]')
+
+  if (!metaTag) {
+    metaTag = document.createElement('meta')
+    metaTag.setAttribute('name', 'theme-color')
+    document.head.appendChild(metaTag)
+  }
+
+  metaTag.setAttribute('content', color)
+}
+
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem(STORAGE_KEY)
     return saved === 'light' ? 'light' : 'dark'
   })
-
-  const updateMetaThemeColor = (color: string) => {
-    let metaTag = document.querySelector('meta[name="theme-color"]')
-
-    if (!metaTag) {
-      metaTag = document.createElement('meta')
-      metaTag.setAttribute('name', 'theme-color')
-      document.head.appendChild(metaTag)
-    }
-
-    metaTag.setAttribute('content', color)
-  }
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
