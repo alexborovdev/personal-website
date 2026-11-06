@@ -9,12 +9,14 @@ const useStickyHeader = () => {
   useEffect(() => {
     const hero = document.getElementById('hero')
 
-    if (!hero) {
-      return
-    }
+    if (!hero) return
+
+    let timeout: ReturnType<typeof setTimeout> | undefined
 
     const observer = new IntersectionObserver(
       ([entry]) => {
+        clearTimeout(timeout)
+
         if (!entry.isIntersecting) {
           setIsShowOut(false)
           setIsSticky(true)
@@ -23,19 +25,20 @@ const useStickyHeader = () => {
 
         setIsShowOut(true)
 
-        const timeout = setTimeout(() => {
+        timeout = setTimeout(() => {
           setIsSticky(false)
           setIsShowOut(false)
         }, EXIT_ANIMATION_DURATION)
-
-        return () => clearTimeout(timeout)
       },
       { threshold: 0 }
     )
 
     observer.observe(hero)
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      clearTimeout(timeout)
+    }
   }, [])
 
   return { isSticky, isShowOut }
