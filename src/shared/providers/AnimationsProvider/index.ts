@@ -1,2 +1,3 @@
-export { AnimationsProvider, useAnimations } from './AnimationsProvider'
-export type { AnimationsState } from './AnimationsProvider'
+export { AnimationsProvider } from './AnimationsProvider'
+export { default as useAnimations } from './useAnimation'
+export type { AnimationsState } from './AnimationsContext'

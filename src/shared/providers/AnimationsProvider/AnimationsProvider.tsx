@@ -1,14 +1,6 @@
-import { createContext, useContext, useState } from 'react'
+import { useState } from 'react'
 import type { ReactNode } from 'react'
-
-export type AnimationsState = 'on' | 'off'
-
-type AnimationsContextValue = {
-  animations: AnimationsState
-  toggleAnimations: () => void
-}
-
-const AnimationsContext = createContext<AnimationsContextValue | null>(null)
+import {  AnimationsContext,  type AnimationsState} from './AnimationsContext'
 
 const STORAGE_KEY = 'animations'
 
@@ -35,12 +27,4 @@ export const AnimationsProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </AnimationsContext.Provider>
   )
-}
-
-export const useAnimations = () => {
-  const context = useContext(AnimationsContext)
-  if (!context) {
-    throw new Error('useAnimations must be used within AnimationsProvider')
-  }
-  return context
 }
