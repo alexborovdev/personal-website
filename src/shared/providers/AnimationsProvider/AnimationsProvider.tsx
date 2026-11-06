@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import type { ReactNode } from 'react'
 
 export type AnimationsState = 'on' | 'off'
@@ -13,14 +13,10 @@ const AnimationsContext = createContext<AnimationsContextValue | null>(null)
 const STORAGE_KEY = 'animations'
 
 export const AnimationsProvider = ({ children }: { children: ReactNode }) => {
-  const [animations, setAnimations] = useState<AnimationsState>('on')
-
-  useEffect(() => {
+  const [animations, setAnimations] = useState<AnimationsState>(() => {
     const saved = localStorage.getItem(STORAGE_KEY)
-    const initial: AnimationsState = saved === 'off' ? 'off' : 'on'
-
-    setAnimations(initial)
-  }, [])
+    return saved === 'off' ? 'off' : 'on'
+  })
 
   const toggleAnimations = () => {
     setAnimations(prevState => {
