@@ -1,1 +1,1 @@
-export { default } from './useMediaQuery.ts'
+export { default } from './useMediaQuery'
