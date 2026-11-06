@@ -18,6 +18,8 @@ const ParticlesBackground = (props: Props) => {
 
   const options = useMemo(
     () => createParticlesConfig(),
+    // Theme changes CSS variables used by createParticlesConfig().
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [theme]
   )
 
