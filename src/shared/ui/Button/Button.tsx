@@ -29,7 +29,7 @@ const Button = (props: Props) => {
   return (
     <button
       onClick={onClick}
-      className={`${className} ${styles.button}`}
+      className={`${className ?? ''} ${styles.button}`}
       type={type}
       disabled={disabled}
       title={title}
