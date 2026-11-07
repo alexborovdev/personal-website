@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+
+import { useEffect, useRef } from 'react'
 
 type Params = {
   values: unknown[]
@@ -15,12 +16,21 @@ const useResetSubmitState = ({
   onReset,
   disabled
 }: Params) => {
-  useEffect(() => {
-    if (disabled) {
-      return
-    }
+  const previousValues = useRef(values)
 
-    if (submitResult !== 'idle' && !isSubmitting) {
+  useEffect(() => {
+    const hasChanged = values.some(
+      (value, index) => !Object.is(value, previousValues.current[index])
+    )
+
+    previousValues.current = values
+
+    if (
+      hasChanged &&
+      !disabled &&
+      !isSubmitting &&
+      submitResult !== 'idle'
+    ) {
       onReset()
     }
   }, [values, submitResult, isSubmitting, disabled, onReset])
