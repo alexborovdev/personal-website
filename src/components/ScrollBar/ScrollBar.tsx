@@ -7,7 +7,7 @@ const ScrollBar = () => {
   const progress = useScrollBar()
 
   if (!isDesktop) {
-    return
+    return null
   }
 
   return (
