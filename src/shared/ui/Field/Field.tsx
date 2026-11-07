@@ -1,31 +1,36 @@
+import type { InputHTMLAttributes, TextareaHTMLAttributes } from 'react'
 import styles from './Field.module.scss'
 
-type Props = {
-  as?: 'input' | 'textarea'
+type BaseProps = {
   id: string
   label: string
   placeholder?: string
   autoComplete?: string
-  inputProps: React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>
   showError?: boolean
   error?: string
   shake?: boolean
 }
 
+type Props =
+  | (BaseProps & {
+  as?: 'input'
+  inputProps: InputHTMLAttributes<HTMLInputElement>
+})
+  | (BaseProps & {
+  as: 'textarea'
+  inputProps: TextareaHTMLAttributes<HTMLTextAreaElement>
+})
+
 const Field = (props: Props) => {
   const {
-    as = 'input',
     id,
     label,
     placeholder,
     autoComplete,
-    inputProps,
     showError,
     error,
     shake
   } = props
-
-  const Tag = as
 
   return (
     <div className={`${styles.field} ${shake ? styles.shake : ''}`}>
@@ -34,15 +39,27 @@ const Field = (props: Props) => {
         className={styles.label}>
         {label}
       </label>
-      <Tag
-        id={id}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-        aria-invalid={showError}
-        aria-describedby={showError ? `${id}-error` : undefined}
-        className={as === 'textarea' ? styles.textarea : styles.input}
-        {...inputProps}
-      />
+      {props.as === 'textarea' ? (
+        <textarea
+          id={id}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          aria-invalid={showError}
+          aria-describedby={showError ? `${id}-error` : undefined}
+          className={styles.textarea}
+          {...props.inputProps}
+        />
+      ) : (
+        <input
+          id={id}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          aria-invalid={showError}
+          aria-describedby={showError ? `${id}-error` : undefined}
+          className={styles.input}
+          {...props.inputProps}
+        />
+      )}
       {showError && (
         <span
           id={`${id}-error`}
