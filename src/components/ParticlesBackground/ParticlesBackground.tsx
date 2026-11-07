@@ -27,13 +27,7 @@ const ParticlesBackground = (props: Props) => {
     return null
   }
 
-  return (
-    <Particles
-      key={theme}
-      init={particlesInit}
-      options={options}
-    />
-  )
+  return <Particles key={theme} init={particlesInit} options={options} />
 }
 
 export default ParticlesBackground

@@ -9,11 +9,7 @@ import { AnimationsProvider } from '@/shared/providers/AnimationsProvider'
 
 vi.mock('@/components/ParticlesBackground', () => ({
   default: ({ theme, animations }: { theme: string; animations: string }) => (
-    <div
-      data-testid="particles"
-      data-theme={theme}
-      data-animations={animations}
-    />
+    <div data-testid="particles" data-theme={theme} data-animations={animations} />
   )
 }))
 

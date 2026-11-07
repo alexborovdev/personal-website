@@ -30,10 +30,7 @@ const TestComponent = ({
   const ref = useAnimateOnScroll(options)
 
   return (
-    <section
-      ref={ref}
-      data-animate={animateRoot ? '' : undefined}
-    >
+    <section ref={ref} data-animate={animateRoot ? '' : undefined}>
       <div data-animate>First</div>
       <div data-animate>Second</div>
     </section>

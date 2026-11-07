@@ -11,10 +11,7 @@ const SkillsList = (props: Props) => {
   return (
     <ul className={styles.list}>
       {skills.map(skill => (
-        <SkillItem
-          key={skill}
-          skill={skill}
-        />
+        <SkillItem key={skill} skill={skill} />
       ))}
     </ul>
   )

@@ -23,10 +23,7 @@ const Greeting = (props: Props) => {
         <h2>I'm a frontend developer.</h2>
         <p>I can do something great for you.</p>
       </div>
-      <div
-        className={styles.greeting}
-        aria-hidden="true"
-      >
+      <div className={styles.greeting} aria-hidden="true">
         <div className={styles.title}>
           <TypeAnimation
             sequence={['Hello! My name is ', () => setAnimationStep(1)]}

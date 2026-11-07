@@ -104,26 +104,14 @@ describe('Field', () => {
 
   it('applies shake class only when shake is true', () => {
     const { rerender, container } = render(
-      <Field
-        id="email"
-        label="Email"
-        inputProps={{ type: 'email' }}
-        shake={true}
-      />
+      <Field id="email" label="Email" inputProps={{ type: 'email' }} shake={true} />
     )
 
     const field = container.firstElementChild
 
     expect(field?.classList.contains(styles.shake)).toBe(true)
 
-    rerender(
-      <Field
-        id="email"
-        label="Email"
-        inputProps={{ type: 'email' }}
-        shake={false}
-      />
-    )
+    rerender(<Field id="email" label="Email" inputProps={{ type: 'email' }} shake={false} />)
 
     expect(field?.classList.contains(styles.shake)).toBe(false)
   })

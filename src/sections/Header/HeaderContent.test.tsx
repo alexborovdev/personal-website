@@ -18,11 +18,7 @@ vi.mock('@/shared/ui/LinkButton', () => ({
     onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void
     ariaLabel: string
   }) => (
-    <a
-      href="#hero"
-      aria-label={ariaLabel}
-      onClick={onClick}
-    >
+    <a href="#hero" aria-label={ariaLabel} onClick={onClick}>
       {children}
     </a>
   )
@@ -49,13 +45,7 @@ describe('HeaderContent', () => {
   }
 
   it('renders header structure and child components', () => {
-    render(
-      <HeaderContent
-        className="custom-header"
-        styles={styles}
-        scrollTo={vi.fn()}
-      />
-    )
+    render(<HeaderContent className="custom-header" styles={styles} scrollTo={vi.fn()} />)
 
     const header = document.querySelector('header')
 
@@ -76,13 +66,7 @@ describe('HeaderContent', () => {
   it('scrolls to hero when logo is clicked', () => {
     const scrollTo = vi.fn()
 
-    render(
-      <HeaderContent
-        className="custom-header"
-        styles={styles}
-        scrollTo={scrollTo}
-      />
-    )
+    render(<HeaderContent className="custom-header" styles={styles} scrollTo={scrollTo} />)
 
     fireEvent.click(
       screen.getByRole('link', {

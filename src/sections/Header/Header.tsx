@@ -51,17 +51,9 @@ const Header = () => {
   return (
     <>
       {shouldRenderSticky ? (
-        <HeaderContent
-          className={`tile ${className}`}
-          styles={styles}
-          scrollTo={scrollTo}
-        />
+        <HeaderContent className={`tile ${className}`} styles={styles} scrollTo={scrollTo} />
       ) : (
-        <HeaderContent
-          className={styles.header}
-          styles={styles}
-          scrollTo={scrollTo}
-        />
+        <HeaderContent className={styles.header} styles={styles} scrollTo={scrollTo} />
       )}
     </>
   )

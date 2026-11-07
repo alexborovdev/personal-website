@@ -37,23 +37,13 @@ afterEach(() => {
 
 describe('ParticlesBackground', () => {
   it('does not render particles when animations are off', () => {
-    const { container } = render(
-      <ParticlesBackground
-        theme="dark"
-        animations="off"
-      />
-    )
+    const { container } = render(<ParticlesBackground theme="dark" animations="off" />)
 
     expect(container.firstElementChild).toBeNull()
   })
 
   it('renders particles with configuration when animations are on', () => {
-    render(
-      <ParticlesBackground
-        theme="dark"
-        animations="on"
-      />
-    )
+    render(<ParticlesBackground theme="dark" animations="on" />)
 
     expect(screen.getByTestId('particles')).toBeDefined()
     expect(mocks.particles).toHaveBeenCalledOnce()
@@ -65,21 +55,11 @@ describe('ParticlesBackground', () => {
   })
 
   it('recreates particles when theme changes', () => {
-    const { rerender } = render(
-      <ParticlesBackground
-        theme="dark"
-        animations="on"
-      />
-    )
+    const { rerender } = render(<ParticlesBackground theme="dark" animations="on" />)
 
     expect(createParticlesConfig).toHaveBeenCalledTimes(1)
 
-    rerender(
-      <ParticlesBackground
-        theme="light"
-        animations="on"
-      />
-    )
+    rerender(<ParticlesBackground theme="light" animations="on" />)
 
     expect(createParticlesConfig).toHaveBeenCalledTimes(2)
     expect(mocks.particles).toHaveBeenCalledTimes(2)

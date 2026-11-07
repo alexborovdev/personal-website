@@ -12,10 +12,7 @@ const MainLayout = () => {
 
   return (
     <>
-      <ParticlesBackground
-        theme={theme}
-        animations={animations}
-      />
+      <ParticlesBackground theme={theme} animations={animations} />
       <ScrollBar />
       <Header />
       <Outlet />

@@ -37,11 +37,7 @@ vi.mock('@/shared/ui/Button', () => ({
     ariaLabel: string
     onClick: () => void
   }) => (
-    <button
-      className={className}
-      aria-label={ariaLabel}
-      onClick={onClick}
-    >
+    <button className={className} aria-label={ariaLabel} onClick={onClick}>
       {children}
     </button>
   )

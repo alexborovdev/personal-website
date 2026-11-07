@@ -18,10 +18,7 @@ const ThemeToggle = () => {
       ariaLabel={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
       ariaPressed={isDark}
     >
-      <span
-        key={theme}
-        className={styles.icon}
-      >
+      <span key={theme} className={styles.icon}>
         {isDark ? <MoonIcon /> : <SunIcon />}
       </span>
     </Button>

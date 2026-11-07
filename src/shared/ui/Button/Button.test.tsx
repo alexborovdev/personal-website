@@ -37,10 +37,7 @@ describe('Button', () => {
     const handleClick = vi.fn()
 
     render(
-      <Button
-        disabled
-        onClick={handleClick}
-      >
+      <Button disabled onClick={handleClick}>
         Click me
       </Button>
     )

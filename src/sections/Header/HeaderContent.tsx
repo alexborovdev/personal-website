@@ -13,10 +13,7 @@ const HeaderContent = (props: Props) => {
   const { className, styles, scrollTo } = props
 
   return (
-    <header
-      id="header"
-      className={className}
-    >
+    <header id="header" className={className}>
       <div className={`container ${styles.content}`}>
         <LinkButton
           className={styles.logo}

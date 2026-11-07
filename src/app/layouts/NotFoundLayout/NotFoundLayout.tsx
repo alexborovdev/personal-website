@@ -9,10 +9,7 @@ const NotFoundLayout = () => {
 
   return (
     <>
-      <ParticlesBackground
-        theme={theme}
-        animations={animations}
-      />
+      <ParticlesBackground theme={theme} animations={animations} />
       <Outlet />
     </>
   )

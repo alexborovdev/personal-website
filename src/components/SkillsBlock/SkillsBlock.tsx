@@ -15,10 +15,7 @@ const SkillsBlock = (props: Props) => {
   })
 
   return (
-    <div
-      ref={animateRef}
-      data-animate
-    >
+    <div ref={animateRef} data-animate>
       <h3 className={styles.title}>
         <span className="accented">{title}</span> Skills
       </h3>

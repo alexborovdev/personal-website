@@ -28,10 +28,7 @@ vi.mock('@/shared/hooks/useStickyHeader', () => ({
 
 vi.mock('@/sections/Header/HeaderContent', () => ({
   default: ({ className }: { className: string }) => (
-    <header
-      data-testid="header"
-      className={className}
-    />
+    <header data-testid="header" className={className} />
   )
 }))
 

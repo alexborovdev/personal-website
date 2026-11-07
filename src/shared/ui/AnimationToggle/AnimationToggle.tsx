@@ -18,10 +18,7 @@ const AnimationToggle = () => {
       ariaLabel={isEnabled ? 'Disable background animation' : 'Enable background animation'}
       ariaPressed={isEnabled}
     >
-      <span
-        key={animations}
-        className={styles.icon}
-      >
+      <span key={animations} className={styles.icon}>
         {isEnabled ? <AnimationOnIcon /> : <AnimationOffIcon />}
       </span>
     </Button>

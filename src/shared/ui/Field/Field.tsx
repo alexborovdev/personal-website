@@ -26,10 +26,7 @@ const Field = (props: Props) => {
 
   return (
     <div className={`${styles.field} ${shake ? styles.shake : ''}`}>
-      <label
-        htmlFor={id}
-        className={styles.label}
-      >
+      <label htmlFor={id} className={styles.label}>
         {label}
       </label>
       {props.as === 'textarea' ? (
@@ -54,12 +51,7 @@ const Field = (props: Props) => {
         />
       )}
       {showError && (
-        <span
-          id={`${id}-error`}
-          aria-live="polite"
-          className={styles.error}
-          title={error}
-        >
+        <span id={`${id}-error`} aria-live="polite" className={styles.error} title={error}>
           {error}
         </span>
       )}

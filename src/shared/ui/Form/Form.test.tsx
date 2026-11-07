@@ -50,10 +50,7 @@ describe('Form', () => {
     const onSubmit = vi.fn()
 
     render(
-      <Form
-        onSubmit={onSubmit}
-        isSubmitting={true}
-      >
+      <Form onSubmit={onSubmit} isSubmitting={true}>
         <input aria-label="Email" />
       </Form>
     )
@@ -72,10 +69,7 @@ describe('Form', () => {
 
   it('enables the submit button when not submitting', () => {
     const { rerender } = render(
-      <Form
-        onSubmit={vi.fn()}
-        isSubmitting={true}
-      >
+      <Form onSubmit={vi.fn()} isSubmitting={true}>
         <input aria-label="Email" />
       </Form>
     )

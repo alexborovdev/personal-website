@@ -26,10 +26,7 @@ const ContactsForm = (props: Props) => {
   } = useContactsForm({ onSubmitSuccess })
 
   return (
-    <div
-      className={`tile ${styles.wrapper}`}
-      data-animate
-    >
+    <div className={`tile ${styles.wrapper}`} data-animate>
       <div
         className={`${styles.formLayer} ${
           submitResult === 'success' ? styles.hidden : styles.visible

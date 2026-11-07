@@ -6,7 +6,7 @@
   "trailingComma": "none",
   "printWidth": 100,
   "arrowParens": "avoid",
-  "singleAttributePerLine": true,
+  "singleAttributePerLine": false,
   "bracketSameLine": false,
   "bracketSpacing": true,
   "endOfLine": "lf"

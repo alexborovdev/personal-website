@@ -10,10 +10,7 @@ const SocialsList = (props: Props) => {
   const { socials } = props
 
   return (
-    <ul
-      className={styles.list}
-      aria-label="Social links"
-    >
+    <ul className={styles.list} aria-label="Social links">
       {socials.map(({ id, title, label, href, icon: Icon }) => (
         <SocialItem
           key={id}

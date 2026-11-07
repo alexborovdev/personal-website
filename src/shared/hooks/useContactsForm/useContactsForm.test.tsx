@@ -20,18 +20,9 @@ const TestForm = () => {
         void handleSubmit(onFormSubmit)(event)
       }}
     >
-      <input
-        aria-label="Name"
-        {...register('name')}
-      />
-      <input
-        aria-label="Email"
-        {...register('email')}
-      />
-      <textarea
-        aria-label="Message"
-        {...register('message')}
-      />
+      <input aria-label="Name" {...register('name')} />
+      <input aria-label="Email" {...register('email')} />
+      <textarea aria-label="Message" {...register('message')} />
 
       <button type="submit">Send</button>
 

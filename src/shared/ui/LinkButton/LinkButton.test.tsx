@@ -27,10 +27,7 @@ describe('LinkButton', () => {
     })
 
     render(
-      <LinkButton
-        href="https://example.com"
-        onClick={handleClick}
-      >
+      <LinkButton href="https://example.com" onClick={handleClick}>
         Visit website
       </LinkButton>
     )

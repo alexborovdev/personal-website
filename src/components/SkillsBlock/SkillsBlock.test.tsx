@@ -14,12 +14,7 @@ describe('SkillsBlock', () => {
   it('renders the title and skills with animation attribute', () => {
     const skills = ['React', 'TypeScript', 'JavaScript']
 
-    const { container } = render(
-      <SkillsBlock
-        title="Hard"
-        skills={skills}
-      />
-    )
+    const { container } = render(<SkillsBlock title="Hard" skills={skills} />)
 
     const heading = screen.getByRole('heading', {
       level: 3,

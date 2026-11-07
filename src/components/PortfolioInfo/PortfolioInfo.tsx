@@ -7,16 +7,10 @@ const PortfolioInfo = (props: ProjectInfo) => {
 
   return (
     <div className={styles.inner}>
-      <time
-        className={styles.date}
-        dateTime={date}
-      >
+      <time className={styles.date} dateTime={date}>
         <span className="accented">{dateLabel}</span>
       </time>
-      <h3
-        className={styles.title}
-        id={`portfolio-${id}-title`}
-      >
+      <h3 className={styles.title} id={`portfolio-${id}-title`}>
         <a
           className={styles.link}
           href={github}
@@ -28,10 +22,7 @@ const PortfolioInfo = (props: ProjectInfo) => {
           {title}
         </a>
       </h3>
-      <div
-        className={styles.description}
-        id={`portfolio-${id}-desc`}
-      >
+      <div className={styles.description} id={`portfolio-${id}-desc`}>
         <p>{description}</p>
       </div>
       <div className={styles.technologies}>
