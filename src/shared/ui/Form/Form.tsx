@@ -1,10 +1,11 @@
+import type { FormEventHandler, ReactNode } from 'react'
 import Button from '@/shared/ui/Button'
 import styles from './Form.module.scss'
 
 type Props = {
-  onSubmit: () => void
+  onSubmit: FormEventHandler<HTMLFormElement>
   isSubmitting?: boolean
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const Form = (props: Props) => {

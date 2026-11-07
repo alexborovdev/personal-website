@@ -1,35 +1,30 @@
 import type { ProjectTechnology } from '@/shared/types/projects'
 
 type Props = {
-  technologies: ProjectTechnology[]
+  technology: ProjectTechnology
   itemClassName: string
   imageClassName: string
 }
 
 const TechnologyItem = (props: Props) => {
   const {
-    technologies,
+    technology,
     itemClassName,
-    imageClassName,
+    imageClassName
   } = props
 
   return (
-    technologies.map(tech => (
-      <li
-        key={tech.name}
-        className={itemClassName}
-      >
-        <img
-          className={imageClassName}
-          src={tech.icon}
-          alt={tech.name}
-          title={tech.name}
-          width={32}
-          height={32}
-          loading="lazy"
-        />
-      </li>
-    ))
+    <li className={itemClassName}>
+      <img
+        className={imageClassName}
+        src={technology.icon}
+        alt={technology.name}
+        title={technology.name}
+        width={32}
+        height={32}
+        loading="lazy"
+      />
+    </li>
   )
 }
 
