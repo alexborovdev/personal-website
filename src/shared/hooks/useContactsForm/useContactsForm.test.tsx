@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { act, renderHook, waitFor } from '@testing-library/react'
+import { act, renderHook, waitFor, fireEvent, render, screen  } from '@testing-library/react'
 import emailjs from '@emailjs/browser'
 import useContactsForm from './useContactsForm'
 
@@ -10,6 +10,34 @@ vi.mock('@emailjs/browser', () => ({
     send: vi.fn()
   }
 }))
+
+const TestForm = () => {
+  const {
+    register,
+    handleSubmit,
+    onFormSubmit,
+    isSubmitting,
+    submitResult
+  } = useContactsForm()
+
+  return (
+    <form onSubmit={handleSubmit(onFormSubmit)}>
+      <input aria-label="Name" {...register('name')} />
+      <input aria-label="Email" {...register('email')} />
+      <textarea aria-label="Message" {...register('message')} />
+
+      <button type="submit">Send</button>
+
+      <span data-testid="submitting">
+        {String(isSubmitting)}
+      </span>
+
+      <span data-testid="result">
+        {submitResult}
+      </span>
+    </form>
+  )
+}
 
 describe('useContactsForm', () => {
   beforeEach(() => {
@@ -97,5 +125,64 @@ describe('useContactsForm', () => {
     } finally {
       consoleErrorSpy.mockRestore()
     }
+  })
+
+  it('does not submit invalid form data', async () => {
+    const { result } = renderHook(() => useContactsForm())
+
+    await act(async () => {
+      await result.current.handleSubmit(
+        result.current.onFormSubmit,
+        result.current.onFormError
+      )()
+    })
+
+    expect(emailjs.send).not.toHaveBeenCalled()
+    expect(result.current.submitResult).toBe('idle')
+
+    expect(result.current.errors.name).toBeDefined()
+    expect(result.current.errors.email).toBeDefined()
+    expect(result.current.errors.message).toBeDefined()
+  })
+
+  it('tracks submitting state during an async request', async () => {
+    let resolveRequest!: (value: { status: number; text: string }) => void
+
+    vi.mocked(emailjs.send).mockImplementationOnce(
+      () =>
+        new Promise(resolve => {
+          resolveRequest = resolve
+        })
+    )
+
+    render(<TestForm />)
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Name' }), {
+      target: { value: 'Alex' }
+    })
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Email' }), {
+      target: { value: 'alex@example.com' }
+    })
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Message' }), {
+      target: { value: 'Hello from the contact form!' }
+    })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    await waitFor(() => {
+      expect(emailjs.send).toHaveBeenCalledOnce()
+      expect(screen.getByTestId('submitting').textContent).toBe('true')
+    })
+
+    await act(async () => {
+      resolveRequest({ status: 200, text: 'OK' })
+    })
+
+    await waitFor(() => {
+      expect(screen.getByTestId('submitting').textContent).toBe('false')
+      expect(screen.getByTestId('result').textContent).toBe('success')
+    })
   })
 })
