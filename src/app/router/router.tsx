@@ -1,4 +1,4 @@
-import {  createBrowserRouter,  type RouteObject} from 'react-router-dom'
+import { createBrowserRouter, type RouteObject } from 'react-router-dom'
 import MainLayout from '@/app/layouts/MainLayout'
 import NotFoundLayout from '@/app/layouts/NotFoundLayout'
 import HomePage from '@/pages/HomePage'
