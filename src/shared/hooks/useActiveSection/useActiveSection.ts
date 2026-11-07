@@ -1,21 +1,16 @@
 import { useEffect, useState } from 'react'
 
-const SECTION_IDS = [
-  'hero',
-  'skills',
-  'portfolio',
-  'contacts',
-] as const
+const SECTION_IDS = ['hero', 'skills', 'portfolio', 'contacts'] as const
 
-type SectionId = typeof SECTION_IDS[number]
+type SectionId = (typeof SECTION_IDS)[number]
 
 const useActiveSection = () => {
   const [activeSection, setActiveSection] = useState<SectionId>('hero')
 
   useEffect(() => {
-    const sections = SECTION_IDS
-      .map(id => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[]
+    const sections = SECTION_IDS.map(id => document.getElementById(id)).filter(
+      Boolean
+    ) as HTMLElement[]
 
     if (!sections.length) {
       return
@@ -32,7 +27,7 @@ const useActiveSection = () => {
       {
         root: null,
         rootMargin: '-40% 0px -40% 0px',
-        threshold: 0,
+        threshold: 0
       }
     )
 

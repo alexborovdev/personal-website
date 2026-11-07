@@ -10,19 +10,10 @@ type Props = {
 }
 
 const SocialItem = (props: Props) => {
-  const {
-    itemClassName,
-    linkClassName,
-    href,
-    title,
-    label,
-    Icon
-  } = props
+  const { itemClassName, linkClassName, href, title, label, Icon } = props
 
   return (
-    <li
-      className={itemClassName}
-    >
+    <li className={itemClassName}>
       <a
         href={href}
         title={title}

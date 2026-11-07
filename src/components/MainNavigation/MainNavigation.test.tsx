@@ -55,9 +55,7 @@ describe('MainNavigation', () => {
 
     const links = within(navigation).getAllByRole('link')
 
-    const activeLinks = links.filter(
-      link => link.hasAttribute('aria-current')
-    )
+    const activeLinks = links.filter(link => link.hasAttribute('aria-current'))
 
     expect(activeLinks).toHaveLength(1)
     expect(activeLinks[0].getAttribute('href')).toBe('#skills')

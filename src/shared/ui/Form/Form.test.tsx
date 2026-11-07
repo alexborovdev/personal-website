@@ -40,9 +40,7 @@ describe('Form', () => {
       </Form>
     )
 
-    await user.click(
-      screen.getByRole('button', { name: 'Send message' })
-    )
+    await user.click(screen.getByRole('button', { name: 'Send message' }))
 
     expect(onSubmit).toHaveBeenCalledOnce()
   })
@@ -52,7 +50,10 @@ describe('Form', () => {
     const onSubmit = vi.fn()
 
     render(
-      <Form onSubmit={onSubmit} isSubmitting={true}>
+      <Form
+        onSubmit={onSubmit}
+        isSubmitting={true}
+      >
         <input aria-label="Email" />
       </Form>
     )
@@ -66,14 +67,15 @@ describe('Form', () => {
     await user.click(button)
 
     expect(onSubmit).not.toHaveBeenCalled()
-    expect(
-      screen.queryByRole('button', { name: 'Send message' })
-    ).toBeNull()
+    expect(screen.queryByRole('button', { name: 'Send message' })).toBeNull()
   })
 
   it('enables the submit button when not submitting', () => {
     const { rerender } = render(
-      <Form onSubmit={vi.fn()} isSubmitting={true}>
+      <Form
+        onSubmit={vi.fn()}
+        isSubmitting={true}
+      >
         <input aria-label="Email" />
       </Form>
     )
@@ -90,8 +92,6 @@ describe('Form', () => {
 
     expect(button.hasAttribute('disabled')).toBe(false)
 
-    expect(
-      screen.queryByRole('button', { name: 'Sending…' })
-    ).toBeNull()
+    expect(screen.queryByRole('button', { name: 'Sending…' })).toBeNull()
   })
 })

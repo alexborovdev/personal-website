@@ -27,11 +27,13 @@ const Hero = () => {
   }
 
   return (
-    <section id="hero" aria-labelledby="hero-title" className={styles.hero}>
+    <section
+      id="hero"
+      aria-labelledby="hero-title"
+      className={styles.hero}
+    >
       <div className={`container ${styles.content}`}>
-        <Greeting
-          onAnimationEnd={onAnimationEnd}
-        />
+        <Greeting onAnimationEnd={onAnimationEnd} />
         <Button
           className={`tileHover ${styles.button}
                     ${isButtonAnimated ? styles.bounce : ''}

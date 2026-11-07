@@ -6,7 +6,10 @@ import { cleanup, render, screen } from '@testing-library/react'
 import SocialItem from './SocialItem'
 
 const MockIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg data-testid="social-icon" {...props} />
+  <svg
+    data-testid="social-icon"
+    {...props}
+  />
 )
 
 afterEach(() => {

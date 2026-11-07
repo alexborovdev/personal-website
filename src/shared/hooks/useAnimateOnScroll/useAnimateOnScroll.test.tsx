@@ -30,7 +30,10 @@ const TestComponent = ({
   const ref = useAnimateOnScroll(options)
 
   return (
-    <section ref={ref} data-animate={animateRoot ? '' : undefined}>
+    <section
+      ref={ref}
+      data-animate={animateRoot ? '' : undefined}
+    >
       <div data-animate>First</div>
       <div data-animate>Second</div>
     </section>
@@ -52,10 +55,9 @@ describe('useAnimateOnScroll', () => {
     const root = container.querySelector('section')
 
     expect(intersectionObserverMock).toHaveBeenCalledOnce()
-    expect(intersectionObserverMock).toHaveBeenCalledWith(
-      expect.any(Function),
-      { rootMargin: '0px 0px -6.66% 0px' }
-    )
+    expect(intersectionObserverMock).toHaveBeenCalledWith(expect.any(Function), {
+      rootMargin: '0px 0px -6.66% 0px'
+    })
 
     expect(observe).toHaveBeenCalledExactlyOnceWith(root)
   })
@@ -118,17 +120,14 @@ describe('useAnimateOnScroll', () => {
   })
 
   it('uses custom rootMargin and animation step', () => {
-    const { container } = render(
-      <TestComponent options={{ rootMargin: '-20% 0px', step: 100 }} />
-    )
+    const { container } = render(<TestComponent options={{ rootMargin: '-20% 0px', step: 100 }} />)
 
     const root = container.querySelector('section')!
     const elements = root.querySelectorAll<HTMLElement>('[data-animate]')
 
-    expect(intersectionObserverMock).toHaveBeenCalledWith(
-      expect.any(Function),
-      { rootMargin: '-20% 0px' }
-    )
+    expect(intersectionObserverMock).toHaveBeenCalledWith(expect.any(Function), {
+      rootMargin: '-20% 0px'
+    })
 
     act(() => {
       observerCallback(

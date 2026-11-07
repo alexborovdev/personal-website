@@ -8,7 +8,7 @@ type Props = {
 }
 
 const SkillsBlock = (props: Props) => {
-  const { skills, title, } = props
+  const { skills, title } = props
 
   const animateRef = useAnimateOnScroll({
     step: 120
@@ -19,14 +19,10 @@ const SkillsBlock = (props: Props) => {
       ref={animateRef}
       data-animate
     >
-      <h3
-        className={styles.title}
-      >
+      <h3 className={styles.title}>
         <span className="accented">{title}</span> Skills
       </h3>
-      <SkillsList
-        skills={skills}
-      />
+      <SkillsList skills={skills} />
     </div>
   )
 }

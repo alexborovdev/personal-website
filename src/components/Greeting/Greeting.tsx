@@ -29,10 +29,7 @@ const Greeting = (props: Props) => {
       >
         <div className={styles.title}>
           <TypeAnimation
-            sequence={[
-              'Hello! My name is ',
-              () => setAnimationStep(1),
-            ]}
+            sequence={['Hello! My name is ', () => setAnimationStep(1)]}
             speed={50}
             cursor={false}
             repeat={0}
@@ -41,11 +38,7 @@ const Greeting = (props: Props) => {
           {animationStep >= 1 && (
             <TypeAnimation
               className="accented"
-              sequence={[
-                'Alex\u00A0Borov',
-                DELAY_AFTER_ANIMATION_END,
-                () => setAnimationStep(2),
-              ]}
+              sequence={['Alex\u00A0Borov', DELAY_AFTER_ANIMATION_END, () => setAnimationStep(2)]}
               speed={50}
               cursor={false}
               repeat={0}
@@ -57,7 +50,7 @@ const Greeting = (props: Props) => {
           <TypeAnimation
             className={styles.subtitle}
             sequence={[
-              'I\'m a frontend developer.\nI can do something great for you.',
+              "I'm a frontend developer.\nI can do something great for you.",
               () => {
                 setTimeout(() => {
                   onAnimationEnd()
@@ -65,7 +58,7 @@ const Greeting = (props: Props) => {
               },
               ANIMATION_DURATION_AFTER_TYPING,
               '',
-              DELAY_AFTER_ANIMATION_END,
+              DELAY_AFTER_ANIMATION_END
             ]}
             speed={60}
             deletionSpeed={80}

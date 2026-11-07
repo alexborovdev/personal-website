@@ -8,13 +8,7 @@ type Params = {
   disabled?: boolean
 }
 
-const useResetSubmitState = ({
-  values,
-  submitResult,
-  isSubmitting,
-  onReset,
-  disabled
-}: Params) => {
+const useResetSubmitState = ({ values, submitResult, isSubmitting, onReset, disabled }: Params) => {
   const previousValues = useRef(values)
 
   useEffect(() => {
@@ -24,12 +18,7 @@ const useResetSubmitState = ({
 
     previousValues.current = values
 
-    if (
-      hasChanged &&
-      !disabled &&
-      !isSubmitting &&
-      submitResult !== 'idle'
-    ) {
+    if (hasChanged && !disabled && !isSubmitting && submitResult !== 'idle') {
       onReset()
     }
   }, [values, submitResult, isSubmitting, disabled, onReset])

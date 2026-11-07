@@ -15,7 +15,7 @@ export const AnimationsProvider = ({ children }: { children: ReactNode }) => {
   }, [animations])
 
   const toggleAnimations = () => {
-    setAnimations(prevState => prevState === 'on' ? 'off' : 'on')
+    setAnimations(prevState => (prevState === 'on' ? 'off' : 'on'))
   }
 
   return (

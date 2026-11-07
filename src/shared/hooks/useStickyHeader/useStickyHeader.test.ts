@@ -9,14 +9,15 @@ const disconnectMock = vi.fn()
 
 let observerCallback: IntersectionObserverCallback
 
-const IntersectionObserverMock = vi.fn(
-  function (this: IntersectionObserver, callback: IntersectionObserverCallback) {
-    observerCallback = callback
+const IntersectionObserverMock = vi.fn(function (
+  this: IntersectionObserver,
+  callback: IntersectionObserverCallback
+) {
+  observerCallback = callback
 
-    this.observe = observeMock
-    this.disconnect = disconnectMock
-  }
-)
+  this.observe = observeMock
+  this.disconnect = disconnectMock
+})
 
 describe('useStickyHeader', () => {
   beforeEach(() => {
@@ -42,9 +43,7 @@ describe('useStickyHeader', () => {
       isShowOut: false
     })
 
-    expect(observeMock).toHaveBeenCalledWith(
-      document.getElementById('hero')
-    )
+    expect(observeMock).toHaveBeenCalledWith(document.getElementById('hero'))
   })
 
   it('activates sticky header when hero leaves the viewport', () => {

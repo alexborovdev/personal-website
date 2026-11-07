@@ -48,21 +48,16 @@ describe('useActiveSection', () => {
 
     expect(intersectionObserverMock).toHaveBeenCalledOnce()
 
-    expect(intersectionObserverMock).toHaveBeenCalledWith(
-      expect.any(Function),
-      {
-        root: null,
-        rootMargin: '-40% 0px -40% 0px',
-        threshold: 0
-      }
-    )
+    expect(intersectionObserverMock).toHaveBeenCalledWith(expect.any(Function), {
+      root: null,
+      rootMargin: '-40% 0px -40% 0px',
+      threshold: 0
+    })
 
     expect(observe).toHaveBeenCalledTimes(4)
 
     for (const id of ['hero', 'skills', 'portfolio', 'contacts']) {
-      expect(observe).toHaveBeenCalledWith(
-        document.getElementById(id)
-      )
+      expect(observe).toHaveBeenCalledWith(document.getElementById(id))
     }
   })
 

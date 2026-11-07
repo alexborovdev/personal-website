@@ -10,7 +10,10 @@ const Skills = () => {
       className={styles.skills}
     >
       <div className={`container ${styles.content}`}>
-        <h2 id="skills-title" className="visually-hidden">
+        <h2
+          id="skills-title"
+          className="visually-hidden"
+        >
           My Skills
         </h2>
         <div className={styles.wrapper}>

@@ -10,10 +10,7 @@ const mocks = vi.hoisted(() => ({
 }))
 
 vi.mock('@/components/SkillsBlock', () => ({
-  default: (props: {
-    title: string
-    skills: typeof hardSkills
-  }) => {
+  default: (props: { title: string; skills: typeof hardSkills }) => {
     mocks.skillsBlock(props)
 
     return <div data-testid="skills-block" />

@@ -60,9 +60,7 @@ describe('useShakeOnError', () => {
   })
 
   it('clears shakeFields after custom duration', () => {
-    const { result } = renderHook(() =>
-      useShakeOnError({ duration: 1000 })
-    )
+    const { result } = renderHook(() => useShakeOnError({ duration: 1000 }))
 
     act(() => {
       result.current.triggerShake(['name'])

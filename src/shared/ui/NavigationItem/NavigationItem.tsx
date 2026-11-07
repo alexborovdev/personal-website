@@ -10,13 +10,7 @@ type Props = {
 }
 
 const NavigationItem = (props: Props) => {
-  const {
-    href,
-    label,
-    title,
-    isActive,
-    onClick
-  } = props
+  const { href, label, title, isActive, onClick } = props
 
   return (
     <li className={styles.item}>
@@ -26,7 +20,7 @@ const NavigationItem = (props: Props) => {
         title={title}
         ariaLabel={title}
         ariaCurrent={isActive}
-        onClick={(event) => {
+        onClick={event => {
           event.preventDefault()
           onClick()
         }}

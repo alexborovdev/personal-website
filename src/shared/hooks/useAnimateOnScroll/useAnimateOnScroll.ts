@@ -18,10 +18,7 @@ const CSS_VAR = {
 } as const
 
 const useAnimateOnScroll = (options: Options = {}) => {
-  const {
-    rootMargin = '0px 0px -6.66% 0px',
-    step = 195
-  } = options
+  const { rootMargin = '0px 0px -6.66% 0px', step = 195 } = options
 
   const elementRef = useRef<HTMLElement | null>(null)
 
@@ -38,11 +35,7 @@ const useAnimateOnScroll = (options: Options = {}) => {
       animatedElements.push(rootElement)
     }
 
-    animatedElements.push(
-      ...rootElement.querySelectorAll<HTMLElement>(
-        `[${DATA_ATTR.animate}]`
-      )
-    )
+    animatedElements.push(...rootElement.querySelectorAll<HTMLElement>(`[${DATA_ATTR.animate}]`))
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -51,10 +44,7 @@ const useAnimateOnScroll = (options: Options = {}) => {
         }
 
         animatedElements.forEach((animatedElement, index) => {
-          animatedElement.style.setProperty(
-            CSS_VAR.animationDelay,
-            `${index * step}ms`
-          )
+          animatedElement.style.setProperty(CSS_VAR.animationDelay, `${index * step}ms`)
           animatedElement.classList.add(STATE_CLASS.visible)
         })
 

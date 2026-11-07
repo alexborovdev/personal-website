@@ -3,7 +3,11 @@ import styles from './SuccessMessage.module.scss'
 
 const SuccessMessage = () => {
   return (
-    <div className={styles.success} role="status" aria-live="polite">
+    <div
+      className={styles.success}
+      role="status"
+      aria-live="polite"
+    >
       <div className={styles.icon}>
         <GmailIcon />
       </div>

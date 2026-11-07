@@ -28,9 +28,7 @@ describe('createParticlesConfig', () => {
   })
 
   it('generates a new config with the current accent color', () => {
-    mockedGetCssVar
-      .mockReturnValueOnce('#ff5500')
-      .mockReturnValueOnce('#00aaff')
+    mockedGetCssVar.mockReturnValueOnce('#ff5500').mockReturnValueOnce('#00aaff')
 
     const first = createParticlesConfig()
     const second = createParticlesConfig()

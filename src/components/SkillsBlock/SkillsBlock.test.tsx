@@ -15,7 +15,10 @@ describe('SkillsBlock', () => {
     const skills = ['React', 'TypeScript', 'JavaScript']
 
     const { container } = render(
-      <SkillsBlock title="Hard" skills={skills} />
+      <SkillsBlock
+        title="Hard"
+        skills={skills}
+      />
     )
 
     const heading = screen.getByRole('heading', {
@@ -29,8 +32,6 @@ describe('SkillsBlock', () => {
     expect(heading.textContent).toBe('Hard Skills')
     expect(items.map(item => item.textContent)).toEqual(skills)
 
-    expect(
-      container.firstElementChild?.hasAttribute('data-animate')
-    ).toBe(true)
+    expect(container.firstElementChild?.hasAttribute('data-animate')).toBe(true)
   })
 })

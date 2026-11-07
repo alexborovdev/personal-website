@@ -9,11 +9,7 @@ type Props = {
 }
 
 const Form = (props: Props) => {
-  const {
-    onSubmit,
-    isSubmitting,
-    children
-  } = props
+  const { onSubmit, isSubmitting, children } = props
 
   return (
     <form

@@ -6,7 +6,7 @@ const STORAGE_KEY = 'theme'
 
 const THEME_COLORS: Record<Theme, string> = {
   dark: '#191820',
-  light: '#FFFFFF',
+  light: '#FFFFFF'
 }
 
 const updateMetaThemeColor = (color: string) => {
@@ -34,12 +34,8 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   }, [theme])
 
   const toggleTheme = () => {
-    setTheme(prevState => prevState === 'dark' ? 'light' : 'dark')
+    setTheme(prevState => (prevState === 'dark' ? 'light' : 'dark'))
   }
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  )
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>
 }

@@ -11,11 +11,7 @@ afterEach(() => {
 
 describe('LinkButton', () => {
   it('renders a link with the correct destination and children', () => {
-    render(
-      <LinkButton href="https://example.com">
-        Visit website
-      </LinkButton>
-    )
+    render(<LinkButton href="https://example.com">Visit website</LinkButton>)
 
     const link = screen.getByRole('link', {
       name: 'Visit website'

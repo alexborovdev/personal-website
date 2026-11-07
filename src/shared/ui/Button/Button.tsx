@@ -23,7 +23,7 @@ const Button = (props: Props) => {
     ariaLabel,
     title,
     ariaPressed,
-    ariaCurrent,
+    ariaCurrent
   } = props
 
   return (

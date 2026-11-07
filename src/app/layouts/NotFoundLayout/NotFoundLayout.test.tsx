@@ -8,13 +8,7 @@ import { ThemeProvider } from '@/shared/providers/ThemeProvider'
 import { AnimationsProvider } from '@/shared/providers/AnimationsProvider'
 
 vi.mock('@/components/ParticlesBackground', () => ({
-  default: ({
-    theme,
-    animations
-  }: {
-    theme: string
-    animations: string
-  }) => (
+  default: ({ theme, animations }: { theme: string; animations: string }) => (
     <div
       data-testid="particles"
       data-theme={theme}
@@ -61,10 +55,9 @@ describe('NotFoundLayout', () => {
     localStorage.setItem('theme', 'light')
     localStorage.setItem('animations', 'off')
 
-    const router = createMemoryRouter(
-      [{ path: '*', element: <NotFoundLayout /> }],
-      { initialEntries: ['/unknown'] }
-    )
+    const router = createMemoryRouter([{ path: '*', element: <NotFoundLayout /> }], {
+      initialEntries: ['/unknown']
+    })
 
     render(
       <ThemeProvider>

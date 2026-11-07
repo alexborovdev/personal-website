@@ -77,28 +77,18 @@ describe('useScrollBar', () => {
     try {
       const { unmount } = renderHook(() => useScrollBar())
 
-      const scrollCallback = addSpy.mock.calls.find(
-        ([event]) => event === 'scroll'
-      )?.[1]
+      const scrollCallback = addSpy.mock.calls.find(([event]) => event === 'scroll')?.[1]
 
-      const resizeCallback = addSpy.mock.calls.find(
-        ([event]) => event === 'resize'
-      )?.[1]
+      const resizeCallback = addSpy.mock.calls.find(([event]) => event === 'resize')?.[1]
 
       expect(scrollCallback).toBeDefined()
       expect(resizeCallback).toBeDefined()
 
       unmount()
 
-      expect(removeSpy).toHaveBeenCalledWith(
-        'scroll',
-        scrollCallback
-      )
+      expect(removeSpy).toHaveBeenCalledWith('scroll', scrollCallback)
 
-      expect(removeSpy).toHaveBeenCalledWith(
-        'resize',
-        resizeCallback
-      )
+      expect(removeSpy).toHaveBeenCalledWith('resize', resizeCallback)
     } finally {
       addSpy.mockRestore()
       removeSpy.mockRestore()

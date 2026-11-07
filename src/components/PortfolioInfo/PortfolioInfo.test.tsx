@@ -31,9 +31,7 @@ describe('PortfolioInfo', () => {
     })
 
     const time = container.querySelector('time')
-    const description = container.querySelector(
-      '#portfolio-personal-website-desc'
-    )
+    const description = container.querySelector('#portfolio-personal-website-desc')
 
     expect(heading.id).toBe('portfolio-personal-website-title')
 

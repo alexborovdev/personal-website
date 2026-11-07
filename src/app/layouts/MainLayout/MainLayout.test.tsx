@@ -2,19 +2,13 @@
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
-import {  createMemoryRouter,  RouterProvider} from 'react-router-dom'
+import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from './MainLayout'
 import { ThemeProvider } from '@/shared/providers/ThemeProvider'
 import { AnimationsProvider } from '@/shared/providers/AnimationsProvider'
 
 vi.mock('@/components/ParticlesBackground', () => ({
-  default: ({
-    theme,
-    animations
-  }: {
-    theme: string
-    animations: string
-  }) => (
+  default: ({ theme, animations }: { theme: string; animations: string }) => (
     <div
       data-testid="particles"
       data-theme={theme}
@@ -76,10 +70,9 @@ describe('MainLayout', () => {
     localStorage.setItem('theme', 'light')
     localStorage.setItem('animations', 'off')
 
-    const router = createMemoryRouter(
-      [{ path: '/', element: <MainLayout /> }],
-      { initialEntries: ['/'] }
-    )
+    const router = createMemoryRouter([{ path: '/', element: <MainLayout /> }], {
+      initialEntries: ['/']
+    })
 
     render(
       <ThemeProvider>

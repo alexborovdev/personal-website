@@ -99,9 +99,7 @@ describe('Field', () => {
     expect(input.getAttribute('aria-invalid')).toBe('false')
     expect(input.hasAttribute('aria-describedby')).toBe(false)
 
-    expect(
-      screen.queryByText('Invalid email address')
-    ).toBeNull()
+    expect(screen.queryByText('Invalid email address')).toBeNull()
   })
 
   it('applies shake class only when shake is true', () => {

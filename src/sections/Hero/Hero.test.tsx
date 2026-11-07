@@ -37,7 +37,11 @@ vi.mock('@/shared/ui/Button', () => ({
     ariaLabel: string
     onClick: () => void
   }) => (
-    <button className={className} aria-label={ariaLabel} onClick={onClick}>
+    <button
+      className={className}
+      aria-label={ariaLabel}
+      onClick={onClick}
+    >
       {children}
     </button>
   )
@@ -133,9 +137,7 @@ describe('Hero', () => {
     fireEvent.click(button)
 
     expect(mocks.scrollTo).toHaveBeenLastCalledWith('skills')
-    expect(button.getAttribute('aria-label')).toBe(
-      'Scroll to Portfolio section'
-    )
+    expect(button.getAttribute('aria-label')).toBe('Scroll to Portfolio section')
 
     fireEvent.click(button)
 

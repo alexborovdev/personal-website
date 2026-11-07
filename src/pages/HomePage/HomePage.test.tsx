@@ -34,10 +34,11 @@ describe('HomePage', () => {
 
     expect(container.querySelectorAll('main')).toHaveLength(1)
 
-    expect(
-      Array.from(sections ?? []).map(section =>
-        section.getAttribute('data-testid')
-      )
-    ).toEqual(['hero', 'skills', 'portfolio', 'contacts'])
+    expect(Array.from(sections ?? []).map(section => section.getAttribute('data-testid'))).toEqual([
+      'hero',
+      'skills',
+      'portfolio',
+      'contacts'
+    ])
   })
 })

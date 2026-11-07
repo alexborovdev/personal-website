@@ -18,7 +18,11 @@ vi.mock('@/shared/ui/LinkButton', () => ({
     onClick: (event: React.MouseEvent<HTMLAnchorElement>) => void
     ariaLabel: string
   }) => (
-    <a href="#hero" aria-label={ariaLabel} onClick={onClick}>
+    <a
+      href="#hero"
+      aria-label={ariaLabel}
+      onClick={onClick}
+    >
       {children}
     </a>
   )
@@ -58,9 +62,11 @@ describe('HeaderContent', () => {
     expect(header?.id).toBe('header')
     expect(header?.className).toBe('custom-header')
 
-    expect(screen.getByRole('link', {
-      name: 'Scroll to top'
-    })).toBeDefined()
+    expect(
+      screen.getByRole('link', {
+        name: 'Scroll to top'
+      })
+    ).toBeDefined()
 
     expect(screen.getByTestId('logo')).toBeDefined()
     expect(screen.getByTestId('main-navigation')).toBeDefined()
@@ -78,9 +84,11 @@ describe('HeaderContent', () => {
       />
     )
 
-    fireEvent.click(screen.getByRole('link', {
-      name: 'Scroll to top'
-    }))
+    fireEvent.click(
+      screen.getByRole('link', {
+        name: 'Scroll to top'
+      })
+    )
 
     expect(scrollTo).toHaveBeenCalledExactlyOnceWith('hero')
   })

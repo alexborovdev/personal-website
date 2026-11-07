@@ -85,12 +85,9 @@ describe('useScrollToSection', () => {
     hero.id = 'hero'
     document.body.appendChild(hero)
 
-    const { result, rerender } = renderHook(
-      ({ locked }) => useScrollToSection(locked),
-      {
-        initialProps: { locked: true }
-      }
-    )
+    const { result, rerender } = renderHook(({ locked }) => useScrollToSection(locked), {
+      initialProps: { locked: true }
+    })
 
     expect(document.body.style.overflow).toBe('hidden')
 

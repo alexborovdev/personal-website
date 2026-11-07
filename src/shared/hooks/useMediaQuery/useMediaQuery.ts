@@ -14,11 +14,7 @@ const useMediaQuery = (query: string) => {
 
   const getSnapshot = () => window.matchMedia(query).matches
 
-  return useSyncExternalStore(
-    subscribe,
-    getSnapshot,
-    () => false
-  )
+  return useSyncExternalStore(subscribe, getSnapshot, () => false)
 }
 
 export default useMediaQuery

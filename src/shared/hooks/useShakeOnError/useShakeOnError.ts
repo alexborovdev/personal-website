@@ -16,7 +16,7 @@ const useShakeOnError = (options?: Params) => {
 
     const shakeMap: ShakeFields = {}
 
-    fields.forEach((field) => {
+    fields.forEach(field => {
       shakeMap[field] = true
     })
 

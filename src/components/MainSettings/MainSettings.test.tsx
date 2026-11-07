@@ -18,12 +18,8 @@ describe('MainSettings', () => {
   it('renders theme and animation toggles', () => {
     render(<MainSettings />)
 
-    expect(
-      screen.getByRole('button', { name: 'Theme toggle' })
-    ).toBeDefined()
+    expect(screen.getByRole('button', { name: 'Theme toggle' })).toBeDefined()
 
-    expect(
-      screen.getByRole('button', { name: 'Animation toggle' })
-    ).toBeDefined()
+    expect(screen.getByRole('button', { name: 'Animation toggle' })).toBeDefined()
   })
 })

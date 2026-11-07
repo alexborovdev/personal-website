@@ -11,8 +11,9 @@ const ScrollBar = () => {
   }
 
   return (
-    <div className={styles.track}
-         aria-hidden="true"
+    <div
+      className={styles.track}
+      aria-hidden="true"
     >
       <div
         className={styles.indication}

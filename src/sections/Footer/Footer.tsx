@@ -26,7 +26,9 @@ const Footer = () => {
         >
           <div className={styles.left}>
             <h3 className={styles.leftTitle}>
-              <span>Let’s build <span className="accented">something great</span> together!</span>
+              <span>
+                Let’s build <span className="accented">something great</span> together!
+              </span>
             </h3>
           </div>
           <div className={styles.right}>
@@ -34,9 +36,7 @@ const Footer = () => {
             <div className={styles.soc1als}>
               <SocialsList socials={contacts.socials} />
             </div>
-            <Copyright
-              text={'Powered and Designed by Alex Borov, 2026'}
-            />
+            <Copyright text={'Powered and Designed by Alex Borov, 2026'} />
           </div>
         </div>
       </div>

@@ -7,11 +7,7 @@ type Props = {
 }
 
 const TechnologyItem = (props: Props) => {
-  const {
-    technology,
-    itemClassName,
-    imageClassName
-  } = props
+  const { technology, itemClassName, imageClassName } = props
 
   return (
     <li className={itemClassName}>

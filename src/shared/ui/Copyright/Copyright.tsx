@@ -5,9 +5,7 @@ type Props = {
 }
 
 const Copyright = (props: Props) => {
-  const {
-    text
-  } = props
+  const { text } = props
 
   return <small className={styles.copyright}>© {text}</small>
 }

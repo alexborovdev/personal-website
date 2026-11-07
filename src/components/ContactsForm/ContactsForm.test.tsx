@@ -11,9 +11,7 @@ vi.mock('@/shared/hooks/useContactsForm')
 
 type FormState = ReturnType<typeof useContactsForm>
 
-const createFormState = (
-  form: ReturnType<typeof useForm<ContactsFormValues>>
-): FormState => ({
+const createFormState = (form: ReturnType<typeof useForm<ContactsFormValues>>): FormState => ({
   register: form.register,
   handleSubmit: form.handleSubmit,
   onFormSubmit: vi.fn(async () => {}),
@@ -36,9 +34,7 @@ type TestContactsFormProps = {
   overrides?: Partial<FormState>
 }
 
-const TestContactsForm = ({
-  overrides = {}
-}: TestContactsFormProps) => {
+const TestContactsForm = ({ overrides = {} }: TestContactsFormProps) => {
   const form = useForm<ContactsFormValues>()
 
   vi.mocked(useContactsForm).mockReturnValue({
@@ -58,21 +54,13 @@ describe('ContactsForm', () => {
   it('renders all contact fields', () => {
     render(<TestContactsForm />)
 
-    expect(
-      screen.getByRole('textbox', { name: 'Your Name' })
-    ).toBeDefined()
+    expect(screen.getByRole('textbox', { name: 'Your Name' })).toBeDefined()
 
-    expect(
-      screen.getByRole('textbox', { name: 'Your Email' })
-    ).toBeDefined()
+    expect(screen.getByRole('textbox', { name: 'Your Email' })).toBeDefined()
 
-    expect(
-      screen.getByRole('textbox', { name: 'Message' })
-    ).toBeDefined()
+    expect(screen.getByRole('textbox', { name: 'Message' })).toBeDefined()
 
-    expect(
-      screen.getByRole('button', { name: /send/i })
-    ).toBeDefined()
+    expect(screen.getByRole('button', { name: /send/i })).toBeDefined()
   })
 
   it('displays validation errors for invalid fields', () => {
@@ -106,39 +94,25 @@ describe('ContactsForm', () => {
     expect(nameInput.getAttribute('aria-invalid')).toBe('true')
     expect(emailInput.getAttribute('aria-invalid')).toBe('true')
 
-    expect(
-      screen.getByText('Name is too short')
-    ).toBeDefined()
+    expect(screen.getByText('Name is too short')).toBeDefined()
 
-    expect(
-      screen.getByText('Invalid email address')
-    ).toBeDefined()
+    expect(screen.getByText('Invalid email address')).toBeDefined()
   })
 
   it('shows success message after successful submission', () => {
-    const { container } = render(
-      <TestContactsForm
-        overrides={{ submitResult: 'success' }}
-      />
-    )
+    const { container } = render(<TestContactsForm overrides={{ submitResult: 'success' }} />)
 
     const form = container.querySelector('form')
     const status = screen.getByRole('status')
 
-    expect(status.textContent).toContain(
-      'Your message has been sent'
-    )
+    expect(status.textContent).toContain('Your message has been sent')
 
     expect(form?.parentElement?.className).toContain('hidden')
     expect(status.parentElement?.className).toContain('visible')
   })
 
   it('disables submit button while submitting', () => {
-    render(
-      <TestContactsForm
-        overrides={{ isSubmitting: true }}
-      />
-    )
+    render(<TestContactsForm overrides={{ isSubmitting: true }} />)
 
     const submitButton = screen.getByRole('button', {
       name: /send/i

@@ -22,7 +22,7 @@ const ContactsForm = (props: Props) => {
     showEmailError,
     showMessageError,
     shakeFields,
-    submitResult,
+    submitResult
   } = useContactsForm({ onSubmitSuccess })
 
   return (

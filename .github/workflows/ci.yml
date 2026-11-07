@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ dev ]
+    branches: [dev]
   pull_request:
-    branches: [ dev, main ]
+    branches: [dev, main]
 
 permissions:
   contents: read
@@ -22,6 +22,7 @@ jobs:
           cache: npm
 
       - run: npm ci
+      - run: npm run format:check
       - run: npm run lint
       - run: npm run test:run
       - run: npm run build

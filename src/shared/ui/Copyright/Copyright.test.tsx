@@ -8,9 +8,7 @@ afterEach(() => cleanup())
 
 describe('Copyright', () => {
   it('renders copyright text using a small element', () => {
-    const { container } = render(
-      <Copyright text="2026 Alex Borov" />
-    )
+    const { container } = render(<Copyright text="2026 Alex Borov" />)
 
     const copyright = container.querySelector('small')
 

@@ -3,15 +3,7 @@ import UsedTechnologies from '@/components/UsedTechnologies'
 import styles from './PortfolioInfo.module.scss'
 
 const PortfolioInfo = (props: ProjectInfo) => {
-  const {
-    date,
-    dateLabel,
-    id,
-    github,
-    title,
-    description,
-    technologies
-  } = props
+  const { date, dateLabel, id, github, title, description, technologies } = props
 
   return (
     <div className={styles.inner}>

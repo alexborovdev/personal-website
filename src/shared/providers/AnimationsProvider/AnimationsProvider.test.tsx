@@ -69,8 +69,6 @@ describe('AnimationsProvider', () => {
   it('throws when useAnimations is used outside the provider', () => {
     expect(() => {
       renderHook(() => useAnimations())
-    }).toThrow(
-      'useAnimations must be used within AnimationsProvider'
-    )
+    }).toThrow('useAnimations must be used within AnimationsProvider')
   })
 })

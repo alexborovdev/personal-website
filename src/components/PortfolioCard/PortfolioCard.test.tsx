@@ -31,35 +31,27 @@ describe('PortfolioCard', () => {
 
     const article = screen.getByRole('article')
 
-    const heading = container.querySelector(
-      '#portfolio-personal-website-title'
-    )
+    const heading = container.querySelector('#portfolio-personal-website-title')
 
-    const description = container.querySelector(
-      '#portfolio-personal-website-desc'
-    )
+    const description = container.querySelector('#portfolio-personal-website-desc')
 
-    expect(article.getAttribute('aria-labelledby'))
-      .toBe(heading?.id)
+    expect(article.getAttribute('aria-labelledby')).toBe(heading?.id)
 
-    expect(article.getAttribute('aria-describedby'))
-      .toBe(description?.id)
+    expect(article.getAttribute('aria-describedby')).toBe(description?.id)
 
     expect(heading?.textContent).toBe(project.title)
     expect(description?.textContent).toBe(project.description)
 
-    expect(
-      screen.getByRole('img', { name: project.image.alt })
-    ).toBeDefined()
+    expect(screen.getByRole('img', { name: project.image.alt })).toBeDefined()
 
     expect(
-      screen.getByRole('link', {
-        name: 'Open Personal Website on GitHub'
-      }).getAttribute('href')
+      screen
+        .getByRole('link', {
+          name: 'Open Personal Website on GitHub'
+        })
+        .getAttribute('href')
     ).toBe(project.github)
 
-    expect(
-      screen.getByRole('listitem').hasAttribute('data-animate')
-    ).toBe(true)
+    expect(screen.getByRole('listitem').hasAttribute('data-animate')).toBe(true)
   })
 })

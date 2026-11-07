@@ -2,7 +2,7 @@
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
-import {  createMemoryRouter,  Outlet,  RouterProvider} from 'react-router-dom'
+import { createMemoryRouter, Outlet, RouterProvider } from 'react-router-dom'
 import { routes } from './router'
 
 vi.mock('@/app/layouts/MainLayout', () => ({

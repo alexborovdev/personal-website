@@ -6,9 +6,7 @@ import type { ReactNode } from 'react'
 import { ThemeProvider } from './ThemeProvider'
 import useTheme from './useTheme'
 
-const wrapper = ({ children }: { children: ReactNode }) => (
-  <ThemeProvider>{children}</ThemeProvider>
-)
+const wrapper = ({ children }: { children: ReactNode }) => <ThemeProvider>{children}</ThemeProvider>
 
 describe('ThemeProvider', () => {
   beforeEach(() => {
@@ -25,10 +23,9 @@ describe('ThemeProvider', () => {
     expect(result.current.theme).toBe('dark')
     expect(localStorage.getItem('theme')).toBe('dark')
     expect(document.documentElement.dataset.theme).toBe('dark')
-    expect(
-      document.querySelector('meta[name="theme-color"]')
-        ?.getAttribute('content')
-    ).toBe('#191820')
+    expect(document.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe(
+      '#191820'
+    )
   })
 
   it('restores light theme from localStorage', () => {
@@ -42,10 +39,9 @@ describe('ThemeProvider', () => {
     expect(localStorage.getItem('theme')).toBe('light')
     expect(document.documentElement.dataset.theme).toBe('light')
 
-    expect(
-      document.querySelector('meta[name="theme-color"]')
-        ?.getAttribute('content')
-    ).toBe('#FFFFFF')
+    expect(document.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe(
+      '#FFFFFF'
+    )
   })
 
   it('toggles theme and updates DOM and localStorage', () => {
@@ -62,10 +58,9 @@ describe('ThemeProvider', () => {
     expect(result.current.theme).toBe('light')
     expect(localStorage.getItem('theme')).toBe('light')
     expect(document.documentElement.dataset.theme).toBe('light')
-    expect(
-      document.querySelector('meta[name="theme-color"]')
-        ?.getAttribute('content')
-    ).toBe('#FFFFFF')
+    expect(document.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe(
+      '#FFFFFF'
+    )
 
     act(() => {
       result.current.toggleTheme()
@@ -74,10 +69,9 @@ describe('ThemeProvider', () => {
     expect(result.current.theme).toBe('dark')
     expect(localStorage.getItem('theme')).toBe('dark')
     expect(document.documentElement.dataset.theme).toBe('dark')
-    expect(
-      document.querySelector('meta[name="theme-color"]')
-        ?.getAttribute('content')
-    ).toBe('#191820')
+    expect(document.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe(
+      '#191820'
+    )
   })
 
   it('updates existing theme-color meta tag without duplicating it', () => {
@@ -90,8 +84,7 @@ describe('ThemeProvider', () => {
       wrapper
     })
 
-    expect(document.querySelectorAll('meta[name="theme-color"]'))
-      .toHaveLength(1)
+    expect(document.querySelectorAll('meta[name="theme-color"]')).toHaveLength(1)
 
     expect(metaTag.getAttribute('content')).toBe('#191820')
 
@@ -99,8 +92,7 @@ describe('ThemeProvider', () => {
       result.current.toggleTheme()
     })
 
-    expect(document.querySelectorAll('meta[name="theme-color"]'))
-      .toHaveLength(1)
+    expect(document.querySelectorAll('meta[name="theme-color"]')).toHaveLength(1)
 
     expect(metaTag.getAttribute('content')).toBe('#FFFFFF')
   })
@@ -116,17 +108,14 @@ describe('ThemeProvider', () => {
     expect(localStorage.getItem('theme')).toBe('dark')
     expect(document.documentElement.dataset.theme).toBe('dark')
 
-    expect(
-      document.querySelector('meta[name="theme-color"]')
-        ?.getAttribute('content')
-    ).toBe('#191820')
+    expect(document.querySelector('meta[name="theme-color"]')?.getAttribute('content')).toBe(
+      '#191820'
+    )
   })
 
   it('throws when useTheme is used outside the provider', () => {
     expect(() => {
       renderHook(() => useTheme())
-    }).toThrow(
-      'useTheme must be used within ThemeProvider'
-    )
+    }).toThrow('useTheme must be used within ThemeProvider')
   })
 })

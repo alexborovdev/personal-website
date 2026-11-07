@@ -6,16 +6,7 @@ import styles from './PortfolioCard.module.scss'
 type Props = Projects
 
 const PortfolioCard = (props: Props) => {
-  const {
-    id,
-    date,
-    dateLabel,
-    title,
-    github,
-    image,
-    description,
-    technologies
-  } = props
+  const { id, date, dateLabel, title, github, image, description, technologies } = props
 
   return (
     <li data-animate>

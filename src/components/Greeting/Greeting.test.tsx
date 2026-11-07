@@ -10,9 +10,7 @@ const mocks = vi.hoisted(() => ({
 }))
 
 vi.mock('react-type-animation', () => ({
-  TypeAnimation: (props: {
-    sequence: (string | number | (() => void))[]
-  }) => {
+  TypeAnimation: (props: { sequence: (string | number | (() => void))[] }) => {
     mocks.sequences.push(props.sequence)
     return <span data-testid="type-animation" />
   }
@@ -35,15 +33,13 @@ describe('Greeting', () => {
 
     const subtitle = screen.getByRole('heading', {
       level: 2,
-      name: 'I\'m a frontend developer.'
+      name: "I'm a frontend developer."
     })
 
     expect(heading.id).toBe('hero-title')
     expect(subtitle).toBeDefined()
 
-    expect(
-      screen.getByText('I can do something great for you.')
-    ).toBeDefined()
+    expect(screen.getByText('I can do something great for you.')).toBeDefined()
 
     expect(screen.getAllByTestId('type-animation')).toHaveLength(1)
   })
@@ -66,9 +62,7 @@ describe('Greeting', () => {
 
     expect(screen.getAllByTestId('type-animation')).toHaveLength(2)
 
-    const secondSequence = mocks.sequences.find(
-      sequence => sequence[0] === 'Alex\u00A0Borov'
-    )
+    const secondSequence = mocks.sequences.find(sequence => sequence[0] === 'Alex\u00A0Borov')
 
     const secondCallback = secondSequence?.[2]
 
@@ -99,9 +93,7 @@ describe('Greeting', () => {
         }
       })
 
-      const secondSequence = mocks.sequences.find(
-        sequence => sequence[0] === 'Alex\u00A0Borov'
-      )
+      const secondSequence = mocks.sequences.find(sequence => sequence[0] === 'Alex\u00A0Borov')
 
       const secondCallback = secondSequence?.[2]
 
@@ -113,8 +105,7 @@ describe('Greeting', () => {
 
       const subtitleSequence = mocks.sequences.find(
         sequence =>
-          typeof sequence[0] === 'string' &&
-          sequence[0].startsWith('I\'m a frontend developer.')
+          typeof sequence[0] === 'string' && sequence[0].startsWith("I'm a frontend developer.")
       )
 
       const subtitleCallback = subtitleSequence?.[1]

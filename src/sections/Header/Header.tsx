@@ -36,17 +36,16 @@ const Header = () => {
       : styles.stickyShowIn
     : null
 
-  const className = [
-    styles.header,
-    stickyAnimationClass,
-  ].filter(Boolean).join(' ')
+  const className = [styles.header, stickyAnimationClass].filter(Boolean).join(' ')
 
   if (isFirstRender) {
-    return <HeaderContent
-      className={`${styles.header} ${styles.firstRender}`}
-      styles={styles}
-      scrollTo={scrollTo}
-    />
+    return (
+      <HeaderContent
+        className={`${styles.header} ${styles.firstRender}`}
+        styles={styles}
+        scrollTo={scrollTo}
+      />
+    )
   }
 
   return (

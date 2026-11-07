@@ -11,9 +11,7 @@ const UsedTechnologies = (props: Props) => {
 
   return (
     <>
-      <h4 className="visually-hidden">
-        Technologies used in project
-      </h4>
+      <h4 className="visually-hidden">Technologies used in project</h4>
       <ul className={styles.list}>
         {technologies.map(technology => (
           <TechnologyItem

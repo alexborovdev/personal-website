@@ -71,11 +71,7 @@ describe('contactsForm', () => {
     if (result.success) return
 
     expect(result.error.issues.map(issue => issue.path)).toEqual(
-      expect.arrayContaining([
-        ['name'],
-        ['email'],
-        ['message']
-      ])
+      expect.arrayContaining([['name'], ['email'], ['message']])
     )
   })
 

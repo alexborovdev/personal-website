@@ -12,15 +12,7 @@ type Props = {
 }
 
 const LinkButton = (props: Props) => {
-  const {
-    onClick,
-    className,
-    href,
-    children,
-    ariaLabel,
-    title,
-    ariaCurrent
-  } = props
+  const { onClick, className, href, children, ariaLabel, title, ariaCurrent } = props
 
   return (
     <a

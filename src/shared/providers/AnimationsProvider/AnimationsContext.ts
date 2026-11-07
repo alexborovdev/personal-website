@@ -7,4 +7,4 @@ export type AnimationsContextValue = {
   toggleAnimations: () => void
 }
 
-export const AnimationsContext =  createContext<AnimationsContextValue | null>(null)
+export const AnimationsContext = createContext<AnimationsContextValue | null>(null)

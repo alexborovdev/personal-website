@@ -27,9 +27,7 @@ describe('ScrollBar', () => {
     expect(track?.getAttribute('aria-hidden')).toBe('true')
     expect(indication.style.transform).toBe('scaleY(0.5)')
 
-    expect(useMediaQuery).toHaveBeenCalledWith(
-      '(min-width: 768px)'
-    )
+    expect(useMediaQuery).toHaveBeenCalledWith('(min-width: 768px)')
   })
 
   it('does not render on mobile', () => {

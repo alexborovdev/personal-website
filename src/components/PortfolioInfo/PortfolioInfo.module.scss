@@ -45,9 +45,9 @@
     mask: url(@/assets/icons/link.svg) center / contain no-repeat;
     -webkit-mask: url(@/assets/icons/link.svg) center / contain no-repeat;
     background-color: var(--color-accent);
-    content: "";
+    content: '';
     height: var(--size);
-    margin-left: .25em;
+    margin-left: 0.25em;
     width: var(--size);
   }
 }

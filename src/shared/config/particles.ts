@@ -9,33 +9,33 @@ const createParticlesConfig = (): ISourceOptions => {
     particles: {
       number: {
         value: 60,
-        density: { enable: true },
+        density: { enable: true }
       },
       color: {
-        value: accent,
+        value: accent
       },
       shape: {
-        type: 'circle',
+        type: 'circle'
       },
       opacity: {
         value: { min: 0.05, max: 0.1 },
-        animation: { enable: true, speed: 1 },
+        animation: { enable: true, speed: 1 }
       },
       size: {
         value: { min: 1, max: 8 },
-        animation: { enable: true, speed: 5 },
+        animation: { enable: true, speed: 5 }
       },
       links: {
         enable: true,
         distance: 150,
         color: accent,
         opacity: 0.2,
-        width: 1,
+        width: 1
       },
       move: {
         enable: true,
-        speed: 0.75,
-      },
+        speed: 0.75
+      }
     },
     interactivity: {
       events: {
@@ -45,15 +45,15 @@ const createParticlesConfig = (): ISourceOptions => {
           parallax: {
             enable: true,
             smooth: 20,
-            force: 225,
-          },
+            force: 225
+          }
         },
-        onClick: { enable: false },
-      },
+        onClick: { enable: false }
+      }
     },
     background: {
-      color: 'transparent',
-    },
+      color: 'transparent'
+    }
   }
 }
 

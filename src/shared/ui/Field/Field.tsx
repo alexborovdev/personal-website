@@ -13,30 +13,23 @@ type BaseProps = {
 
 type Props =
   | (BaseProps & {
-  as?: 'input'
-  inputProps: InputHTMLAttributes<HTMLInputElement>
-})
+      as?: 'input'
+      inputProps: InputHTMLAttributes<HTMLInputElement>
+    })
   | (BaseProps & {
-  as: 'textarea'
-  inputProps: TextareaHTMLAttributes<HTMLTextAreaElement>
-})
+      as: 'textarea'
+      inputProps: TextareaHTMLAttributes<HTMLTextAreaElement>
+    })
 
 const Field = (props: Props) => {
-  const {
-    id,
-    label,
-    placeholder,
-    autoComplete,
-    showError,
-    error,
-    shake
-  } = props
+  const { id, label, placeholder, autoComplete, showError, error, shake } = props
 
   return (
     <div className={`${styles.field} ${shake ? styles.shake : ''}`}>
       <label
         htmlFor={id}
-        className={styles.label}>
+        className={styles.label}
+      >
         {label}
       </label>
       {props.as === 'textarea' ? (
@@ -65,7 +58,8 @@ const Field = (props: Props) => {
           id={`${id}-error`}
           aria-live="polite"
           className={styles.error}
-          title={error}>
+          title={error}
+        >
           {error}
         </span>
       )}

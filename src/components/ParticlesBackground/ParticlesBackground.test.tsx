@@ -10,10 +10,7 @@ const mocks = vi.hoisted(() => ({
 }))
 
 vi.mock('react-tsparticles', () => ({
-  default: (props: {
-    options: unknown
-    init: unknown
-  }) => {
+  default: (props: { options: unknown; init: unknown }) => {
     mocks.particles(props)
     return <div data-testid="particles" />
   }
@@ -63,13 +60,19 @@ describe('ParticlesBackground', () => {
 
   it('recreates particles when theme changes', () => {
     const { rerender } = render(
-      <ParticlesBackground theme="dark" animations="on" />
+      <ParticlesBackground
+        theme="dark"
+        animations="on"
+      />
     )
 
     expect(createParticlesConfig).toHaveBeenCalledTimes(1)
 
     rerender(
-      <ParticlesBackground theme="light" animations="on" />
+      <ParticlesBackground
+        theme="light"
+        animations="on"
+      />
     )
 
     expect(createParticlesConfig).toHaveBeenCalledTimes(2)
