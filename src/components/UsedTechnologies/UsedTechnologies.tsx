@@ -15,11 +15,14 @@ const UsedTechnologies = (props: Props) => {
         Technologies used in project
       </h4>
       <ul className={styles.list}>
-        <TechnologyItem
-          technologies={technologies}
-          itemClassName={styles.item}
-          imageClassName={styles.image}
-        />
+        {technologies.map(technology => (
+          <TechnologyItem
+            key={technology.name}
+            technology={technology}
+            itemClassName={styles.item}
+            imageClassName={styles.image}
+          />
+        ))}
       </ul>
     </>
   )
