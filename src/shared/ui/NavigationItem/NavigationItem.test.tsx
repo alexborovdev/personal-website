@@ -55,7 +55,7 @@ describe('NavigationItem', () => {
     expect(link.classList.contains(styles.active)).toBe(true)
   })
 
-  it('calls onClick and prevents default navigation', async () => {
+  it('calls onClick when clicked', async () => {
     const user = userEvent.setup()
     const handleClick = vi.fn()
 
@@ -73,11 +73,6 @@ describe('NavigationItem', () => {
 
     const link = screen.getByRole('link', {
       name: 'Go to About section'
-    })
-
-    const clickEvent = new MouseEvent('click', {
-      bubbles: true,
-      cancelable: true
     })
 
     await user.click(link)
