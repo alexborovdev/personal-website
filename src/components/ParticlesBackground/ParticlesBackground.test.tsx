@@ -5,13 +5,19 @@ import { cleanup, render, screen } from '@testing-library/react'
 import createParticlesConfig from '@/shared/config/particles'
 import ParticlesBackground from './ParticlesBackground'
 
+type ParticlesProps = {
+  options: unknown
+  init: unknown
+}
+
 const mocks = vi.hoisted(() => ({
-  particles: vi.fn()
+  particles: vi.fn<(props: ParticlesProps) => void>()
 }))
 
 vi.mock('react-tsparticles', () => ({
-  default: (props: { options: unknown; init: unknown }) => {
+  default: (props: ParticlesProps) => {
     mocks.particles(props)
+
     return <div data-testid="particles" />
   }
 }))

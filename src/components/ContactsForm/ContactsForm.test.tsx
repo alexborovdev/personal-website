@@ -114,9 +114,9 @@ describe('ContactsForm', () => {
   it('disables submit button while submitting', () => {
     render(<TestContactsForm overrides={{ isSubmitting: true }} />)
 
-    const submitButton = screen.getByRole('button', {
+    const submitButton = screen.getByRole<HTMLButtonElement>('button', {
       name: /send/i
-    }) as HTMLButtonElement
+    })
 
     expect(submitButton.disabled).toBe(true)
   })

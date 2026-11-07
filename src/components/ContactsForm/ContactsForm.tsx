@@ -36,7 +36,9 @@ const ContactsForm = (props: Props) => {
         }`}
       >
         <Form
-          onSubmit={handleSubmit(onFormSubmit, onFormError)}
+          onSubmit={event => {
+            void handleSubmit(onFormSubmit, onFormError)(event)
+          }}
           isSubmitting={isSubmitting}
         >
           <div className={styles.info}>

@@ -4,8 +4,8 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, renderHook } from '@testing-library/react'
 import useMediaQuery from './useMediaQuery'
 
-const addEventListener = vi.fn()
-const removeEventListener = vi.fn()
+const addEventListener = vi.fn<(type: string, callback: () => void) => void>()
+const removeEventListener = vi.fn<(type: string, callback: () => void) => void>()
 
 let matches = false
 
@@ -43,8 +43,7 @@ describe('useMediaQuery', () => {
 
     expect(result.current).toBe(false)
 
-    // Callback, який useSyncExternalStore передав у subscribe
-    const callback = addEventListener.mock.calls[0][1] as () => void
+    const callback = addEventListener.mock.calls[0][1]
 
     act(() => {
       matches = true

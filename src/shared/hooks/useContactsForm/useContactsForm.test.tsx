@@ -15,7 +15,11 @@ const TestForm = () => {
   const { register, handleSubmit, onFormSubmit, isSubmitting, submitResult } = useContactsForm()
 
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)}>
+    <form
+      onSubmit={event => {
+        void handleSubmit(onFormSubmit)(event)
+      }}
+    >
       <input
         aria-label="Name"
         {...register('name')}
@@ -164,7 +168,7 @@ describe('useContactsForm', () => {
       expect(screen.getByTestId('submitting').textContent).toBe('true')
     })
 
-    await act(async () => {
+    act(() => {
       resolveRequest({ status: 200, text: 'OK' })
     })
 
