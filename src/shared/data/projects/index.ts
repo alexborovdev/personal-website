@@ -1,4 +1,5 @@
 import type { Projects } from '@/shared/types/projects'
+import scaffoldingToolImg from '@/assets/images/projects-screenshots/scaffolding-tool.webp'
 import personalWebsiteImg from '@/assets/images/projects-screenshots/personal-website.webp'
 import todoListImg from '@/assets/images/projects-screenshots/todo-list.webp'
 import futureTechImg from '@/assets/images/projects-screenshots/future-tech.webp'
@@ -6,6 +7,7 @@ import viteIcon from '@/assets/icons/technologies/vite.svg'
 import scssIcon from '@/assets/icons/technologies/scss.svg'
 import tsIcon from '@/assets/icons/technologies/typescript.svg'
 import reactIcon from '@/assets/icons/technologies/react.svg'
+import nodejsIcon from '@/assets/icons/technologies/nodejs.svg'
 import reactRouterIcon from '@/assets/icons/technologies/react-router.svg'
 import reactHookFormIcon from '@/assets/icons/technologies/react-hook-form.svg'
 import htmlIcon from '@/assets/icons/technologies/html.svg'
@@ -13,6 +15,26 @@ import cssIcon from '@/assets/icons/technologies/css.svg'
 import jsIcon from '@/assets/icons/technologies/javascript.svg'
 
 const projects: Projects[] = [
+  {
+    id: 'scaffolding-tool',
+    date: '2026-01',
+    dateLabel: 'January 2026',
+    title: 'Scaffolding Tool',
+    github: 'https://github.com/alexborovdev/create-vite-rts',
+    image: {
+      src: scaffoldingToolImg,
+      alt: 'Screenshot of Scaffolding Tool project'
+    },
+    description: `
+			Custom Vite-based scaffolding tool that extends default Vite with a production-ready
+			React + TypeScript template, base routing, preconfigured Sass (SCSS), SVG handling
+			and a scalable FSD architecture.
+		`,
+    technologies: [
+      { name: 'TypeScript', icon: tsIcon },
+      { name: 'Node.js', icon: nodejsIcon }
+    ]
+  },
   {
     id: 'personal-website',
     date: '2026-01',

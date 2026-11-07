@@ -6,7 +6,7 @@ export const hardSkills = [
   'Vite',
   'Semantic, Accessibility, UX',
   'BEM, Feature-Sliced Design',
-  'Project setup, configuration, npm, yarn',
+  'Project setup, Configuration, npm, yarn',
   'Git, GitHub',
   'Figma, Adobe Illustrator'
 ]
