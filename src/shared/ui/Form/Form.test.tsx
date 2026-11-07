@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 
+import type { FormEvent } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -29,7 +30,9 @@ describe('Form', () => {
 
   it('calls onSubmit when the submit button is clicked', async () => {
     const user = userEvent.setup()
-    const onSubmit = vi.fn()
+    const onSubmit = vi.fn((event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault()
+    })
 
     render(
       <Form onSubmit={onSubmit}>
