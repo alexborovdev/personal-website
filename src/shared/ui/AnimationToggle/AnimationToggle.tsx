@@ -15,8 +15,8 @@ const AnimationToggle = () => {
       className={styles.toggle}
       onClick={toggleAnimations}
       title={isEnabled ? 'Disable background animation' : 'Enable background animation'}
-      aria-label={isEnabled ? 'Disable background animation' : 'Enable background animation'}
-      aria-pressed={isEnabled}
+      ariaLabel={isEnabled ? 'Disable background animation' : 'Enable background animation'}
+      ariaPressed={isEnabled}
     >
       <span
         key={animations}
