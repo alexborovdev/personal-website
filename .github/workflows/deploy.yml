@@ -26,6 +26,10 @@ jobs:
 
       - run: npm ci
 
+      - run: npm run lint
+
+      - run: npm run test:run
+
       - run: npm run build
         env:
           VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
