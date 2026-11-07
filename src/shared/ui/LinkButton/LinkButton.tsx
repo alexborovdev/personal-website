@@ -25,7 +25,7 @@ const LinkButton = (props: Props) => {
   return (
     <a
       onClick={onClick}
-      className={`${className} ${styles.linkButton}`}
+      className={`${className ?? ''} ${styles.linkButton}`}
       href={href}
       aria-label={ariaLabel}
       title={title}
