@@ -15,8 +15,8 @@ const ThemeToggle = () => {
       className={styles.toggle}
       onClick={toggleTheme}
       title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-      aria-pressed={isDark}
+      ariaLabel={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+      ariaPressed={isDark}
     >
       <span
         key={theme}
