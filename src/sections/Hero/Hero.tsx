@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BUTTON_ANIMATION_DURATION } from '@/shared/animations/timings'
 import useScrollToSection from '@/shared/hooks/useScrollToSection'
 import Greeting from '@/components/Greeting'
@@ -13,11 +13,26 @@ const Hero = () => {
 
   const { scrollTo } = useScrollToSection(isScrollLocked)
 
+  const bounceTimeouts = useRef<Set<ReturnType<typeof setTimeout>>>(new Set())
+
+  useEffect(() => {
+    const timers = bounceTimeouts.current
+
+    return () => {
+      timers.forEach(clearTimeout)
+      timers.clear()
+    }
+  }, [])
+
   const animateButton = () => {
     setIsButtonAnimated(true)
-    setTimeout(() => {
+
+    const timeoutId = setTimeout(() => {
+      bounceTimeouts.current.delete(timeoutId)
       setIsButtonAnimated(false)
     }, BUTTON_ANIMATION_DURATION)
+
+    bounceTimeouts.current.add(timeoutId)
   }
 
   const onAnimationEnd = () => {

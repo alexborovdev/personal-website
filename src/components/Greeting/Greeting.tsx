@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import {
   ANIMATION_DURATION_AFTER_TYPING,
@@ -15,6 +15,17 @@ const Greeting = (props: Props) => {
   const { onAnimationEnd } = props
 
   const [animationStep, setAnimationStep] = useState<0 | 1 | 2>(0)
+
+  const timeoutIds = useRef<Set<ReturnType<typeof setTimeout>>>(new Set())
+
+  useEffect(() => {
+    const timers = timeoutIds.current
+
+    return () => {
+      timers.forEach(clearTimeout)
+      timers.clear()
+    }
+  }, [])
 
   return (
     <>
@@ -49,9 +60,12 @@ const Greeting = (props: Props) => {
             sequence={[
               "I'm a frontend developer.\nI can do something great for you.",
               () => {
-                setTimeout(() => {
+                const timeoutId = setTimeout(() => {
+                  timeoutIds.current.delete(timeoutId)
                   onAnimationEnd()
                 }, BUTTON_FIRST_RENDER_DELAY)
+
+                timeoutIds.current.add(timeoutId)
               },
               ANIMATION_DURATION_AFTER_TYPING,
               '',
