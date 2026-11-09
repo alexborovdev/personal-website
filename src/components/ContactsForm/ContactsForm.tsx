@@ -2,6 +2,7 @@ import useContactsForm from '@/shared/hooks/useContactsForm'
 import Form from '@/shared/ui/Form'
 import Field from '@/shared/ui/Field'
 import SuccessMessage from '@/components/SuccessMessage'
+import ErrorMessage from '@/components/ErrorMessage'
 import styles from './ContactsForm.module.scss'
 
 type Props = {
@@ -29,7 +30,7 @@ const ContactsForm = (props: Props) => {
     <div className={`tile ${styles.wrapper}`} data-animate>
       <div
         className={`${styles.formLayer} ${
-          submitResult === 'success' ? styles.hidden : styles.visible
+          submitResult !== 'idle' ? styles.hidden : styles.visible
         }`}
       >
         <Form
@@ -76,10 +77,11 @@ const ContactsForm = (props: Props) => {
       </div>
       <div
         className={`${styles.successLayer} ${
-          submitResult === 'success' ? styles.visible : styles.hidden
+          submitResult !== 'idle' ? styles.visible : styles.hidden
         }`}
       >
-        <SuccessMessage />
+        {submitResult === 'success' && <SuccessMessage />}
+        {submitResult === 'error' && <ErrorMessage />}
       </div>
     </div>
   )
