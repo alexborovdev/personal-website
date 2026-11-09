@@ -16,6 +16,22 @@ const Hero = () => {
   const bounceTimeouts = useRef<Set<ReturnType<typeof setTimeout>>>(new Set())
 
   useEffect(() => {
+    if (!isScrollLocked) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Tab') {
+        event.preventDefault()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isScrollLocked])
+
+  useEffect(() => {
     const timers = bounceTimeouts.current
 
     return () => {
