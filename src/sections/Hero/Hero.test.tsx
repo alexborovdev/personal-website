@@ -144,4 +144,27 @@ describe('Hero', () => {
     expect(mocks.scrollTo).toHaveBeenCalledTimes(3)
     expect(mocks.scrollTo).toHaveBeenLastCalledWith('portfolio')
   })
+
+  it('clears pending bounce timeout on unmount', () => {
+    vi.useFakeTimers()
+
+    const clearTimeoutSpy = vi.spyOn(globalThis, 'clearTimeout')
+
+    try {
+      const { unmount } = render(<Hero />)
+
+      act(() => {
+        mocks.onAnimationEnd?.()
+      })
+
+      expect(vi.getTimerCount()).toBe(1)
+
+      unmount()
+
+      expect(clearTimeoutSpy).toHaveBeenCalled()
+      expect(vi.getTimerCount()).toBe(0)
+    } finally {
+      clearTimeoutSpy.mockRestore()
+    }
+  })
 })

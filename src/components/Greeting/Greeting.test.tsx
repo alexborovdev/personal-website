@@ -133,4 +133,48 @@ describe('Greeting', () => {
       vi.useRealTimers()
     }
   })
+
+  it('clears pending animation timeout on unmount', () => {
+    vi.useFakeTimers()
+
+    try {
+      const onAnimationEnd = vi.fn()
+      const { unmount } = render(<Greeting onAnimationEnd={onAnimationEnd} />)
+
+      act(() => {
+        const callback = mocks.sequences[0][1]
+        if (typeof callback === 'function') callback()
+      })
+
+      act(() => {
+        const sequence = mocks.sequences.find(sequence => sequence[0] === 'Alex\u00A0Borov')
+        const callback = sequence?.[2]
+        if (typeof callback === 'function') callback()
+      })
+
+      const subtitleSequence = mocks.sequences.find(
+        sequence =>
+          typeof sequence[0] === 'string' && sequence[0].startsWith("I'm a frontend developer.")
+      )
+
+      act(() => {
+        const callback = subtitleSequence?.[1]
+        if (typeof callback === 'function') callback()
+      })
+
+      expect(vi.getTimerCount()).toBe(1)
+
+      unmount()
+
+      expect(vi.getTimerCount()).toBe(0)
+
+      act(() => {
+        vi.advanceTimersByTime(BUTTON_FIRST_RENDER_DELAY)
+      })
+
+      expect(onAnimationEnd).not.toHaveBeenCalled()
+    } finally {
+      vi.useRealTimers()
+    }
+  })
 })
