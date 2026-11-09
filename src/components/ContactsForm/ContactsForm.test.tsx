@@ -111,6 +111,19 @@ describe('ContactsForm', () => {
     expect(status.parentElement?.className).toContain('visible')
   })
 
+  it('shows error message after failed submission', () => {
+    const { container } = render(<TestContactsForm overrides={{ submitResult: 'error' }} />)
+
+    const form = container.querySelector('form')
+    const alert = screen.getByRole('alert')
+
+    expect(alert.textContent).toContain('Your message has not been sent')
+    expect(alert.textContent).toContain('You can still reach me through my socials')
+
+    expect(form?.parentElement?.className).toContain('hidden')
+    expect(alert.parentElement?.className).toContain('visible')
+  })
+
   it('disables submit button while submitting', () => {
     render(<TestContactsForm overrides={{ isSubmitting: true }} />)
 
